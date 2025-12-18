@@ -5,6 +5,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
+import LZString from 'lz-string';
 import type { VocabularyWord, ImportStats, ImportOptions, LS as LSType } from '../types';
 import {
   normalizePOS,
@@ -113,9 +114,25 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       if (storedVersion === PRESET_VERSION) {
         const raw = localStorage.getItem(LS.dataset);
         if (raw) {
-          const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed) && parsed.length) {
-            return hydrateDataset(parsed);
+          // Try to decompress first (new format)
+          try {
+            const decompressed = LZString.decompress(raw);
+            if (decompressed) {
+              const parsed = JSON.parse(decompressed);
+              if (Array.isArray(parsed) && parsed.length) {
+                return hydrateDataset(parsed);
+              }
+            }
+          } catch (decompressError) {
+            // If decompression fails, try parsing as uncompressed JSON (legacy format)
+            try {
+              const parsed = JSON.parse(raw);
+              if (Array.isArray(parsed) && parsed.length) {
+                return hydrateDataset(parsed);
+              }
+            } catch (parseError) {
+              console.warn('Failed to parse dataset as JSON:', parseError);
+            }
           }
         }
       }
@@ -132,11 +149,13 @@ export function useDataset(initialData: VocabularyWord[] = []) {
   });
 
   /**
-   * Persist dataset to localStorage
+   * Persist dataset to localStorage with compression
    */
   useEffect(() => {
     try {
-      localStorage.setItem(LS.dataset, JSON.stringify(data));
+      const jsonString = JSON.stringify(data);
+      const compressed = LZString.compress(jsonString);
+      localStorage.setItem(LS.dataset, compressed);
     } catch (e) {
       console.error('Failed to save dataset to localStorage:', e);
     }
