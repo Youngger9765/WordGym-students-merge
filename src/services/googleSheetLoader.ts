@@ -40,10 +40,38 @@ function isFileProtocol(): boolean {
 }
 
 /**
- * Load data using script tag injection (works from file:// protocol)
- * This uses a CORS proxy that returns JSONP-compatible responses
+ * CORS Proxy Configuration
+ * Multiple proxies to try in sequence for reliability
  */
-function loadViaScriptTag(url: string): Promise<string> {
+const CORS_PROXIES = [
+  {
+    name: 'corsproxy.io',
+    getUrl: (targetUrl: string) => `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`,
+    supportsJsonp: false,
+    timeout: 60000, // 60 seconds
+  },
+  {
+    name: 'allorigins.win',
+    getUrl: (targetUrl: string, callback?: string) =>
+      callback
+        ? `https://api.allorigins.win/get?callback=${callback}&url=${encodeURIComponent(targetUrl)}`
+        : `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`,
+    supportsJsonp: true,
+    timeout: 60000,
+    parseResponse: (response: any) => response?.contents,
+  },
+  {
+    name: 'cors-anywhere (demo)',
+    getUrl: (targetUrl: string) => `https://cors-anywhere.herokuapp.com/${targetUrl}`,
+    supportsJsonp: false,
+    timeout: 60000,
+  },
+];
+
+/**
+ * Load data using script tag injection (JSONP - works from file:// protocol)
+ */
+function loadViaScriptTag(url: string, proxyConfig: typeof CORS_PROXIES[0]): Promise<string> {
   return new Promise((resolve, reject) => {
     const callbackName = `gsheet_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     const script = document.createElement('script');
@@ -58,31 +86,103 @@ function loadViaScriptTag(url: string): Promise<string> {
     // Set up callback
     (window as any)[callbackName] = (response: any) => {
       cleanup();
-      // allorigins.win returns { contents: "data" }
-      if (response && response.contents) {
-        resolve(response.contents);
-      } else {
-        reject(new Error('Invalid response from proxy'));
+      try {
+        const data = proxyConfig.parseResponse ? proxyConfig.parseResponse(response) : response;
+        if (data) {
+          resolve(data);
+        } else {
+          reject(new Error(`Invalid response from ${proxyConfig.name}`));
+        }
+      } catch (error) {
+        reject(new Error(`Failed to parse response from ${proxyConfig.name}: ${error}`));
       }
     };
 
     // Set up error handling
     script.onerror = () => {
       cleanup();
-      reject(new Error('Failed to load script'));
+      reject(new Error(`Failed to load script from ${proxyConfig.name}`));
     };
 
     // Set timeout
     timeoutId = window.setTimeout(() => {
       cleanup();
-      reject(new Error('Request timeout'));
-    }, 30000);
+      reject(new Error(`Request timeout (${proxyConfig.timeout}ms) for ${proxyConfig.name}`));
+    }, proxyConfig.timeout);
 
-    // Use allorigins.win with callback parameter for JSONP
-    const proxyUrl = `https://api.allorigins.win/get?callback=${callbackName}&url=${encodeURIComponent(url)}`;
+    // Build proxy URL with JSONP callback
+    const proxyUrl = proxyConfig.getUrl(url, callbackName);
+    console.log(`嘗試使用 JSONP 代理: ${proxyConfig.name}`);
     script.src = proxyUrl;
     document.head.appendChild(script);
   });
+}
+
+/**
+ * Load data via fetch with CORS proxy (for non-JSONP proxies)
+ */
+async function loadViaFetchProxy(url: string, proxyConfig: typeof CORS_PROXIES[0]): Promise<string> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), proxyConfig.timeout);
+
+  try {
+    const proxyUrl = proxyConfig.getUrl(url);
+    console.log(`嘗試使用 Fetch 代理: ${proxyConfig.name}`);
+
+    const response = await fetch(proxyUrl, {
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} from ${proxyConfig.name}`);
+    }
+
+    if (proxyConfig.parseResponse) {
+      const json = await response.json();
+      const data = proxyConfig.parseResponse(json);
+      if (!data) throw new Error(`Invalid response format from ${proxyConfig.name}`);
+      return data;
+    }
+
+    return await response.text();
+  } catch (error) {
+    clearTimeout(timeoutId);
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error(`Request timeout (${proxyConfig.timeout}ms) for ${proxyConfig.name}`);
+    }
+    throw error;
+  }
+}
+
+/**
+ * Try loading with multiple CORS proxies in sequence
+ */
+async function loadWithProxyFallback(url: string, useJsonp: boolean): Promise<string> {
+  const errors: Array<{ proxy: string; error: string }> = [];
+
+  for (const proxyConfig of CORS_PROXIES) {
+    try {
+      // Skip proxies that don't support required method
+      if (useJsonp && !proxyConfig.supportsJsonp) continue;
+
+      const data = useJsonp
+        ? await loadViaScriptTag(url, proxyConfig)
+        : await loadViaFetchProxy(url, proxyConfig);
+
+      console.log(`✓ 成功使用代理: ${proxyConfig.name}`);
+      return data;
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : String(error);
+      console.warn(`✗ ${proxyConfig.name} 失敗:`, errorMsg);
+      errors.push({ proxy: proxyConfig.name, error: errorMsg });
+    }
+  }
+
+  // All proxies failed
+  const errorDetails = errors.map(e => `  - ${e.proxy}: ${e.error}`).join('\n');
+  throw new Error(`所有 CORS 代理都失敗:\n${errorDetails}`);
 }
 
 /**
@@ -99,12 +199,19 @@ export async function loadFromGoogleSheet(sheetConfig: SheetConfig): Promise<She
     // For file:// protocol, use script tag injection since fetch() doesn't work
     if (isFileProtocol()) {
       console.log('偵測到 file:// 協定，使用 JSONP 方式載入（透過 CORS 代理）');
-      tsvText = await loadViaScriptTag(tsvUrl);
+      tsvText = await loadWithProxyFallback(tsvUrl, true);
     } else {
-      // Normal fetch for http:// and https://
-      const response = await fetch(tsvUrl);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      tsvText = await response.text();
+      // For http(s)://, try direct fetch first, fallback to proxy if CORS fails
+      try {
+        console.log('嘗試直接載入（無代理）');
+        const response = await fetch(tsvUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        tsvText = await response.text();
+        console.log('✓ 直接載入成功');
+      } catch (directError) {
+        console.warn('直接載入失敗，嘗試使用 CORS 代理:', directError);
+        tsvText = await loadWithProxyFallback(tsvUrl, false);
+      }
     }
 
     console.log(`TSV 原始資料長度: ${tsvText.length} 字符`);
