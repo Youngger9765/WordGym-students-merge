@@ -306,3 +306,12 @@ export interface NavHistory {
     param: string | null;
   } | null;
 }
+
+// ============= Filter Options =============
+
+export interface FilterOptions {
+  searchTerm: string;
+  posFilter: POSType | 'all';
+  levelFilter: string;
+  themeFilter: string;
+}

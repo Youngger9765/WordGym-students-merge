@@ -2,13 +2,13 @@ import React from 'react';
 
 export interface SpeakerButtonProps {
   onClick: () => void;
-  label: string;
+  label?: string;
   className?: string;
 }
 
 export const SpeakerButton: React.FC<SpeakerButtonProps> = ({
   onClick,
-  label,
+  label = 'Speak word',
   className = ''
 }) => (
   <button
@@ -23,3 +23,5 @@ export const SpeakerButton: React.FC<SpeakerButtonProps> = ({
     </svg>
   </button>
 );
+
+export default SpeakerButton;

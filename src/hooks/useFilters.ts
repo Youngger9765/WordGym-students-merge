@@ -1,118 +1,59 @@
-/**
- * useFilters Hook - Tab-specific Filter State
- * Migrated from index.html lines 1547-1589
- */
+import { useState, useMemo } from 'react';
+import { VocabularyWord, FilterOptions } from '../types';
 
-import { useState, useEffect } from 'react';
-import type { Filters, CurrentTab, POSType } from '../types';
-
-const LS_FILTERS = 'wordgym_filters_v1';
-const LS_CURRENT_TAB = 'wordgym_current_tab_v1';
-const LS_QUICK_FILTER_POS = 'wordgym_quick_filter_pos_v1';
-
-const DEFAULT_FILTERS: Filters = {
-  textbook: {},
-  exam: {},
-  theme: {}
-};
-
-export function useFilters() {
-  // Current Tab
-  const [currentTab, setCurrentTab] = useState<CurrentTab>(() => {
-    try {
-      const raw = localStorage.getItem(LS_CURRENT_TAB);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        return parsed || 'textbook';
-      }
-    } catch {}
-    return 'textbook';
+export function useFilters(initialWords: VocabularyWord[] = [], initialOptions?: Partial<FilterOptions>) {
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
+    searchTerm: '',
+    posFilter: 'all',
+    levelFilter: '',
+    themeFilter: '',
+    ...initialOptions
   });
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(LS_CURRENT_TAB, JSON.stringify(currentTab));
-    } catch (e) {
-      console.error('Failed to save current tab:', e);
-    }
-  }, [currentTab]);
+  const filteredWords = useMemo(() => {
+    return initialWords.filter(word => {
+      const matchesSearch = filterOptions.searchTerm
+        ? word.english_word.toLowerCase().includes(filterOptions.searchTerm.toLowerCase())
+        : true;
 
-  // Filters
-  const [filters, setFilters] = useState<Filters>(() => {
-    try {
-      const raw = localStorage.getItem(LS_FILTERS);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        return { ...DEFAULT_FILTERS, ...parsed };
-      }
-    } catch {}
-    return DEFAULT_FILTERS;
-  });
+      const matchesPOS = filterOptions.posFilter === 'all'
+        || (word.posTags?.[0] || '').toLowerCase() === filterOptions.posFilter.toLowerCase();
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(LS_FILTERS, JSON.stringify(filters));
-    } catch (e) {
-      console.error('Failed to save filters:', e);
-    }
-  }, [filters]);
+      const matchesLevel = !filterOptions.levelFilter
+        || word.level === filterOptions.levelFilter;
 
-  // Quick POS Filter
-  const [quickFilterPos, setQuickFilterPos] = useState<POSType | 'all'>(() => {
-    try {
-      const raw = localStorage.getItem(LS_QUICK_FILTER_POS);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        return parsed || 'all';
-      }
-    } catch {}
-    return 'all';
-  });
+      const matchesTheme = !filterOptions.themeFilter
+        || word.themes?.includes(filterOptions.themeFilter);
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(LS_QUICK_FILTER_POS, JSON.stringify(quickFilterPos));
-    } catch (e) {
-      console.error('Failed to save quick filter POS:', e);
-    }
-  }, [quickFilterPos]);
+      return matchesSearch && matchesPOS && matchesLevel && matchesTheme;
+    });
+  }, [initialWords, filterOptions]);
 
-  // Helper functions
-  const updateTextbookFilter = (updates: Partial<Filters['textbook']>) => {
-    setFilters(prev => ({
-      ...prev,
-      textbook: { ...prev.textbook, ...updates }
-    }));
+  const setSearchTerm = (term: string) => {
+    setFilterOptions(prev => ({ ...prev, searchTerm: term }));
   };
 
-  const updateExamFilter = (updates: Partial<Filters['exam']>) => {
-    setFilters(prev => ({
-      ...prev,
-      exam: { ...prev.exam, ...updates }
-    }));
+  const setPosFilter = (pos: string) => {
+    setFilterOptions(prev => ({ ...prev, posFilter: pos as any }));
   };
 
-  const updateThemeFilter = (updates: Partial<Filters['theme']>) => {
-    setFilters(prev => ({
-      ...prev,
-      theme: { ...prev.theme, ...updates }
-    }));
+  const setLevelFilter = (level: string) => {
+    setFilterOptions(prev => ({ ...prev, levelFilter: level }));
   };
 
-  const clearFilters = () => {
-    setFilters(DEFAULT_FILTERS);
+  const setThemeFilter = (theme: string) => {
+    setFilterOptions(prev => ({ ...prev, themeFilter: theme }));
   };
 
   return {
-    currentTab,
-    setCurrentTab,
-    filters,
-    setFilters,
-    updateTextbookFilter,
-    updateExamFilter,
-    updateThemeFilter,
-    clearFilters,
-    quickFilterPos,
-    setQuickFilterPos
+    filteredWords,
+    searchTerm: filterOptions.searchTerm,
+    posFilter: filterOptions.posFilter,
+    levelFilter: filterOptions.levelFilter,
+    themeFilter: filterOptions.themeFilter,
+    setSearchTerm,
+    setPosFilter,
+    setLevelFilter,
+    setThemeFilter
   };
 }

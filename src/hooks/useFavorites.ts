@@ -8,12 +8,12 @@ import { useState, useEffect } from 'react';
 const LS_KEY = 'mvp_vocab_favorites';
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<Set<string>>(() => {
+  const [favorites, setFavorites] = useState<Set<number>>(() => {
     try {
       const raw = localStorage.getItem(LS_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        return new Set(Array.isArray(parsed) ? parsed.map(String) : []);
+        return new Set(Array.isArray(parsed) ? parsed.map(Number) : []);
       }
     } catch {}
     return new Set();
@@ -27,7 +27,7 @@ export function useFavorites() {
     }
   }, [favorites]);
 
-  const addFavorite = (wordId: string) => {
+  const addFavorite = (wordId: number) => {
     setFavorites(prev => {
       const next = new Set(prev);
       next.add(wordId);
@@ -35,7 +35,7 @@ export function useFavorites() {
     });
   };
 
-  const removeFavorite = (wordId: string) => {
+  const removeFavorite = (wordId: number) => {
     setFavorites(prev => {
       const next = new Set(prev);
       next.delete(wordId);
@@ -47,7 +47,7 @@ export function useFavorites() {
     setFavorites(new Set());
   };
 
-  const isFavorite = (wordId: string): boolean => {
+  const isFavorite = (wordId: number): boolean => {
     return favorites.has(wordId);
   };
 

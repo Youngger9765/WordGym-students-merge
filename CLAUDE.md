@@ -158,3 +158,39 @@ npm run preview
 ---
 
 *WordGym Students Configuration | React 18 + TypeScript + Vite + Single HTML*
+
+## CRITICAL: Task Completion Enforcement
+
+### Mandatory Rules - NO EXCEPTIONS
+
+1. **NO PARTIAL COMPLETION**
+   - ❌ FORBIDDEN: "Phase 1 done, Phase 2 tomorrow"
+   - ❌ FORBIDDEN: "Core features done, UI later"
+   - ✅ REQUIRED: 100% completion before stopping
+
+2. **NO CODE DELETION TO AVOID ERRORS**
+   - ❌ FORBIDDEN: Delete broken code due to type errors
+   - ✅ REQUIRED: Fix errors with find/replace, refactoring, etc.
+   - Example: 80 type errors? Fix them, don't delete files
+
+3. **ERROR HANDLING PROCESS**
+   - Step 1: Analyze error pattern (field name mismatch, etc.)
+   - Step 2: Apply batch fixes (find/replace across files)
+   - Step 3: Verify compilation success
+   - Step 4: Continue to next step
+
+4. **COMPLETION CHECKLIST**
+   - [ ] All planned features implemented
+   - [ ] `npm run build` succeeds
+   - [ ] `open dist/index.html` works as expected
+   - [ ] All commits pushed
+   - [ ] Issue updated with completion status
+
+### Consequences of Violation
+
+If you cannot complete a task:
+- SAY SO AT THE START: "I cannot complete this task because..."
+- DO NOT start and abandon halfway
+- DO NOT find excuses after starting
+
+**Remember:** The user expects completion, not excuses.

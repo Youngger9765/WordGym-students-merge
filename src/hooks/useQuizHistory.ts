@@ -1,10 +1,6 @@
-/**
- * useQuizHistory Hook - Quiz History Management
- * Migrated from index.html lines 1591-1615
- */
-
 import { useState, useEffect } from 'react';
-import type { QuizRecord } from '../types';
+import { v4 as uuidv4 } from 'uuid';
+import { QuizRecord } from '../types/quiz';
 
 const LS_KEY = 'mvp_vocab_quiz_history_v1';
 
@@ -28,8 +24,12 @@ export function useQuizHistory() {
     }
   }, [history]);
 
-  const addQuizRecord = (record: QuizRecord) => {
-    setHistory(prev => [record, ...prev]);
+  const addQuizRecord = (record: Omit<QuizRecord, 'id'>) => {
+    const newRecord: QuizRecord = {
+      ...record,
+      id: uuidv4()
+    };
+    setHistory(prev => [newRecord, ...prev]);
   };
 
   const clearHistory = () => {
