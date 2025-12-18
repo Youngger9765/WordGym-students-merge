@@ -4,17 +4,21 @@ import { HomePage } from './components/pages/HomePage';
 import { FavoritesPage } from './components/pages/FavoritesPage';
 import { QuizPage } from './components/pages/QuizPage';
 import { QuizHistoryPage } from './components/pages/QuizHistoryPage';
-import { MultipleChoiceQuiz } from './components/quiz/MultipleChoiceQuiz';
-import { FlashcardQuiz } from './components/quiz/FlashcardQuiz';
+import { WordDetailPage } from './components/pages/WordDetailPage';
+import { Shell } from './components/layout/Shell';
+import { WelcomeModal } from './components/modals/WelcomeModal';
 import { useDataset } from './hooks/useDataset';
+import { useUserSettings } from './hooks/useUserSettings';
 import { loadAllGoogleSheets } from './services/googleSheetLoader';
 import { GOOGLE_SHEET_CONFIG, PRESET_VERSION } from './config/googleSheet';
 
 function App() {
-  const { hash, push } = useHashRoute();
+  const { hash } = useHashRoute();
   const { data, importRows, markPresetApplied } = useDataset();
+  const { userSettings, setUserSettings } = useUserSettings();
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [showWelcome, setShowWelcome] = useState(false);
 
   // Auto-load Google Sheets on mount if no data exists
   useEffect(() => {
@@ -89,114 +93,102 @@ function App() {
     };
   }, []); // Run only once on mount
 
-  const goToHome = () => push('#/');
-  const goToAbout = () => push('#/about');
-  const goToFavorites = () => push('#/favorites');
-  const goToQuiz = () => push('#/quiz');
-  const goToQuizHistory = () => push('#/quiz-history');
+  // Show welcome modal if no user settings
+  useEffect(() => {
+    if (!userSettings && data.length > 0) {
+      setShowWelcome(true);
+    }
+  }, [userSettings, data.length]);
+
+  // Get current route for Shell
+  const getRoute = () => {
+    if (hash.startsWith('#/quiz')) return 'quiz';
+    if (hash.startsWith('#/favorites')) return 'favorites';
+    if (hash.startsWith('#/word/')) return 'word';
+    return 'home';
+  };
 
   const renderContent = () => {
-    switch (hash) {
-      case '#/':
-        return <HomePage />;
-      case '#/about':
+    // Word detail page
+    if (hash.startsWith('#/word/')) {
+      const wordId = parseInt(hash.replace('#/word/', ''));
+      const word = data.find(w => w.id === wordId);
+      if (!word) {
         return (
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              關於 WordGym
-            </h2>
-            <div className="space-y-4 text-gray-700">
-              <p>
-                WordGym 單字健身坊是一個現代化的單字學習平台，專為學生設計。
-              </p>
-              <p>
-                本專案採用最新的前端技術，提供流暢的學習體驗，並能打包成單一 HTML 檔案，
-                方便部署和分享。
-              </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-semibold mb-2">核心功能</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>語音朗讀單字與例句</li>
-                  <li>詞性與主題分類</li>
-                  <li>學習進度追蹤</li>
-                  <li>響應式設計，支援各種裝置</li>
-                </ul>
-              </div>
-            </div>
+          <div className="text-center py-12">
+            <p className="text-gray-600">找不到該單字</p>
+            <button
+              onClick={() => window.location.hash = '#/'}
+              className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+            >
+              返回首頁
+            </button>
           </div>
         );
+      }
+      return <WordDetailPage word={word} />;
+    }
+
+    switch (hash) {
+      case '#/':
+      case '':
+        return <HomePage />;
       case '#/favorites':
         return <FavoritesPage />;
       case '#/quiz':
         return <QuizPage />;
       case '#/quiz-history':
         return <QuizHistoryPage />;
-      case '#/multiple-choice-quiz':
-        return <MultipleChoiceQuiz words={data.slice(0, 10)} />;
-      case '#/flashcard-quiz':
-        return <FlashcardQuiz words={data.slice(0, 10)} />;
       default:
         return <HomePage />;
     }
   };
 
   return (
-    <div className="container mx-auto p-8 max-w-4xl">
-      {/* Header */}
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-indigo-600 mb-2">
-          WordGym 單字健身坊
-        </h1>
-        <p className="text-xl text-gray-600">學生版</p>
-      </header>
-
-      {/* Loading Status */}
-      {isLoading && (
-        <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-blue-700">⏳ 正在從 Google Sheets 載入資料...</p>
-        </div>
+    <>
+      {/* Welcome Modal */}
+      {showWelcome && (
+        <WelcomeModal
+          setUserSettings={setUserSettings}
+          onClose={() => setShowWelcome(false)}
+        />
       )}
 
-      {/* Error Message */}
-      {loadError && (
-        <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-red-700">❌ {loadError}</p>
-        </div>
-      )}
+      {/* Main App */}
+      <Shell
+        route={getRoute()}
+        userSettings={userSettings}
+        onUserSettingsChange={(settings) => {
+          setUserSettings(settings);
+          if (!settings) {
+            setShowWelcome(true);
+          }
+        }}
+      >
+        {/* Loading Status */}
+        {isLoading && (
+          <div className="mb-6 rounded-2xl border-2 border-indigo-200 bg-indigo-50 p-4 text-center">
+            <div className="animate-pulse">
+              <div className="text-lg font-semibold text-indigo-700 mb-2">載入單字中...</div>
+              <div className="text-sm text-indigo-600">請稍候</div>
+            </div>
+          </div>
+        )}
 
-      {/* Navigation */}
-      <nav className="mb-8 flex gap-4 flex-wrap">
-        {[
-          { label: '首頁', route: '#/', action: goToHome },
-          { label: '關於', route: '#/about', action: goToAbout },
-          { label: '收藏單字', route: '#/favorites', action: goToFavorites },
-          { label: '測驗', route: '#/quiz', action: goToQuiz },
-          { label: '測驗紀錄', route: '#/quiz-history', action: goToQuizHistory }
-        ].map(({ label, route, action }) => (
-          <button
-            key={route}
-            onClick={action}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              hash === route
-                ? 'bg-indigo-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            {label}
-          </button>
-        ))}
-      </nav>
+        {/* Error Message */}
+        {loadError && (
+          <div className="mb-6 rounded-2xl border-2 border-red-200 bg-red-50 p-4">
+            <div className="text-lg font-semibold text-red-700 mb-2">載入失敗</div>
+            <div className="text-sm text-red-600 mb-3">{loadError}</div>
+            <div className="text-xs text-gray-600">
+              請確認 Google Sheet 已設為「可檢視」或「發布至網路」
+            </div>
+          </div>
+        )}
 
-      {/* Main Content */}
-      <main className="bg-white rounded-lg shadow-lg p-8">
         {renderContent()}
-      </main>
-
-      {/* Footer */}
-      <footer className="mt-8 text-center text-gray-500 text-sm">
-        WordGym Students v2.0.0 | Built with React + Vite + TypeScript
-      </footer>
-    </div>
+      </Shell>
+    </>
   );
 }
 
