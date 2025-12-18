@@ -20,24 +20,23 @@ function App() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [showWelcome, setShowWelcome] = useState(false);
 
-  // Auto-load Google Sheets on mount if no data exists
+  // Debug: Track data changes
+  useEffect(() => {
+    console.log('📊 Data state 已更新，目前長度:', data.length);
+  }, [data.length]);
+
+  // ALWAYS load Google Sheets on mount (localStorage disabled)
   useEffect(() => {
     let cancelled = false;
 
     const autoLoad = async () => {
-      console.log('=== 自動載入檢查 ===');
-      console.log('目前資料數量:', data.length);
+      console.log('=== 自動載入 (ALWAYS LOAD) ===');
       console.log('Google Sheets 啟用:', GOOGLE_SHEET_CONFIG.enabled);
       console.log('PRESET_VERSION:', PRESET_VERSION);
+      console.log('⚠️ localStorage caching DISABLED - always loading fresh data');
 
-      // Check localStorage version
-      const storedVersion = localStorage.getItem('mvp_vocab_preset_applied_v36');
-      console.log('localStorage 版本:', storedVersion);
-
-      if (data.length > 0) {
-        console.log('已有資料，跳過載入');
-        return;
-      }
+      // REMOVED: Skip loading if data exists
+      // ALWAYS load from Google Sheets to ensure fresh data
 
       if (!GOOGLE_SHEET_CONFIG.enabled) {
         console.log('Google Sheets 未啟用');
@@ -58,8 +57,33 @@ function App() {
         }
 
         let isFirstSheet = true;
+        let finalStats = null;
         for (const { rows, theme } of results) {
           console.log(`匯入 ${rows.length} 筆資料，主題:`, theme);
+          if (rows.length > 0) {
+            console.log('第一筆資料範例:', rows[0]);
+            console.log('資料欄位:', Object.keys(rows[0]));
+
+            // Check textbook_index data
+            const textbookIndexSamples = rows.slice(0, 10)
+              .map((row, idx) => ({
+                idx,
+                word: row.english_word || row['英文單字'] || row.Word,
+                textbook_index: row.textbook_index
+              }))
+              .filter(item => item.textbook_index && item.textbook_index.trim());
+            console.log('📚 textbook_index 範例 (前10筆有資料的):', textbookIndexSamples);
+
+            // Check exam_tags data
+            const examTagsSamples = rows.slice(0, 10)
+              .map((row, idx) => ({
+                idx,
+                word: row.english_word || row['英文單字'] || row.Word,
+                exam_tags: row.exam_tags
+              }))
+              .filter(item => item.exam_tags && item.exam_tags.trim());
+            console.log('🎯 exam_tags 範例 (前10筆有資料的):', examTagsSamples);
+          }
           if (rows.length > 0 && !cancelled) {
             // Import with replace: true on first sheet, false on subsequent
             const opts = isFirstSheet
@@ -67,6 +91,7 @@ function App() {
               : { overrideExamples: false, replace: false };
             const stats = importRows(rows, opts);
             console.log('匯入統計:', stats);
+            finalStats = stats;
             isFirstSheet = false;
           }
         }
@@ -74,7 +99,10 @@ function App() {
         if (!cancelled) {
           // Mark preset as successfully applied
           markPresetApplied();
-          console.log('✅ Google Sheets 載入完成，總資料數:', data.length);
+          console.log('✅ Google Sheets 載入完成');
+          console.log('  - 統計顯示總數:', finalStats?.totalAfter ?? 0);
+          console.log('  - 實際 data.length:', data.length);
+          console.log('  ⚠️ 注意: data.length 因 React 狀態更新是非同步的，可能還未更新');
         }
       } catch (error) {
         console.error('載入 Google Sheets 失敗:', error);
@@ -132,15 +160,15 @@ function App() {
     switch (hash) {
       case '#/':
       case '':
-        return <HomePage />;
+        return <HomePage words={data} />;
       case '#/favorites':
-        return <FavoritesPage />;
+        return <FavoritesPage words={data} />;
       case '#/quiz':
-        return <QuizPage />;
+        return <QuizPage words={data} />;
       case '#/quiz-history':
         return <QuizHistoryPage />;
       default:
-        return <HomePage />;
+        return <HomePage words={data} />;
     }
   };
 

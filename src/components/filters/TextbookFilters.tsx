@@ -20,13 +20,29 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
 
   const availableVols = useMemo(() => {
     if (!userSettings) return [];
-    return Array.from(
-      new Set(
-        dataset.textbook_index
-          .filter(item => item.version === userSettings.version)
-          .map(item => item.vol)
-      )
+
+    // Debug logs
+    console.log('🔍 TextbookFilters Debug:');
+    console.log('  - userSettings:', userSettings);
+    console.log('  - userSettings.version:', userSettings.version);
+    console.log('  - dataset.textbook_index length:', dataset.textbook_index.length);
+    console.log('  - dataset.textbook_index sample (first 3):', dataset.textbook_index.slice(0, 3));
+
+    // Get unique versions in data
+    const uniqueVersions = Array.from(new Set(dataset.textbook_index.map(item => item.version)));
+    console.log('  - Unique versions in data:', uniqueVersions);
+
+    // Filter by version
+    const filtered = dataset.textbook_index.filter(item => item.version === userSettings.version);
+    console.log('  - Items matching version:', filtered.length);
+    console.log('  - Filtered sample (first 3):', filtered.slice(0, 3));
+
+    const vols = Array.from(
+      new Set(filtered.map(item => item.vol))
     ).sort();
+    console.log('  - Available vols:', vols);
+
+    return vols;
   }, [dataset.textbook_index, userSettings]);
 
   const availableLessons = useMemo(() => {
@@ -43,6 +59,19 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
       )
     ).sort();
   }, [dataset.textbook_index, userSettings, filters.vol]);
+
+  // Show message if no data available
+  if (availableVols.length === 0) {
+    return (
+      <div className="mb-6 rounded-xl border-2 border-yellow-200 bg-yellow-50 p-4">
+        <p className="text-sm text-yellow-800 font-medium mb-1">課本進度資料尚未建立</p>
+        <p className="text-xs text-yellow-700">
+          目前 Google Sheet 中「{userSettings?.version}」版本的課本進度資料尚未填入。
+          請聯繫管理員或切換至「大考衝刺」或「主題探索」模式。
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="mb-6 grid gap-4 md:grid-cols-2">

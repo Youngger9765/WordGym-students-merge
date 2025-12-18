@@ -332,6 +332,21 @@ export const Shell: React.FC<ShellProps> = ({
                     </p>
                   </section>
 
+                  <section className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                    <h4 className="text-lg font-semibold text-blue-800 mb-2">遇到問題？</h4>
+                    <div className="text-gray-700 leading-relaxed space-y-2">
+                      <p>如果遇到下拉選單沒有選項、資料顯示不正確等問題，可能是快取資料導致的。</p>
+                      <a
+                        href="/clear-cache.html"
+                        className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        清除快取重新載入
+                      </a>
+                    </div>
+                  </section>
+
                   <section className="text-center pt-4">
                     <p className="text-indigo-600 font-semibold text-lg">
                       立即啟動您的單字訓練計畫吧！

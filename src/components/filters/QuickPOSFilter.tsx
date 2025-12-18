@@ -6,7 +6,10 @@ export const QuickPOSFilter: React.FC = () => {
   const { quickFilterPos, setQuickFilterPos } = useQuickFilterPos();
 
   const handlePOSFilter = (pos: POSType | 'all') => {
+    console.log('🖱️ QuickPOSFilter clicked:', pos);
+    console.log('  - Current quickFilterPos:', quickFilterPos);
     setQuickFilterPos(pos);
+    console.log('  - After setQuickFilterPos:', pos);
   };
 
   return (

@@ -106,60 +106,30 @@ export function useDataset(initialData: VocabularyWord[] = []) {
   };
 
   /**
-   * Initialize dataset from localStorage or default
+   * Initialize dataset from initialData only (localStorage disabled)
+   * ALWAYS loads from Google Sheets on mount
    */
   const [data, setData] = useState<VocabularyWord[]>(() => {
-    try {
-      const storedVersion = localStorage.getItem(LS.presetApplied);
-      if (storedVersion === PRESET_VERSION) {
-        const raw = localStorage.getItem(LS.dataset);
-        if (raw) {
-          // Try to decompress first (new format)
-          try {
-            const decompressed = LZString.decompress(raw);
-            if (decompressed) {
-              const parsed = JSON.parse(decompressed);
-              if (Array.isArray(parsed) && parsed.length) {
-                return hydrateDataset(parsed);
-              }
-            }
-          } catch (decompressError) {
-            // If decompression fails, try parsing as uncompressed JSON (legacy format)
-            try {
-              const parsed = JSON.parse(raw);
-              if (Array.isArray(parsed) && parsed.length) {
-                return hydrateDataset(parsed);
-              }
-            } catch (parseError) {
-              console.warn('Failed to parse dataset as JSON:', parseError);
-            }
-          }
-        }
-      }
-    } catch (e) {
-      console.warn('Failed to load dataset from localStorage:', e);
-    }
-
-    try {
-      localStorage.removeItem(LS.dataset);
-      localStorage.removeItem(LS.presetApplied);
-    } catch {}
-
+    // REMOVED: localStorage loading logic to prevent caching issues
+    // Always start with empty/initialData and load fresh from Google Sheets
+    console.log('🔄 useDataset initialized - localStorage loading DISABLED');
     return hydrateDataset(initialData);
   });
 
   /**
-   * Persist dataset to localStorage with compression
+   * Persist dataset to localStorage - DISABLED
+   * Data is always loaded fresh from Google Sheets
    */
-  useEffect(() => {
-    try {
-      const jsonString = JSON.stringify(data);
-      const compressed = LZString.compress(jsonString);
-      localStorage.setItem(LS.dataset, compressed);
-    } catch (e) {
-      console.error('Failed to save dataset to localStorage:', e);
-    }
-  }, [data]);
+  // REMOVED: localStorage persistence to prevent caching issues
+  // useEffect(() => {
+  //   try {
+  //     const jsonString = JSON.stringify(data);
+  //     const compressed = LZString.compress(jsonString);
+  //     localStorage.setItem(LS.dataset, compressed);
+  //   } catch (e) {
+  //     console.error('Failed to save dataset to localStorage:', e);
+  //   }
+  // }, [data]);
 
   /**
    * Import/merge rows into dataset
@@ -199,6 +169,10 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       const byWord = new Map(next.map(w => [String(w.english_word || '').toLowerCase(), w]));
       let maxId = next.reduce((m, w) => Math.max(m, Number(w.id) || 0), 0);
 
+      let skippedNoRaw = 0;
+      let skippedNoEnglish = 0;
+      let processedCount = 0;
+
       /**
        * Ensure tag is added to word
        */
@@ -213,12 +187,20 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       };
 
       incomingList.forEach((raw: any) => {
-        if (!raw) return;
+        if (!raw) {
+          skippedNoRaw++;
+          return;
+        }
 
         const english = String(
           raw.english_word || raw.word || raw.Word || raw['英文'] || raw['英文單字'] || ''
         ).trim();
-        if (!english) return;
+        if (!english) {
+          skippedNoEnglish++;
+          return;
+        }
+
+        processedCount++;
 
         // Parse POS tags
         const posSources = [
@@ -260,6 +242,42 @@ export function useDataset(initialData: VocabularyWord[] = []) {
         const affixSource = raw.affix_info && typeof raw.affix_info === 'object' ? raw.affix_info : {};
 
         // Build incoming word object
+        // Parse textbook_index - format: "龍騰-B1-U4" or "龍騰-B1-U4; 翰林-B2-L3" (semicolon separated)
+        const textbookIndexRaw = (raw.textbook_index || raw.textbookIndex || raw['課本索引'] || '').trim();
+        const parsedTextbookIndex: any[] = [];
+        if (textbookIndexRaw) {
+          const items = textbookIndexRaw.split(';').map((s: string) => s.trim()).filter(Boolean);
+          items.forEach((item: string) => {
+            const parts = item.split('-').map((s: string) => s.trim());
+            if (parts.length >= 3) {
+              parsedTextbookIndex.push({
+                version: parts[0],  // 版本：龍騰、翰林等
+                vol: parts[1],      // 冊次：B1, B2 等
+                lesson: parts[2]    // 課次：L1, L2, U1, U2 等
+              });
+            }
+          });
+        }
+
+        // Parse exam_tags - format: "106學測" or "106學測; 107學測" (semicolon separated)
+        const examTagsRaw = (raw.exam_tags || '').trim();
+        const parsedExamTags: string[] = examTagsRaw
+          ? examTagsRaw.split(';').map((s: string) => s.trim()).filter(Boolean)
+          : [];
+
+        // Parse theme_index (could be JSON string, array, or empty)
+        let parsedThemeIndex: any[] = [];
+        if (Array.isArray(raw.theme_index)) {
+          parsedThemeIndex = raw.theme_index;
+        } else if (typeof raw.theme_index === 'string' && raw.theme_index.trim()) {
+          try {
+            const parsed = JSON.parse(raw.theme_index);
+            parsedThemeIndex = Array.isArray(parsed) ? parsed : [];
+          } catch {
+            // If not valid JSON, ignore
+          }
+        }
+
         const incoming: any = ensureWordFormsDetail({
           id: null,
           english_word: english,
@@ -297,10 +315,12 @@ export function useDataset(initialData: VocabularyWord[] = []) {
             ? raw.phrases.split(';').map((p: string) => p.trim()).filter((p: string) => p)
             : (raw['片語'] || '').split(';').map((p: string) => p.trim()).filter((p: string) => p),
           videoUrl: raw.videoUrl || raw.video_url || raw['影片連結'] || raw['影片'] || '',
-          stage: raw.stage || null,
-          textbook_index: Array.isArray(raw.textbook_index) ? raw.textbook_index : [],
-          exam_tags: Array.isArray(raw.exam_tags) ? raw.exam_tags : [],
-          theme_index: Array.isArray(raw.theme_index) ? raw.theme_index : [],
+          stage: (raw.stage === '高中' || raw.stage === 'senior') ? 'senior'
+                : (raw.stage === '國中' || raw.stage === 'junior') ? 'junior'
+                : null,
+          textbook_index: parsedTextbookIndex,
+          exam_tags: parsedExamTags,
+          theme_index: parsedThemeIndex,
           affix_info: affixSource
         });
 
@@ -416,9 +436,17 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
       themeOrderRef.current = counters;
       stats.totalAfter = next.length;
+      console.log('🔄 importRows setData updater 完成');
+      console.log('  - 輸入行數:', incomingList.length);
+      console.log('  - 處理的行數:', processedCount);
+      console.log('  - 跳過 (無資料):', skippedNoRaw);
+      console.log('  - 跳過 (無英文單字):', skippedNoEnglish);
+      console.log('  - 新增:', stats.added, '合併:', stats.merged);
+      console.log('  - next.length (應新增到狀態):', next.length);
       return next;
     });
 
+    console.log('✅ importRows 返回統計:', stats);
     return stats;
   };
 

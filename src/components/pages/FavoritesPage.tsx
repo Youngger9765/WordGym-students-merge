@@ -1,11 +1,13 @@
 import React from 'react';
 import { VocabularyWord } from '../../types';
-import { useDataset } from '../../hooks/useDataset';
 import { useFavorites } from '../../hooks/useFavorites';
 import { LazyWordCard } from '../cards/LazyWordCard';
 
-export const FavoritesPage: React.FC = () => {
-  const { data: words } = useDataset();
+interface FavoritesPageProps {
+  words: VocabularyWord[];
+}
+
+export const FavoritesPage: React.FC<FavoritesPageProps> = ({ words }) => {
   const { favorites, clearFavorites } = useFavorites();
 
   const favoriteWords = words.filter(word => favorites.has(word.id));

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { QuizConfiguration } from '../../types/quiz';
-import { useDataset } from '../../hooks/useDataset';
+import { VocabularyWord } from '../../types';
 import { useHashRoute } from '../../hooks/useHashRoute';
 
-export const QuizPage: React.FC = () => {
-  const { data: words } = useDataset();
+interface QuizPageProps {
+  words: VocabularyWord[];
+}
+
+export const QuizPage: React.FC<QuizPageProps> = ({ words }) => {
   const { push } = useHashRoute();
 
   const [quizType, setQuizType] = useState<QuizConfiguration['type']>('multiple_choice');

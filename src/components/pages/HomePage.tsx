@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useDataset } from '../../hooks/useDataset';
 import { LazyWordCard } from '../cards/LazyWordCard';
 import { useCurrentTab } from '../../hooks/useCurrentTab';
 import { useTabFilters } from '../../hooks/useTabFilters';
 import { useQuickFilterPos } from '../../hooks/useQuickFilterPos';
 import { useUserSettings } from '../../hooks/useUserSettings';
 import { filterWords } from '../../utils/filterWords';
+import type { VocabularyWord } from '../../types';
 
 import { QuickPOSFilter } from '../filters/QuickPOSFilter';
 import { TextbookFilters } from '../filters/TextbookFilters';
@@ -18,8 +18,11 @@ const TABS = {
   theme: '主題探索'
 };
 
-export const HomePage: React.FC = () => {
-  const { data: words } = useDataset();
+interface HomePageProps {
+  words: VocabularyWord[];
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ words }) => {
   const { userSettings } = useUserSettings();
   const { currentTab, setCurrentTab } = useCurrentTab();
   const { filters, updateFilter } = useTabFilters(userSettings);
