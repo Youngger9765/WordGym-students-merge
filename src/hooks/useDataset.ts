@@ -223,6 +223,14 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           raw['詞性分類'],
           raw.pos
         ];
+
+        // Also try to extract POS from chinese_definition like "(adj.)" or "(adv.)"
+        const chineseDef = raw.chinese_definition || raw['中譯'] || raw['中文'] || '';
+        const posInDef = chineseDef.match(/\(([a-z\.\/]+)\)/i);
+        if (posInDef) {
+          posSources.push(posInDef[1]);
+        }
+
         const tagTokens: string[] = [];
         posSources.forEach(src => {
           if (!src) return;
@@ -397,7 +405,19 @@ export function useDataset(initialData: VocabularyWord[] = []) {
             (incoming.posTags.length > existing.posTags.length)
           );
 
-          incoming.posTags.forEach((tag: string) => ensureTag(existing, tag));
+          // If existing only has 'other' and incoming has real POS, replace it
+          const existingOnlyHasOther = existing.posTags.length === 1 && existing.posTags[0] === 'other';
+          const incomingHasRealPOS = incoming.posTags.length > 0 &&
+                                      (incoming.posTags.length > 1 || incoming.posTags[0] !== 'other');
+
+          if (existingOnlyHasOther && incomingHasRealPOS) {
+            // Replace 'other' with real POS tags
+            existing.posTags = [...incoming.posTags];
+          } else {
+            // Normal merge - add tags that don't exist
+            incoming.posTags.forEach((tag: string) => ensureTag(existing, tag));
+          }
+
           const combinedThemes = mergeThemes(existing.themes, existing.theme, themes);
           existing.themes = combinedThemes;
           if (!existing.theme && combinedThemes.length) existing.theme = combinedThemes[0];
