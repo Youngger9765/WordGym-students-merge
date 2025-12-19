@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Favorites Page', () => {
   test.beforeEach(async ({ page }) => {
     // Set user settings in localStorage BEFORE navigating
-    await page.addInitScript(() => {
+    page.addInitScript(() => {
       localStorage.setItem('wordgym_user_settings_v1', JSON.stringify({
         stage: 'senior',
         version: '龍騰'
@@ -126,9 +126,7 @@ test.describe('Favorites Page', () => {
     await page.waitForTimeout(1000);
 
     // Print console logs
-    // Removed logging;
-    consoleMessages.forEach(msg => // Removed logging);
-    // Removed logging;
+    consoleMessages.forEach(msg => console.log(msg));
 
     // Verify localStorage structure
     const favorites = await page.evaluate(() => {
@@ -141,11 +139,11 @@ test.describe('Favorites Page', () => {
 
     // Check what the actual count shows
     const headingText = await page.getByRole('heading', { name: /重點訓練/i }).textContent();
-    // Removed logging;
 
     // This is the BUG: localStorage has [1,2,3] but count shows (0)
     // Expected: "重點訓練 (3)" or at least some count > 0
     // Actual: "重點訓練 (0)"
+    console.log('Heading text:', headingText);
   });
 
   test('Favorites persist across page reloads', async ({ page }) => {

@@ -39,9 +39,7 @@ export const Shell: React.FC<ShellProps> = ({
     : '選擇教材版本';
 
   const handleIdentityClick = () => {
-    if (confirm('要切換或重新選擇教材版本嗎？')) {
-      onUserSettingsChange(null);
-    }
+    onUserSettingsChange(null);
   };
 
   return (

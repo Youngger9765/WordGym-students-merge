@@ -3,11 +3,11 @@ import { test, expect } from '@playwright/test';
 test.describe('Quiz Page', () => {
   test.beforeEach(async ({ page }) => {
     // Enable console logging
-    page.on('console', msg => // Removed logging));
-    page.on('pageerror', error => // Removed logging);
+    page.on('console', msg => console.log(msg.text()));
+    page.on('pageerror', error => console.error(error));
 
     // Set user settings in localStorage BEFORE navigating
-    await page.addInitScript(() => {
+    page.addInitScript(() => {
       localStorage.setItem('wordgym_user_settings_v1', JSON.stringify({
         stage: 'senior',
         version: '龍騰'
@@ -38,7 +38,7 @@ test.describe('Quiz Page', () => {
         loaded = true;
         break;
       } catch (error) {
-        // Removed logging;
+        console.log(`Failed to find selector: ${selector}`);
         continue;
       }
     }

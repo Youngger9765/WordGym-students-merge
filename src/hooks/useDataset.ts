@@ -205,14 +205,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
         processedCount++;
 
-        // Debug: Log first row to see column names AND check exam_tags specifically
-        if (idx === 0) {
-          console.log('🔍 DEBUG - First row keys:', Object.keys(raw));
-          // Removed logging
-          // Removed logging
-          // Removed logging
-          // Removed logging
-        }
+        // Removed debug logging
 
         // Parse POS tags
         const posSources = [
@@ -273,11 +266,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           ''
         ).trim();
 
-        // Debug logging for version parsing
-        console.log('🔍 Textbook Index Debug:', {
-          textbookIndexRaw,
-          rawObj: JSON.parse(JSON.stringify(raw))
-        });
+        // Removed debug logging
         const parsedTextbookIndex: any[] = [];
         if (textbookIndexRaw) {
           const items = textbookIndexRaw.split(';').map((s: string) => s.trim()).filter(Boolean);
@@ -307,15 +296,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           ? examTagsRaw.split(';').map((s: string) => s.trim()).filter(Boolean)
           : [];
 
-        // Debug: Log exam_tags parsing for first few rows
-        if (idx < 5 && (examTagsRaw || idx === 0)) {
-          console.log(`🎯 Row ${idx} (${english}):`, {
-            examTagsRaw,
-            parsedExamTags,
-            'raw.exam_tags': raw.exam_tags,
-            'raw["exam_tags"]': raw['exam_tags']
-          });
-        }
+        // Removed debug logging
 
         // Parse theme_index (ONLY for junior stage)
         // Format: "1200-family | 800-family" (pipe or semicolon separated)
@@ -345,13 +326,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
             });
           }
 
-          // Debug
-          if (idx < 5) {
-            console.log(`🎨 Row ${idx} (${english}) theme_index:`, {
-              themeIndexRaw,
-              parsedThemeIndex
-            });
-          }
+          // Removed debug logging
         }
 
         const incoming: any = ensureWordFormsDetail({
@@ -401,13 +376,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           affix_info: affixSource
         });
 
-        // Debug: Verify exam_tags is preserved after ensureWordFormsDetail
-        if (idx < 3 && parsedExamTags.length > 0) {
-          console.log(`✅ After creating incoming (${english}):`, {
-            parsedExamTags,
-            'incoming.exam_tags': incoming.exam_tags
-          });
-        }
+        // Removed debug logging
 
         const key = english.toLowerCase();
         const existing = byWord.get(key);
@@ -560,43 +529,9 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       // Removed logging
       // Removed logging
       // Removed logging
-      console.log('  - 跳過 (無資料):', skippedNoRaw);
-      console.log('  - 跳過 (無英文單字):', skippedNoEnglish);
       // Removed logging
-      console.log('  - next.length (應新增到狀態):', next.length);
 
-      // CRITICAL DEBUG: Check exam_tags in final data
-      const wordsWithExamTags = next.filter(w => w.exam_tags && w.exam_tags.length > 0);
-      // Removed logging
-      if (wordsWithExamTags.length > 0) {
-        console.log('🎯 First 3 words with exam_tags:', wordsWithExamTags.slice(0, 3).map(w => ({
-          word: w.english_word,
-          exam_tags: w.exam_tags
-        })));
-      } else {
-        console.error('❌ NO WORDS HAVE exam_tags! Checking first 3 words:', next.slice(0, 3).map(w => ({
-          word: w.english_word,
-          exam_tags: w.exam_tags,
-          stage: w.stage,
-          textbook_index: w.textbook_index
-        })));
-      }
-
-      // DEBUG: Check theme_index in final data
-      const wordsWithThemeIndex = next.filter(w => w.theme_index && w.theme_index.length > 0);
-      // Removed logging
-      if (wordsWithThemeIndex.length > 0) {
-        wordsWithThemeIndex.slice(0, 3).forEach((w, i) => {
-          console.log(`🎨 Word ${i + 1} with theme_index:`, JSON.stringify({
-            word: w.english_word,
-            theme_index: w.theme_index,
-            themes: w.themes,
-            theme: w.theme
-          }, null, 2));
-        });
-      } else {
-        console.warn('⚠️ NO WORDS HAVE theme_index!');
-      }
+      // Removed debug logging
 
       return next;
     });
