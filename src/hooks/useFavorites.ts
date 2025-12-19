@@ -13,15 +13,19 @@ export function useFavorites() {
       const raw = localStorage.getItem(LS_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        return new Set(Array.isArray(parsed) ? parsed.map(Number) : []);
+        const set = new Set(Array.isArray(parsed) ? parsed.map(Number) : []);
+        return set;
       }
-    } catch {}
+    } catch (e) {
+      console.error('Failed to load favorites:', e);
+    }
     return new Set();
   });
 
   useEffect(() => {
     try {
-      localStorage.setItem(LS_KEY, JSON.stringify(Array.from(favorites)));
+      const arr = Array.from(favorites);
+      localStorage.setItem(LS_KEY, JSON.stringify(arr));
     } catch (e) {
       console.error('Failed to save favorites:', e);
     }

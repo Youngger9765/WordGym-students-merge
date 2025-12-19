@@ -39,8 +39,8 @@ export function getFilteredWords(
       if (stageSamples[stage].length < 3) stageSamples[stage].push(word);
     });
 
-    console.log('Stage filter stats before filtering:', stageStats);
-    console.log('Stage filter samples:', stageSamples);
+    // Removed logging;
+    // Removed logging;
 
     filtered = filtered.filter(word => {
       const hasMatchingStage = word.stage === userSettings.stage;
@@ -48,7 +48,7 @@ export function getFilteredWords(
       return hasMatchingStage || hasNoStage;
     });
 
-    console.log(`After stage filter (${userSettings.stage}): ${filtered.length} words remaining`);
+    // Removed logging: ${filtered.length} words remaining`);
   }
 
   // 2. Tab-specific Filters
@@ -58,12 +58,7 @@ export function getFilteredWords(
     const lesson = filters.textbook?.lesson;
 
     if (userSettings && userSettings.version) {
-      // Sample textbook_index for debugging
-      const sampleTextbookIndex = filtered.slice(0, 5).map(w => ({
-        word: w.english_word,
-        textbook_index: w.textbook_index
-      }));
-      console.log('Sample textbook_index (first 5 words):', sampleTextbookIndex);
+      // Removed unused sampleTextbookIndex
 
       filtered = filtered.filter(word => {
         const textbookIndex = Array.isArray(word.textbook_index) ? word.textbook_index : [];
@@ -77,7 +72,7 @@ export function getFilteredWords(
         });
       });
 
-      console.log(`Textbook filter applied (version: ${userSettings.version}, vol: ${vol}, lesson: ${lesson}): ${filtered.length} words`);
+      // Removed logging: ${filtered.length} words`);
     }
   } else if (currentTab === 'exam') {
     // Exam Tab: Filter by exam tags
@@ -103,7 +98,7 @@ export function getFilteredWords(
       }
     }
 
-    console.log(`Exam filter applied (year: ${year}): ${filtered.length} words`);
+    // Removed logging: ${filtered.length} words`);
   } else if (currentTab === 'theme') {
     // Theme Tab: Filter by range and theme
     const range = filters.theme?.range;
@@ -121,7 +116,7 @@ export function getFilteredWords(
         });
       });
 
-      console.log(`Theme filter applied (range: ${range}, theme: ${theme}): ${filtered.length} words`);
+      // Removed logging: ${filtered.length} words`);
     }
   }
 
@@ -132,7 +127,7 @@ export function getFilteredWords(
       return posTags.includes(quickFilterPos);
     });
 
-    console.log(`Quick POS filter applied (${quickFilterPos}): ${filtered.length} words`);
+    // Removed logging: ${filtered.length} words`);
   }
 
   return filtered;

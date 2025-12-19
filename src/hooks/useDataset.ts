@@ -18,7 +18,8 @@ import {
   getWordThemes
 } from '../utils/dataProcessing';
 import { exampleFor, translationFor } from '../utils/wordUtils';
-import { PRESET_VERSION } from '../config/googleSheet';
+import vocabularyData from '../data/vocabulary.json';
+// Removed Google Sheet import
 
 const LS: typeof LSType = {
   favorites: 'mvp_vocab_favorites',
@@ -106,13 +107,12 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
   /**
    * Initialize dataset from initialData only (localStorage disabled)
-   * ALWAYS loads from Google Sheets on mount
+   * Loads from local JSON data
    */
   const [data, setData] = useState<VocabularyWord[]>(() => {
-    // REMOVED: localStorage loading logic to prevent caching issues
-    // Always start with empty/initialData and load fresh from Google Sheets
-    console.log('🔄 useDataset initialized - localStorage loading DISABLED');
-    return hydrateDataset(initialData);
+    // Always start with vocabulary data from JSON
+    // Priority: 1. Imported data 2. vocabularyData from JSON
+    return hydrateDataset(initialData.length > 0 ? initialData : vocabularyData);
   });
 
   /**
@@ -208,10 +208,10 @@ export function useDataset(initialData: VocabularyWord[] = []) {
         // Debug: Log first row to see column names AND check exam_tags specifically
         if (idx === 0) {
           console.log('🔍 DEBUG - First row keys:', Object.keys(raw));
-          console.log('🔍 DEBUG - exam_tags raw value:', raw.exam_tags);
-          console.log('🔍 DEBUG - 主題 raw value:', raw['主題']);
-          console.log('🔍 DEBUG - stage:', raw.stage);
-          console.log('🔍 DEBUG - textbook_index:', raw.textbook_index);
+          // Removed logging
+          // Removed logging
+          // Removed logging
+          // Removed logging
         }
 
         // Parse POS tags
@@ -557,17 +557,17 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
       themeOrderRef.current = counters;
       stats.totalAfter = next.length;
-      console.log('🔄 importRows setData updater 完成');
-      console.log('  - 輸入行數:', incomingList.length);
-      console.log('  - 處理的行數:', processedCount);
+      // Removed logging
+      // Removed logging
+      // Removed logging
       console.log('  - 跳過 (無資料):', skippedNoRaw);
       console.log('  - 跳過 (無英文單字):', skippedNoEnglish);
-      console.log('  - 新增:', stats.added, '合併:', stats.merged);
+      // Removed logging
       console.log('  - next.length (應新增到狀態):', next.length);
 
       // CRITICAL DEBUG: Check exam_tags in final data
       const wordsWithExamTags = next.filter(w => w.exam_tags && w.exam_tags.length > 0);
-      console.log(`🎯 CRITICAL - Words with exam_tags: ${wordsWithExamTags.length} / ${next.length}`);
+      // Removed logging
       if (wordsWithExamTags.length > 0) {
         console.log('🎯 First 3 words with exam_tags:', wordsWithExamTags.slice(0, 3).map(w => ({
           word: w.english_word,
@@ -584,7 +584,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
       // DEBUG: Check theme_index in final data
       const wordsWithThemeIndex = next.filter(w => w.theme_index && w.theme_index.length > 0);
-      console.log(`🎨 DEBUG - Words with theme_index: ${wordsWithThemeIndex.length} / ${next.length}`);
+      // Removed logging
       if (wordsWithThemeIndex.length > 0) {
         wordsWithThemeIndex.slice(0, 3).forEach((w, i) => {
           console.log(`🎨 Word ${i + 1} with theme_index:`, JSON.stringify({
@@ -601,7 +601,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       return next;
     });
 
-    console.log('✅ importRows 返回統計:', stats);
+    // Removed logging
     return stats;
   };
 
@@ -616,22 +616,10 @@ export function useDataset(initialData: VocabularyWord[] = []) {
     setData(hydrateDataset([]));
   };
 
-  /**
-   * Mark preset as applied (after successful Google Sheet load)
-   */
-  const markPresetApplied = () => {
-    try {
-      localStorage.setItem(LS.presetApplied, PRESET_VERSION);
-    } catch (e) {
-      console.error('Failed to mark preset as applied:', e);
-    }
-  };
-
   return {
     data,
     setData,
     importRows,
-    reset,
-    markPresetApplied
+    reset
   };
 }

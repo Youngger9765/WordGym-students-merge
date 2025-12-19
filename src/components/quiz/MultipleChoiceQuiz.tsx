@@ -15,8 +15,8 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
   const { favorites, addFavorite, removeFavorite } = useFavorites();
   const { add: addRecord, history } = useQuizHistory();
 
-  const pool = words;
   const data = words;
+  const pool = words;
   const favoritesApi = {
     favorites: Array.from(favorites),
     toggle: (id: number) => {

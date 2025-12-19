@@ -174,16 +174,16 @@ export async function loadFromGoogleSheet(sheetConfig: {
 }): Promise<{ rows: ParsedRow[]; theme: string }> {
   try {
     const tsvUrl = `https://docs.google.com/spreadsheets/d/${sheetConfig.sheetId}/export?format=tsv&gid=${sheetConfig.gid}`;
-    console.log(`Loading Google Sheet (TSV): ${sheetConfig.name}`, tsvUrl);
+    // Removed logging: ${sheetConfig.name}`, tsvUrl);
 
     const response = await fetch(tsvUrl);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const tsvText = await response.text();
-    console.log(`TSV raw data length: ${tsvText.length} characters`);
+    // Removed logging;
 
     const rows = parseTSV(tsvText);
-    console.log(`Parsed ${rows.length} rows`);
+    // Removed logging;
 
     return { rows, theme: sheetConfig.theme };
   } catch (error) {

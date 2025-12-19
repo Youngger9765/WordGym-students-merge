@@ -50,7 +50,7 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    console.log('閃卡初始化完成，共', shuffled.length, '張');
+    // Removed logging;
     return shuffled;
   }, [pool]);
 
@@ -68,13 +68,13 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
 
   const handleFlip = () => {
     if (!isFinishedCheck) {
-      console.log('翻卡');
+      // Removed logging;
       setFlipped(f => !f);
     }
   };
 
   const handleNext = (isKnown: boolean) => {
-    console.log('handleNext 被調用', { idx, shuffledPoolLength: shuffledPool.length, isKnown });
+    // Removed logging;
     const currentWord = shuffledPool[idx];
     if (!currentWord) {
       console.error('currentWord 為空', { idx, shuffledPoolLength: shuffledPool.length });
@@ -95,11 +95,10 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
     const newLearning = isKnown ? learning : learning + 1;
 
     if (idx < shuffledPool.length - 1) {
-      const nextIdx = idx + 1;
-      console.log('切換到下一張', { currentIdx: idx, nextIdx, shuffledPoolLength: shuffledPool.length });
+      // Removed unused nextIdx
       setIdx(prevIdx => {
         const newIdx = prevIdx + 1;
-        console.log('setIdx 被調用', { prevIdx, newIdx });
+        // Removed logging;
         return newIdx;
       });
       setFlipped(false);
@@ -301,7 +300,7 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
             variant="danger"
             onClick={(e) => {
               e.stopPropagation();
-              console.log('按鈕被點擊：還不熟', { idx, isFinished, shuffledPoolLength: shuffledPool.length });
+              // Removed logging;
               handleNext(false);
             }}
             disabled={isFinished}
@@ -312,7 +311,7 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
             variant="success"
             onClick={(e) => {
               e.stopPropagation();
-              console.log('按鈕被點擊：我記得了', { idx, isFinished, shuffledPoolLength: shuffledPool.length });
+              // Removed logging;
               handleNext(true);
             }}
             disabled={isFinished}

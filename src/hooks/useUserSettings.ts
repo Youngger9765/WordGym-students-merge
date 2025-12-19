@@ -1,44 +1,158 @@
-/**
- * useUserSettings Hook - User Preferences (Stage & Textbook Version)
- * Migrated from index.html lines 1507-1529
- */
-
-import { useState, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 import type { UserSettings } from '../types';
+import { VersionService } from '../services/VersionService';
+import { LS } from '../types';
 
-const LS_KEY = 'wordgym_user_settings_v1';
+type UserSettingsState = {
+  userSettings: UserSettings | null;
+  error: string | null;
+};
+
+type UserSettingsAction =
+  | { type: 'SET_STAGE'; stage: string }
+  | { type: 'SET_VERSION'; version: string }
+  | { type: 'UPDATE_SETTINGS'; updates: Partial<UserSettings> }
+  | { type: 'RESET_SETTINGS' };
+
+function userSettingsReducer(state: UserSettingsState, action: UserSettingsAction): UserSettingsState {
+  switch (action.type) {
+    case 'SET_STAGE': {
+      // Attempt to keep existing settings if they are compatible
+      const newSettings: Partial<UserSettings> = {
+        stage: action.stage,
+        version: undefined
+      };
+
+      // If existing settings have a version for this stage, keep it
+      if (state.userSettings?.stage === action.stage) {
+        newSettings.version = state.userSettings.version;
+      }
+
+      return {
+        userSettings: {
+          ...(state.userSettings || {}),
+          ...newSettings
+        } as UserSettings,
+        error: null
+      };
+    }
+    case 'SET_VERSION': {
+      if (!state.userSettings?.stage) {
+        return {
+          ...state,
+          error: 'Stage must be set before setting version'
+        };
+      }
+
+      const validation = VersionService.validateWithErrors(action.version, state.userSettings.stage);
+
+      if (!validation.isValid) {
+        return {
+          userSettings: state.userSettings,
+          error: validation.errors[0]
+        };
+      }
+
+      return {
+        userSettings: {
+          ...state.userSettings,
+          version: action.version
+        },
+        error: null
+      };
+    }
+    case 'UPDATE_SETTINGS': {
+      const updates = action.updates;
+
+      // If no existing settings, just set the updates
+      if (!state.userSettings) {
+        return {
+          userSettings: updates as UserSettings,
+          error: null
+        };
+      }
+
+      const settingsToValidate: UserSettings = {
+        ...state.userSettings,
+        ...updates
+      };
+
+      const validation = VersionService.validateWithErrors(
+        settingsToValidate.version,
+        settingsToValidate.stage
+      );
+
+      if (!validation.isValid) {
+        return {
+          userSettings: state.userSettings,
+          error: validation.errors[0]
+        };
+      }
+
+      return {
+        userSettings: settingsToValidate,
+        error: null
+      };
+    }
+    case 'RESET_SETTINGS': {
+      return { userSettings: null, error: null };
+    }
+    default:
+      return state;
+  }
+}
 
 export function useUserSettings() {
-  const [userSettings, setUserSettings] = useState<UserSettings | null>(() => {
-    try {
-      const raw = localStorage.getItem(LS_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        return parsed;
-      }
-    } catch {}
-    return null;
-  });
+  const [state, dispatch] = useReducer(userSettingsReducer,
+    {
+      userSettings: (() => {
+        try {
+          const raw = localStorage.getItem(LS.userSettings);
+          if (raw) {
+            return JSON.parse(raw);
+          }
+        } catch {}
+        return null;
+      })(),
+      error: null
+    }
+  );
 
   useEffect(() => {
     try {
-      if (userSettings) {
-        localStorage.setItem(LS_KEY, JSON.stringify(userSettings));
+      if (state.userSettings) {
+        localStorage.setItem(LS.userSettings, JSON.stringify(state.userSettings));
       } else {
-        localStorage.removeItem(LS_KEY);
+        localStorage.removeItem(LS.userSettings);
       }
     } catch (e) {
       console.error('Failed to save user settings:', e);
     }
-  }, [userSettings]);
+  }, [state.userSettings]);
+
+  const setStage = (stage: string) => {
+    dispatch({ type: 'SET_STAGE', stage });
+  };
+
+  const setVersion = (version: string) => {
+    dispatch({ type: 'SET_VERSION', version });
+  };
 
   const updateSettings = (updates: Partial<UserSettings>) => {
-    setUserSettings(prev => prev ? { ...prev, ...updates } : null);
+    dispatch({ type: 'UPDATE_SETTINGS', updates });
+  };
+
+  const resetSettings = () => {
+    dispatch({ type: 'RESET_SETTINGS' });
   };
 
   return {
-    userSettings,
-    setUserSettings,
-    updateSettings
+    userSettings: state.userSettings,
+    error: state.error,
+    setStage,
+    setVersion,
+    updateSettings,
+    resetSettings,
+    setUserSettings: updateSettings
   };
 }

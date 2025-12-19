@@ -21,7 +21,14 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
   const [showMdPreview, setShowMdPreview] = useState(false);
 
   const handleToggleFavorite = () => {
-    isFavorite(word.id) ? removeFavorite(word.id) : addFavorite(word.id);
+    // Removed logging);
+    if (isFavorite(word.id)) {
+      // Removed logging;
+      removeFavorite(word.id);
+    } else {
+      // Removed logging;
+      addFavorite(word.id);
+    }
   };
 
   const handleBack = () => {

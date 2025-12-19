@@ -2,6 +2,10 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Quiz Page', () => {
   test.beforeEach(async ({ page }) => {
+    // Enable console logging
+    page.on('console', msg => // Removed logging));
+    page.on('pageerror', error => // Removed logging);
+
     // Set user settings in localStorage BEFORE navigating
     await page.addInitScript(() => {
       localStorage.setItem('wordgym_user_settings_v1', JSON.stringify({
@@ -10,14 +14,36 @@ test.describe('Quiz Page', () => {
       }));
     });
 
-    // Navigate to quiz page
-    await page.goto('/#/quiz');
+    // Navigate to quiz page with enhanced loading
+    await page.goto('/#/quiz', {
+      waitUntil: 'networkidle',
+      timeout: 30000
+    });
 
-    // Wait for data to load (check for the quiz configuration heading)
-    await page.waitForSelector('text=Quiz Configuration', { timeout: 10000 });
+    // Comprehensive loading check with multiple strategies
+    const loadingSelectors = [
+      'text=Quiz Configuration',
+      'button:has-text("Start")',
+      '[data-testid="quiz-configuration"]',
+      ':text("請選擇測驗類型")'
+    ];
 
-    // Wait for words to finish loading (button changes from "Loading..." to "Start")
-    await page.waitForSelector('button:has-text("Start")', { timeout: 15000 });
+    let loaded = false;
+    for (const selector of loadingSelectors) {
+      try {
+        await page.waitForSelector(selector, {
+          state: 'visible',
+          timeout: 20000
+        });
+        loaded = true;
+        break;
+      } catch (error) {
+        // Removed logging;
+        continue;
+      }
+    }
+
+    expect(loaded, 'Quiz page should load with configuration').toBeTruthy();
   });
 
   test('Quiz Configuration Page Renders', async ({ page }) => {

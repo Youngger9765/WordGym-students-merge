@@ -48,7 +48,7 @@ test.describe('Favorites Page', () => {
 
     // Step 5: The word ID is 1 (we navigated to #/word/1)
     const wordId = 1;
-    console.log('Word ID:', wordId);
+    // Removed logging;
 
     // Step 6: Click "加入重點訓練" button
     const addFavoriteButton = page.getByRole('button', { name: '加入重點訓練' });
@@ -62,7 +62,7 @@ test.describe('Favorites Page', () => {
       const raw = localStorage.getItem('mvp_vocab_favorites');
       return raw ? JSON.parse(raw) : [];
     });
-    console.log('Favorites after add:', favoritesAfterAdd);
+    // Removed logging;
     expect(favoritesAfterAdd).toContain(wordId);
     expect(favoritesAfterAdd.length).toBe(1);
 
@@ -126,9 +126,9 @@ test.describe('Favorites Page', () => {
     await page.waitForTimeout(1000);
 
     // Print console logs
-    console.log('\n=== Browser Console Logs ===');
-    consoleMessages.forEach(msg => console.log(msg));
-    console.log('=== End Console Logs ===\n');
+    // Removed logging;
+    consoleMessages.forEach(msg => // Removed logging);
+    // Removed logging;
 
     // Verify localStorage structure
     const favorites = await page.evaluate(() => {
@@ -141,7 +141,7 @@ test.describe('Favorites Page', () => {
 
     // Check what the actual count shows
     const headingText = await page.getByRole('heading', { name: /重點訓練/i }).textContent();
-    console.log('Favorites page heading:', headingText);
+    // Removed logging;
 
     // This is the BUG: localStorage has [1,2,3] but count shows (0)
     // Expected: "重點訓練 (3)" or at least some count > 0
@@ -218,13 +218,13 @@ test.describe('Favorites Page', () => {
     ]);
 
     if (loadingVisible) {
-      console.log('Loading state detected');
+      // Removed logging;
       // Verify loading message and spinner are visible
       await expect(loadingText).toBeVisible();
       await expect(loadingSpinner).toBeVisible();
-      console.log('Loading spinner and message confirmed');
+      // Removed logging;
     } else {
-      console.log('Loading state skipped (data loaded too quickly)');
+      // Removed logging');
     }
 
     // Wait for data to load - the heading should appear
@@ -234,7 +234,7 @@ test.describe('Favorites Page', () => {
     await expect(page.getByRole('heading', { name: /重點訓練 \(3\)/i })).toBeVisible({ timeout: 5000 });
 
     const finalHeading = await page.getByRole('heading', { name: /重點訓練/i }).textContent();
-    console.log('Final heading:', finalHeading);
+    // Removed logging;
 
     // Verify the count is correct
     expect(finalHeading).toContain('(3)');
@@ -246,7 +246,7 @@ test.describe('Favorites Page', () => {
     // Verify the word cards are displayed
     const favoriteWordCards = page.locator('.bg-white.rounded-xl.shadow-sm');
     const cardCount = await favoriteWordCards.count();
-    console.log('Number of favorite word cards:', cardCount);
+    // Removed logging;
 
     // Should have 3 word cards (one for each favorite)
     expect(cardCount).toBeGreaterThan(0);

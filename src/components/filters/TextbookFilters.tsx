@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { TextbookIndexItem } from '../../types';
 import { useUserSettings } from '../../hooks/useUserSettings';
+import { VersionService } from '../../services/VersionService';
 
 interface TextbookFiltersProps {
   filters: {
@@ -11,15 +12,6 @@ interface TextbookFiltersProps {
   dataset: { textbook_index: TextbookIndexItem[] };
 }
 
-const normalizeVersion = (version: string = ''): string => {
-    return version
-      .trim()
-      .replace(/版$/, '')   // Remove trailing "版"
-      .replace(/\s+/g, '')  // Remove all whitespaces
-      .replace(/國中/g, '')  // Remove "國中" if present
-      .toLowerCase();
-  };
-
 export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
   filters,
   updateFilter,
@@ -28,26 +20,13 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
   const { userSettings } = useUserSettings();
 
   const availableVols = useMemo(() => {
-    if (!userSettings) return [];
+    if (!userSettings?.version || !userSettings.stage) return [];
 
-    const normalizedVersions = dataset.textbook_index
-      .map(item => normalizeVersion(item.version));
-
-    const uniqueNormalizedVersions = Array.from(new Set(normalizedVersions));
-
-    const normalizedUserVersion = normalizeVersion(userSettings.version);
-
-    // Matching logic with fallback
-    const matchedVersion = uniqueNormalizedVersions.find(
-      version =>
-        version === normalizedUserVersion ||
-        normalizedUserVersion.includes(version) ||
-        version.includes(normalizedUserVersion)
-    ) || uniqueNormalizedVersions[0];
-
+    // Strict version matching with VersionService
     const filtered = dataset.textbook_index.filter(item => {
-      const normalizedItemVersion = normalizeVersion(item.version);
-      return normalizedItemVersion === matchedVersion;
+      const normalizedItemVersion = VersionService.normalizeWithGuard(item.version);
+      const normalizedUserVersion = VersionService.normalizeWithGuard(userSettings.version);
+      return normalizedItemVersion === normalizedUserVersion;
     });
 
     const vols = Array.from(
@@ -55,37 +34,26 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
     ).sort();
 
     return vols;
-  }, [dataset.textbook_index, userSettings]);
+  }, [dataset.textbook_index, userSettings?.version, userSettings?.stage]);
 
   const availableLessons = useMemo(() => {
-    if (!userSettings || availableVols.length === 0) return [];
+    if (!userSettings?.version || !userSettings.stage || availableVols.length === 0) return [];
 
-    const normalizedUserVersion = normalizeVersion(userSettings.version);
-    const normalizedVersions = dataset.textbook_index
-      .map(item => normalizeVersion(item.version));
-
-    const uniqueNormalizedVersions = Array.from(new Set(normalizedVersions));
-
-    const chosenVersion = uniqueNormalizedVersions.find(
-      version =>
-        version === normalizedUserVersion ||
-        normalizedUserVersion.includes(version) ||
-        version.includes(normalizedUserVersion)
-    ) || uniqueNormalizedVersions[0];
+    const normalizedUserVersion = VersionService.normalizeWithGuard(userSettings.version);
 
     return Array.from(
       new Set(
         dataset.textbook_index
           .filter(
             item =>
-              normalizeVersion(item.version) === chosenVersion &&
+              VersionService.normalizeWithGuard(item.version) === normalizedUserVersion &&
               item.vol === (filters.vol || availableVols[0])
           )
           .map(item => item.lesson)
           .filter(Boolean)
       )
     ).sort();
-  }, [dataset.textbook_index, userSettings, filters.vol, availableVols]);
+  }, [dataset.textbook_index, userSettings?.version, userSettings?.stage, filters.vol, availableVols]);
 
   // Show message if no data available
   if (availableVols.length === 0) {

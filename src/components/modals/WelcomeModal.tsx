@@ -1,37 +1,52 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from '../ui';
+import { VersionService } from '../../services/VersionService';
 import type { UserSettings } from '../../types';
 
 export interface WelcomeModalProps {
   setUserSettings: (settings: UserSettings) => void;
   onClose?: () => void;
+  isLoading?: boolean;
+  versions?: Record<string, string[]>;
+  loadingMessage?: string;
 }
 
 type Stage = 'senior' | 'junior';
 
 export const WelcomeModal: React.FC<WelcomeModalProps> = ({
   setUserSettings,
-  onClose
+  onClose,
+  isLoading = false,
+  versions,
+  loadingMessage = '載入版本中...'
 }) => {
   const [selectedStage, setSelectedStage] = useState<Stage>('senior');
   const [selectedVersion, setSelectedVersion] = useState('');
 
+  // When stage changes, reset selected version
+  useEffect(() => {
+    setSelectedVersion('');
+  }, [selectedStage]);
+
   // Show available versions based on selected stage
   const availableVersions = useMemo(() => {
-    // Define available versions for each stage
-    const seniorVersions = ['龍騰', '三民']; // High school
-    const juniorVersions = ['康軒', '翰林', '南一']; // Junior high
-
-    // Return version list based on selected stage
-    if (selectedStage === 'senior') {
-      return seniorVersions;
-    } else if (selectedStage === 'junior') {
-      return juniorVersions;
+    // If versions are provided, use them
+    if (versions) {
+      if (selectedStage === 'senior') {
+        return versions['high'] || [];
+      } else if (selectedStage === 'junior') {
+        return versions['junior'] || [];
+      }
     }
 
-    // Return empty array if no stage selected
-    return [];
-  }, [selectedStage]);
+    // If loading, return empty
+    if (isLoading) return [];
+
+    // Use default versions from VersionService
+    return VersionService.getAvailableVersions(
+      selectedStage === 'senior' ? 'high' : 'junior'
+    );
+  }, [selectedStage, versions, isLoading]);
 
   // Clear selected version when stage changes
   useEffect(() => {
@@ -89,6 +104,10 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
               <div className="px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-500">
                 請先選擇學程
               </div>
+            ) : isLoading ? (
+              <div className="px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-500 animate-pulse">
+                {loadingMessage}
+              </div>
             ) : availableVersions.length > 0 ? (
               <select
                 value={selectedVersion}
@@ -112,7 +131,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
           <Button
             variant="primary"
             onClick={handleConfirm}
-            disabled={!selectedStage || !selectedVersion}
+            disabled={!selectedStage || !selectedVersion || isLoading}
             className="flex-1"
           >
             確認

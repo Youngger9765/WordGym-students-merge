@@ -49,6 +49,6 @@ export function parseTSV(text: string): Record<string, string>[] {
     rows.push(obj);
   }
 
-  console.log(`TSV 解析：找到標題行在第 ${headerRowIndex + 1} 行，解析了 ${rows.length} 筆資料`);
+  // Removed logging;
   return rows;
 }

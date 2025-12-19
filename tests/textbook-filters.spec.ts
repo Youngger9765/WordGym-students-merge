@@ -14,7 +14,7 @@ test('Textbook Filters Display Correctly', async ({ page }) => {
     return Array.from(select.options).map(option => option.text);
   });
 
-  console.log('Available Versions:', versionOptions);
+  // Removed logging;
   expect(versionOptions.length).toBeGreaterThan(1);
 
   // Select the first non-placeholder version
@@ -63,10 +63,10 @@ test('Textbook Filters Display Correctly', async ({ page }) => {
     };
   });
 
-  console.log('Content Verification:', contentVerification);
+  // Removed logging;
 
   // Expectations
   expect(contentVerification.hasErrorMessage).toBe(false);
   expect(contentVerification.hasContent).toBe(true);
-  console.log('Content Texts:', contentVerification.contentTexts);
+  // Removed logging;
 });
