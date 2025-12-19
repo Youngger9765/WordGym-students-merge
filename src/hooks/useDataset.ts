@@ -191,9 +191,13 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           return;
         }
 
-        const english = String(
+        let english = String(
           raw.english_word || raw.word || raw.Word || raw['英文'] || raw['英文單字'] || ''
         ).trim();
+
+        // Clean up POS annotations in english_word field like "(adj.)", "(n.)", etc.
+        english = english.replace(/\s*\([a-z\.\/]+\)\s*/gi, ' ').trim();
+
         if (!english) {
           skippedNoEnglish++;
           return;
@@ -387,6 +391,12 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
         if (existing) {
           // Merge into existing word
+          // Check if incoming data is more complete (before merging posTags)
+          const shouldUseIncomingDefinition = incoming.chinese_definition && (
+            !existing.chinese_definition ||
+            (incoming.posTags.length > existing.posTags.length)
+          );
+
           incoming.posTags.forEach((tag: string) => ensureTag(existing, tag));
           const combinedThemes = mergeThemes(existing.themes, existing.theme, themes);
           existing.themes = combinedThemes;
@@ -395,8 +405,11 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           applyThemeOrder(existing as any, combinedThemes, counters);
 
           if (!existing.kk_phonetic && incoming.kk_phonetic) existing.kk_phonetic = incoming.kk_phonetic;
-          if (!existing.chinese_definition && incoming.chinese_definition)
+
+          // Use chinese_definition from the entry with more POS tags (more complete data)
+          if (shouldUseIncomingDefinition) {
             existing.chinese_definition = incoming.chinese_definition;
+          }
           if (!existing.grammar_main_category && incoming.grammar_main_category)
             existing.grammar_main_category = incoming.grammar_main_category;
           if (!existing.grammar_sub_category && incoming.grammar_sub_category)
