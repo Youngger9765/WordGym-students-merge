@@ -89,7 +89,15 @@ export const HomePage: React.FC<HomePageProps> = ({ words }) => {
         <TextbookFilters
           filters={filters.textbook}
           updateFilter={(key, value) => updateFilter('textbook', key, value)}
-          dataset={{ textbook_index: words.flatMap(word => word.textbook_index) }}
+          dataset={{ textbook_index: words.flatMap(word => word.textbook_index || [])
+            .filter((item): item is { version: string; vol: string; lesson: string } => item !== undefined)
+            .map(item => ({
+              name: `${item.version} Vol ${item.vol} L${item.lesson}`,
+              words: [],
+              version: item.version,
+              vol: item.vol,
+              lesson: item.lesson
+            })) }}
         />
       )}
 
@@ -106,7 +114,12 @@ export const HomePage: React.FC<HomePageProps> = ({ words }) => {
           filters={filters.theme}
           updateFilter={(key, value) => updateFilter('theme', key, value)}
           dataset={{
-            theme_index: words.flatMap(word => word.theme_index || []),
+            theme_index: words.flatMap(word => word.theme_index || []).map(item => ({
+              name: `${item.range} - ${item.theme}`,
+              words: [],
+              range: item.range,
+              theme: item.theme
+            })),
             words: words
           }}
         />

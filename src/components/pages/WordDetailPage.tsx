@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { VocabularyWord, POS_LABEL, ExportSections } from '../../types';
+import { VocabularyWord, POS_LABEL, POSType } from '../../types';
 import { useSpeech } from '../../hooks/useSpeech';
 import { useFavorites } from '../../hooks/useFavorites';
 import SpeakerButton from '../ui/SpeakerButton';
@@ -11,7 +11,7 @@ interface WordDetailPageProps {
 export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
   const { speak } = useSpeech();
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
-  const [exportSections, setExportSections] = useState<ExportSections>({
+  const [exportSections, setExportSections] = useState<Record<string, boolean>>({
     pos: true,
     relations: true,
     affix: true
@@ -28,7 +28,7 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
     window.history.back();
   };
 
-  const toggleExportSection = (key: keyof ExportSections) => {
+  const toggleExportSection = (key: string) => {
     setExportSections(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
@@ -41,7 +41,7 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
     lines.push('### 基本資訊');
     if (word.kk_phonetic) lines.push(`- KK音標：${word.kk_phonetic}`);
     if (word.posTags?.length) {
-      const posText = word.posTags.map(p => POS_LABEL[p] || p).join('、');
+      const posText = word.posTags?.map(p => POS_LABEL[p as POSType] || p).join('、') || '';
       lines.push(`- 詞性：${posText}`);
     }
     if (word.level) lines.push(`- Level：${word.level}`);
@@ -90,7 +90,7 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
     }
 
     // Affix section
-    if (exportSections.affix && word.affix_info) {
+    if (exportSections.affix && word.affix_info && typeof word.affix_info === 'object') {
       const affix = word.affix_info;
       if (affix.prefix || affix.root || affix.suffix || affix.meaning || affix.example) {
         lines.push('### 字根字首字尾');
@@ -133,6 +133,9 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
 
   const wordFormsList = getWordFormsList();
   const isFav = isFavorite(word.id);
+
+  // Type guard for affix_info
+  const affixInfo = typeof word.affix_info === 'object' ? word.affix_info : null;
 
   return (
     <div className="bg-gray-50 min-h-screen pb-8">
@@ -191,7 +194,7 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
                 key={idx}
                 className="px-3 py-1 rounded-full text-sm font-medium bg-indigo-50 text-indigo-700"
               >
-                {POS_LABEL[pos] || pos}
+                {POS_LABEL[pos as POSType] || pos}
               </span>
             ))}
             {word.cefr && (
@@ -362,44 +365,44 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
         </div>
 
         {/* Affix card */}
-        {word.affix_info && (word.affix_info.prefix || word.affix_info.root || word.affix_info.suffix) && (
+        {word.affix_info && (affixInfo?.prefix || affixInfo?.root || affixInfo?.suffix) && (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
               {[
-                word.affix_info.prefix && '字首',
-                word.affix_info.suffix && '字尾',
-                word.affix_info.root && '字根'
+                affixInfo?.prefix && '字首',
+                affixInfo?.suffix && '字尾',
+                affixInfo?.root && '字根'
               ].filter(Boolean).join('｜') || '字首｜字尾｜字根'}
             </h2>
             <div className="grid gap-4 md:grid-cols-2">
-              {word.affix_info.prefix && (
+              {affixInfo?.prefix && (
                 <div>
                   <div className="text-xs font-semibold text-gray-500 mb-1">字首</div>
-                  <div className="text-base text-gray-900">{word.affix_info.prefix}</div>
+                  <div className="text-base text-gray-900">{affixInfo?.prefix}</div>
                 </div>
               )}
-              {word.affix_info.suffix && (
+              {affixInfo?.suffix && (
                 <div>
                   <div className="text-xs font-semibold text-gray-500 mb-1">字尾</div>
-                  <div className="text-base text-gray-900">{word.affix_info.suffix}</div>
+                  <div className="text-base text-gray-900">{affixInfo?.suffix}</div>
                 </div>
               )}
-              {word.affix_info.root && (
+              {affixInfo?.root && (
                 <div className="md:col-span-2">
                   <div className="text-xs font-semibold text-gray-500 mb-1">字根</div>
-                  <div className="text-base text-gray-900">{word.affix_info.root}</div>
+                  <div className="text-base text-gray-900">{affixInfo?.root}</div>
                 </div>
               )}
-              {word.affix_info.meaning && (
+              {affixInfo?.meaning && (
                 <div className="md:col-span-2">
                   <div className="text-xs font-semibold text-gray-500 mb-1">意思</div>
-                  <div className="text-base text-gray-900 whitespace-pre-wrap">{word.affix_info.meaning}</div>
+                  <div className="text-base text-gray-900 whitespace-pre-wrap">{affixInfo?.meaning}</div>
                 </div>
               )}
-              {word.affix_info.example && (
+              {affixInfo?.example && (
                 <div className="md:col-span-2">
                   <div className="text-xs font-semibold text-gray-500 mb-1">例子</div>
-                  <div className="text-base text-gray-900 whitespace-pre-wrap">{word.affix_info.example}</div>
+                  <div className="text-base text-gray-900 whitespace-pre-wrap">{affixInfo?.example}</div>
                 </div>
               )}
             </div>

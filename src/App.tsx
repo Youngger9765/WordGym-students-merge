@@ -3,7 +3,9 @@ import { useHashRoute } from './hooks/useHashRoute';
 import { HomePage } from './components/pages/HomePage';
 import { FavoritesPage } from './components/pages/FavoritesPage';
 import { QuizPage } from './components/pages/QuizPage';
-import { QuizHistoryPage } from './components/pages/QuizHistoryPage';
+import QuizHistoryPage from './components/pages/QuizHistoryPage';
+import MultipleChoiceQuiz from './components/quiz/MultipleChoiceQuiz';
+import FlashcardQuiz from './components/quiz/FlashcardQuiz';
 import { WordDetailPage } from './components/pages/WordDetailPage';
 import { Shell } from './components/layout/Shell';
 import { WelcomeModal } from './components/modals/WelcomeModal';
@@ -155,16 +157,20 @@ function App() {
 
   // Get current route for Shell
   const getRoute = () => {
-    if (hash.startsWith('#/quiz')) return 'quiz';
-    if (hash.startsWith('#/favorites')) return 'favorites';
-    if (hash.startsWith('#/word/')) return 'word';
+    const [basePath] = hash.split('?');
+    if (basePath.startsWith('#/quiz') || basePath.startsWith('#/multiple-choice-quiz') || basePath.startsWith('#/flashcard-quiz')) return 'quiz';
+    if (basePath.startsWith('#/favorites')) return 'favorites';
+    if (basePath.startsWith('#/word/')) return 'word';
     return 'home';
   };
 
   const renderContent = () => {
+    // Extract base path and query params from hash
+    const [basePath] = hash.split('?');
+
     // Word detail page
-    if (hash.startsWith('#/word/')) {
-      const param = hash.replace('#/word/', '');
+    if (basePath.startsWith('#/word/')) {
+      const param = basePath.replace('#/word/', '');
       // Try to parse as ID first, otherwise treat as word text
       const wordId = parseInt(param);
       let word: typeof data[0] | undefined;
@@ -193,7 +199,7 @@ function App() {
       return <WordDetailPage word={word} />;
     }
 
-    switch (hash) {
+    switch (basePath) {
       case '#/':
       case '':
         return <HomePage words={data} />;
@@ -201,6 +207,10 @@ function App() {
         return <FavoritesPage words={data} />;
       case '#/quiz':
         return <QuizPage words={data} />;
+      case '#/multiple-choice-quiz':
+        return <MultipleChoiceQuiz words={data} />;
+      case '#/flashcard-quiz':
+        return <FlashcardQuiz words={data} />;
       case '#/quiz-history':
         return <QuizHistoryPage />;
       default:

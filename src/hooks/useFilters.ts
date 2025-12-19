@@ -16,8 +16,8 @@ export function useFilters(initialWords: VocabularyWord[] = [], initialOptions?:
         ? word.english_word.toLowerCase().includes(filterOptions.searchTerm.toLowerCase())
         : true;
 
-      const matchesPOS = filterOptions.posFilter === 'all'
-        || (word.posTags?.[0] || '').toLowerCase() === filterOptions.posFilter.toLowerCase();
+      const matchesPOS = filterOptions?.posFilter === 'all'
+        || (word.posTags?.[0] || '').toLowerCase() === filterOptions?.posFilter?.toLowerCase();
 
       const matchesLevel = !filterOptions.levelFilter
         || word.level === filterOptions.levelFilter;
@@ -30,25 +30,25 @@ export function useFilters(initialWords: VocabularyWord[] = [], initialOptions?:
   }, [initialWords, filterOptions]);
 
   const setSearchTerm = (term: string) => {
-    setFilterOptions(prev => ({ ...prev, searchTerm: term }));
+    setFilterOptions((prev: FilterOptions) => ({ ...prev, searchTerm: term }));
   };
 
   const setPosFilter = (pos: string) => {
-    setFilterOptions(prev => ({ ...prev, posFilter: pos as any }));
+    setFilterOptions((prev: FilterOptions) => ({ ...prev, posFilter: pos }));
   };
 
   const setLevelFilter = (level: string) => {
-    setFilterOptions(prev => ({ ...prev, levelFilter: level }));
+    setFilterOptions((prev: FilterOptions) => ({ ...prev, levelFilter: level }));
   };
 
   const setThemeFilter = (theme: string) => {
-    setFilterOptions(prev => ({ ...prev, themeFilter: theme }));
+    setFilterOptions((prev: FilterOptions) => ({ ...prev, themeFilter: theme }));
   };
 
   return {
     filteredWords,
     searchTerm: filterOptions.searchTerm,
-    posFilter: filterOptions.posFilter,
+    posFilter: filterOptions?.posFilter,
     levelFilter: filterOptions.levelFilter,
     themeFilter: filterOptions.themeFilter,
     setSearchTerm,

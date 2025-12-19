@@ -131,22 +131,22 @@ export function categorizeWordForms(forms: string[], baseWord: string): WordForm
     }
     // Check for idioms (contains spaces)
     else if (f.includes(' ')) {
-      detail.idiom.push(f);
+      detail.idiom?.push(f);
     }
     // Check for compounds (hyphenated or contains base word)
     else if (f.includes('-') || fLower.includes(lower)) {
-      detail.compound.push(f);
+      detail.compound?.push(f);
     }
     // Everything else is derivation
     else {
-      detail.derivation.push(f);
+      detail.derivation?.push(f);
     }
   });
 
   detail.base = dedupeList(detail.base);
-  detail.idiom = dedupeList(detail.idiom);
-  detail.compound = dedupeList(detail.compound);
-  detail.derivation = dedupeList(detail.derivation);
+  detail.idiom = dedupeList(detail.idiom || []) || [];
+  detail.compound = dedupeList(detail.compound || []) || [];
+  detail.derivation = dedupeList(detail.derivation || []) || [];
 
   return detail;
 }
@@ -178,9 +178,9 @@ export function normalizeWordFormsDetail(
 
   const categorized = categorizeWordForms(remaining, baseWord);
   if (!detail.base.length) detail.base = categorized.base;
-  if (!detail.idiom.length) detail.idiom = categorized.idiom;
-  if (!detail.compound.length) detail.compound = categorized.compound;
-  if (!detail.derivation.length) detail.derivation = categorized.derivation;
+  if (!detail.idiom?.length) detail.idiom = categorized.idiom || [];
+  if (!detail.compound?.length) detail.compound = categorized.compound || [];
+  if (!detail.derivation?.length) detail.derivation = categorized.derivation || [];
 
   return detail;
 }
@@ -205,12 +205,12 @@ export function mergeWordFormsDetail(
   if (!source) return base;
 
   base.base = dedupeList([...base.base, ...(source.base || [])]);
-  base.idiom = dedupeList([...base.idiom, ...(source.idiom || [])]);
-  base.compound = dedupeList([...base.compound, ...(source.compound || [])]);
+  base.idiom = dedupeList([...(base.idiom || []), ...(source.idiom || [])]) || [];
+  base.compound = dedupeList([...(base.compound || []), ...(source.compound || [])]) || [];
   base.derivation = dedupeList([
-    ...base.derivation,
+    ...(base.derivation || []),
     ...(source.derivation || (source as any).other || [])
-  ]);
+  ]) || [];
 
   return base;
 }
@@ -219,11 +219,11 @@ export function mergeWordFormsDetail(
  * Merge affix info from source into target
  */
 export function mergeAffixInfo(
-  target: { affix_info?: AffixInfo },
+  target: { affix_info?: string | AffixInfo },
   source: AffixInfo | undefined
 ): void {
   if (!source) return;
-  if (!target.affix_info) {
+  if (!target.affix_info || typeof target.affix_info === 'string') {
     target.affix_info = { prefix: '', root: '', suffix: '', meaning: '', example: '' };
   }
 

@@ -1,100 +1,177 @@
-import React, { useState } from 'react';
-import { VocabularyWord } from '../../types';
+import React, { useState, useMemo } from 'react';
+import { useHashRoute } from '../../hooks/useHashRoute';
 import { useQuizHistory } from '../../hooks/useQuizHistory';
+import { VocabularyWord, QuizDifficulty } from '../../types';
+import QuizCompletionScreen from './QuizCompletionScreen';
 
 interface FlashcardQuizProps {
   words: VocabularyWord[];
 }
 
-export const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
+  const { hash, push } = useHashRoute();
   const { addQuizRecord } = useQuizHistory();
 
-  const currentWord = words[currentIndex];
+  // Extract word IDs from hash
+  const wordIds = useMemo(() => {
+    const queryString = hash.split('?')[1];
+    if (!queryString) return [];
+    const params = new URLSearchParams(queryString);
+    const idsParam = params.get('wordIds');
+    if (!idsParam) return [];
+    return idsParam.split(',').map(Number);
+  }, [hash]);
 
-  const handleSelfJudgment = (wasCorrect: boolean) => {
-    if (wasCorrect) {
-      setScore(prev => prev + 1);
+  // Filter words based on IDs
+  const quizWords = useMemo(() =>
+    wordIds.length > 0
+      ? words.filter(word => wordIds.includes(word.id))
+      : words
+  , [words, wordIds]);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [quizEnded, setQuizEnded] = useState(false);
+
+  const [learning, setLearning] = useState(0);
+  const [mastered, setMastered] = useState(0);
+  const [skippedWords, setSkippedWords] = useState<VocabularyWord[]>([]);
+
+  const currentWord = quizWords[currentIndex] || {} as VocabularyWord;
+
+  const handleCardInteraction = (known: boolean) => {
+    if (known) {
+      setMastered(prev => prev + 1);
+    } else {
+      setLearning(prev => prev + 1);
+      setSkippedWords(prev => [...prev, currentWord]);
     }
 
-    if (currentIndex < words.length - 1) {
+    // Move to next word
+    if (currentIndex < quizWords.length - 1) {
       setCurrentIndex(prev => prev + 1);
       setIsFlipped(false);
     } else {
-      setShowResult(true);
-      addQuizRecord({
-        quizType: 'flashcard',
-        totalQuestions: words.length,
-        correctAnswers: score + (wasCorrect ? 1 : 0),
-        timestamp: Date.now()
-      });
+      // Complete quiz
+      const quizRecord = {
+        quizType: 'flashcard' as const,
+        totalQuestions: quizWords.length,
+        correctAnswers: mastered,
+        timestamp: Date.now(),
+        words: wordIds.map(String),
+        difficulty: quizWords.length > 15
+          ? 'hard'
+          : quizWords.length > 10
+            ? 'medium'
+            : 'easy' as QuizDifficulty,
+        score: (mastered / quizWords.length) * 100,
+        wrong: learning,
+        learning,
+        mastered
+      };
+
+      addQuizRecord(quizRecord);
+      setQuizEnded(true);
     }
   };
 
-  if (showResult) {
+  const restartQuiz = () => {
+    setCurrentIndex(0);
+    setLearning(0);
+    setMastered(0);
+    setSkippedWords([]);
+    setIsFlipped(false);
+    setQuizEnded(false);
+  };
+
+  if (quizWords.length === 0) {
+    return <div>No words available for quiz</div>;
+  }
+
+  if (quizEnded) {
     return (
-      <div className="text-center p-6">
-        <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
-        <p className="text-lg">
-          You scored {score} out of {words.length}
-        </p>
-        <button
-          className="mt-4 bg-blue-500 text-white px-6 py-2 rounded"
-          // TODO: Implement reset or return to quiz config
-        >
-          Return to Quiz Configuration
-        </button>
-      </div>
+      <QuizCompletionScreen
+        type="flashcard"
+        stats={{
+          correct: mastered,
+          wrong: 0,
+          learning,
+          mastered,
+          totalQuestions: quizWords.length
+        }}
+        words={skippedWords}
+        onRestart={restartQuiz}
+        onClose={() => push('#/quiz')}
+      />
     );
   }
 
   return (
-    <div className="container mx-auto p-6 max-w-md">
-      <div className="mb-4 text-center">
-        <h2 className="text-xl font-semibold">
-          {`Flashcard ${currentIndex + 1} of ${words.length}`}
-        </h2>
+    <div className="flashcard-quiz container mx-auto p-6 max-w-md">
+      <div className="progress mb-4 text-center">
+        Card {currentIndex + 1} / {quizWords.length}
       </div>
 
       <div
-        className={`flashcard-container ${isFlipped ? 'is-flipped' : ''}`}
+        className={`flashcard relative w-full h-96 transition-transform duration-500 ${
+          isFlipped ? 'rotate-y-180' : ''
+        }`}
         onClick={() => setIsFlipped(!isFlipped)}
       >
-        <div className="flashcard">
-          <div className="flashcard-front bg-white shadow rounded-lg p-6 text-center cursor-pointer">
-            <h3 className="text-2xl font-bold">{currentWord.english_word}</h3>
-            <p className="text-gray-500 mt-2">{currentWord.kk_phonetic}</p>
-          </div>
-          <div className="flashcard-back bg-gray-100 shadow rounded-lg p-6 text-center cursor-pointer">
-            <h3 className="text-2xl font-bold">{currentWord.chinese_definition}</h3>
-            <p className="text-gray-500 mt-2">{currentWord.example_sentence}</p>
+        <div
+          className={`absolute w-full h-full bg-white border rounded-lg shadow-lg p-6 flex items-center justify-center text-2xl text-center transition-transform duration-500
+            ${!isFlipped ? 'rotate-y-0' : 'rotate-y-180 hidden'}
+          `}
+        >
+          {currentWord.english}
+        </div>
+
+        <div
+          className={`absolute w-full h-full bg-blue-100 border rounded-lg shadow-lg p-6 flex flex-col items-center justify-center text-lg text-center transition-transform duration-500
+            ${isFlipped ? 'rotate-y-0' : 'rotate-y-180 hidden'}
+          `}
+        >
+          <div className="mb-4">
+            <p className="font-bold text-xl">{currentWord.chinese_definition}</p>
+            {currentWord.languageExamples && currentWord.languageExamples.length > 0 && (
+              <p className="mt-2 italic text-gray-600">
+                {currentWord.languageExamples[0]}
+              </p>
+            )}
           </div>
         </div>
       </div>
 
       {isFlipped && (
-        <div className="mt-6 flex justify-center space-x-4">
+        <div className="quiz-actions mt-6 grid grid-cols-2 gap-4">
           <button
-            onClick={() => handleSelfJudgment(true)}
-            className="bg-green-500 text-white px-6 py-2 rounded"
+            onClick={() => handleCardInteraction(false)}
+            className="p-4 bg-red-500 text-white rounded-lg hover:bg-red-600"
           >
-            I knew it
+            不熟 (Learning)
           </button>
           <button
-            onClick={() => handleSelfJudgment(false)}
-            className="bg-red-500 text-white px-6 py-2 rounded"
+            onClick={() => handleCardInteraction(true)}
+            className="p-4 bg-green-500 text-white rounded-lg hover:bg-green-600"
           >
-            I didn't know
+            記得 (Mastered)
           </button>
         </div>
       )}
 
-      <div className="mt-6 text-center">
-        <p>Score: {score} / {words.length}</p>
-      </div>
+      <style>{`
+        .rotate-y-0 {
+          transform: rotateY(0deg);
+        }
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+        .hidden {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };
+
+export default FlashcardQuiz;

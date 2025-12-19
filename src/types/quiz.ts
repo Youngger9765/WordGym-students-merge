@@ -1,34 +1,45 @@
-import { VocabularyWord } from './index';
+import { VocabularyWord, QuizDifficulty } from './index';
 
 export interface QuizRecord {
-  id: string;
-  quizType: 'multiple_choice' | 'flashcard' | 'writing';
+  id?: string;
+  quizType: 'multiple_choice' | 'flashcard';
   totalQuestions: number;
   correctAnswers: number;
   timestamp: number;
-  words?: string[]; // Optional list of word IDs used in the quiz
-  difficulty?: 'easy' | 'medium' | 'hard';
-}
-
-export interface QuizQuestion {
-  word: VocabularyWord;
-  options?: string[];
-  correctAnswer: string;
-  userAnswer?: string;
+  date?: number;
+  words: string[];
+  difficulty: QuizDifficulty;
+  score: number;
+  wrong: number;
+  learning: number;
+  mastered: number;
+  correct?: number;
 }
 
 export interface QuizConfiguration {
-  type: 'multiple_choice' | 'flashcard' | 'writing';
-  numberOfQuestions: number;
-  difficulty: 'easy' | 'medium' | 'hard';
-  theme?: string;
-  pos?: string;
+  type: 'multiple_choice' | 'flashcard';
+  difficulty: QuizDifficulty;
+  category?: 'textbook' | 'theme' | 'all';
 }
 
-export interface QuizProgress {
-  currentQuestionIndex: number;
-  score: number;
-  completed: boolean;
-  startTime?: number;
-  endTime?: number;
+export interface QuizCompletionStats {
+  correct: number;
+  wrong: number;
+  learning: number;
+  mastered: number;
+  totalQuestions: number;
 }
+
+export interface QuizCompletionProps {
+  type: 'multiple_choice' | 'flashcard';
+  stats: QuizCompletionStats;
+  words: VocabularyWord[];
+  onRestart: () => void;
+  onClose?: () => void;
+}
+
+export const QuizTypes = {
+  multiple_choice: '選擇題測驗',
+  flashcard: '閃卡測驗',
+  writing: '寫作測驗'
+};

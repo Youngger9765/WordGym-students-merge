@@ -3,7 +3,7 @@
  * Migrated from index.html lines 256-413
  */
 
-import type { POSType, VocabularyWord, ExportSections } from '../types';
+import type { POSType, VocabularyWord } from '../types';
 import { POS_LABEL } from '../types';
 
 /**
@@ -101,7 +101,7 @@ export function wordToMarkdown(
   word: VocabularyWord,
   selPos: POSType | null = null,
   extras: Partial<VocabularyWord> = {},
-  sections: ExportSections = { pos: true, relations: true, affix: true }
+  sections: Record<string, boolean> = { pos: true, relations: true, affix: true }
 ): string {
   const lines: string[] = [];
 

@@ -343,6 +343,7 @@ export function useDataset(initialData: VocabularyWord[] = []) {
         const incoming: any = ensureWordFormsDetail({
           id: null,
           english_word: english,
+          english: english,  // Add english field for quiz components
           kk_phonetic: raw.kk_phonetic || raw.KK || raw['KK音標'] || '',
           chinese_definition: raw.chinese_definition || raw['中譯'] || raw['中文'] || '',
           posTags: tags,
@@ -402,11 +403,11 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           // Check if incoming data is more complete (before merging posTags)
           const shouldUseIncomingDefinition = incoming.chinese_definition && (
             !existing.chinese_definition ||
-            (incoming.posTags.length > existing.posTags.length)
+            (incoming.posTags.length > (existing.posTags?.length || 0))
           );
 
           // If existing only has 'other' and incoming has real POS, replace it
-          const existingOnlyHasOther = existing.posTags.length === 1 && existing.posTags[0] === 'other';
+          const existingOnlyHasOther = (existing.posTags?.length || 0) === 1 && existing.posTags?.[0] === 'other';
           const incomingHasRealPOS = incoming.posTags.length > 0 &&
                                       (incoming.posTags.length > 1 || incoming.posTags[0] !== 'other');
 
@@ -425,6 +426,9 @@ export function useDataset(initialData: VocabularyWord[] = []) {
           applyThemeOrder(existing as any, combinedThemes, counters);
 
           if (!existing.kk_phonetic && incoming.kk_phonetic) existing.kk_phonetic = incoming.kk_phonetic;
+
+          // Ensure english field is set (for quiz components)
+          if (!existing.english && existing.english_word) existing.english = existing.english_word;
 
           // Use chinese_definition from the entry with more POS tags (more complete data)
           if (shouldUseIncomingDefinition) {
@@ -463,20 +467,32 @@ export function useDataset(initialData: VocabularyWord[] = []) {
             existing.example_translation_2 = incoming.example_translation_2;
           }
 
-          existing.word_forms_detail = mergeWordFormsDetail(existing.word_forms_detail, incoming.word_forms_detail);
+          if ('word_forms_detail' in existing && 'word_forms_detail' in incoming) {
+            (existing as any).word_forms_detail = mergeWordFormsDetail(
+              (existing as any).word_forms_detail,
+              (incoming as any).word_forms_detail
+            );
+          }
           if (incoming.word_forms && !existing.word_forms) {
             existing.word_forms = incoming.word_forms;
           }
 
-          existing.derivatives = dedupeList([...(existing.derivatives || []), ...incoming.derivatives]);
+          if ('derivatives' in existing && 'derivatives' in incoming) {
+            (existing as any).derivatives = dedupeList([
+              ...((existing as any).derivatives || []),
+              ...((incoming as any).derivatives || [])
+            ]);
+          }
           existing.synonyms = dedupeList([...(existing.synonyms || []), ...incoming.synonyms]);
           existing.antonyms = dedupeList([...(existing.antonyms || []), ...incoming.antonyms]);
           existing.confusables = dedupeList([...(existing.confusables || []), ...incoming.confusables]);
           existing.phrases = dedupeList([...(existing.phrases || []), ...(incoming.phrases || [])]);
-          mergeAffixInfo(existing, incoming.affix_info);
+          if (incoming.affix_info && typeof incoming.affix_info === 'object') {
+            mergeAffixInfo(existing, incoming.affix_info);
+          }
 
-          if (incoming.videoUrl && !existing.videoUrl) {
-            existing.videoUrl = incoming.videoUrl;
+          if ('videoUrl' in incoming && incoming.videoUrl && !('videoUrl' in existing && existing.videoUrl)) {
+            (existing as any).videoUrl = incoming.videoUrl;
           }
 
           if (incoming.stage && !existing.stage) {

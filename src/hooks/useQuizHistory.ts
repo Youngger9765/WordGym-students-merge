@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { QuizRecord } from '../types/quiz';
 
 const LS_KEY = 'mvp_vocab_quiz_history_v1';
+const MAX_RECORDS = 30;
 
 export function useQuizHistory() {
   const [history, setHistory] = useState<QuizRecord[]>(() => {
@@ -10,15 +11,18 @@ export function useQuizHistory() {
       const raw = localStorage.getItem(LS_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        return Array.isArray(parsed) ? parsed : [];
+        return Array.isArray(parsed) ? parsed.slice(0, MAX_RECORDS) : [];
       }
-    } catch {}
+    } catch (e) {
+      console.error('Failed to parse quiz history:', e);
+    }
     return [];
   });
 
   useEffect(() => {
     try {
-      localStorage.setItem(LS_KEY, JSON.stringify(history));
+      const recordsToSave = history.slice(0, MAX_RECORDS);
+      localStorage.setItem(LS_KEY, JSON.stringify(recordsToSave));
     } catch (e) {
       console.error('Failed to save quiz history:', e);
     }
@@ -29,7 +33,7 @@ export function useQuizHistory() {
       ...record,
       id: uuidv4()
     };
-    setHistory(prev => [newRecord, ...prev]);
+    setHistory(prev => [newRecord, ...prev].slice(0, MAX_RECORDS));
   };
 
   const clearHistory = () => {

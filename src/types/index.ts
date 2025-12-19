@@ -1,256 +1,209 @@
-/**
- * WordGym Complete Type Definitions
- * Migrated from index.html (5542 lines)
- */
+export interface VocabularyWord {
+  id: number;
+  english_word: string;
+  chinese_definition: string;
+  english: string;
+  level?: string;
+  stage?: string;  // Learning stage
+  cefr?: string;  // Common European Framework Reference
 
-// ============= Core Types =============
+  // Optional fields commonly used across the app
+  languageExamples?: string[];
+  textbook_index?: Array<{ version: string; vol: string; lesson: string }>;
+  exam_tags?: string[];
+  theme_index?: Array<{ range: string; theme: string }>;
+  theme?: string;  // Primary theme
+  themes?: string[];
+  version?: string;
+  vol?: string;
+  lesson?: string;
+  range?: string;
+  year?: string;
+  phrases?: string[];
 
-export type POSType =
-  | 'noun'
-  | 'verb'
-  | 'adjective'
-  | 'adverb'
-  | 'pronoun'
-  | 'preposition'
-  | 'conjunction'
-  | 'other';
+  // Grammar and linguistic details
+  kk_phonetic?: string;
+  posTags?: string[];
+  grammar_main_category?: string;
+  grammar_sub_category?: string;
+  grammar_function?: string;
+  applicable_sentence_pattern?: string;
+  word_forms?: string | {
+    base: string[];
+    idiom: string[];
+    compound: string[];
+    derivation: string[];
+  };
+  pos?: POSType;
+
+  // Example and context information
+  example_sentence?: string;
+  example_sentence_2?: string;
+  example_translation?: string;
+  example_translation_2?: string;
+
+  // Lexical relations
+  synonyms?: string[];
+  antonyms?: string[];
+  confusables?: string[];
+  affix_info?: string | {
+    prefix?: string;
+    root?: string;
+    suffix?: string;
+    meaningChange?: string;
+    meaning?: string;
+    example?: string;
+  };
+}
+
+export type POSType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'interjection' | 'pronoun' | 'other';
 
 export const POS_LABEL: Record<POSType, string> = {
   noun: '名詞',
   verb: '動詞',
   adjective: '形容詞',
   adverb: '副詞',
-  pronoun: '代名詞',
-  preposition: '介系詞',
+  preposition: '介係詞',
   conjunction: '連接詞',
+  interjection: '感嘆詞',
+  pronoun: '代名詞',
   other: '其他'
 };
 
-export const ALL_POS: POSType[] = Object.keys(POS_LABEL) as POSType[];
+export type QuizDifficulty = 'easy' | 'medium' | 'hard';
 
-// ============= Theme Types =============
-
-export interface ThemeLabel {
-  [key: string]: string;
+export interface QuizRecord {
+  id?: string;
+  quizType: 'multiple_choice' | 'flashcard';
+  totalQuestions: number;
+  correctAnswers: number;
+  timestamp: number;
+  date?: number;
+  words: string[];
+  difficulty: QuizDifficulty;
+  score: number;
+  wrong: number;
+  learning: number;
+  mastered: number;
+  correct?: number;
 }
 
-export const THEME_LABEL: ThemeLabel = {
-  highschool_climate: '高中氣候',
-  junior_high: '國中單字'
-};
+export interface QuizConfiguration {
+  type: 'multiple_choice' | 'flashcard';
+  difficulty: QuizDifficulty;
+  category?: 'textbook' | 'theme' | 'all';
+}
 
-export const ALL_THEMES = Object.keys(THEME_LABEL);
+export interface TextbookIndexItem {
+  name: string;
+  words: VocabularyWord[];
+  version?: string;
+  vol?: string;
+  lesson?: string;
+}
 
-// ============= Word Forms Detail =============
+export interface ThemeIndexItem {
+  name: string;
+  words: VocabularyWord[];
+  range?: string;
+  theme?: string;
+}
+
+export interface UserSettings {
+  name?: string;
+  level?: string;
+  focusedThemes?: string[];
+  dailyTarget?: number;
+  stage?: string;
+  version?: string;
+}
+
+export interface ExportSections {
+  title: string;
+  content: string;
+  pos?: POSType;
+  relations?: string[];
+  affix?: string;
+  prefix?: string;
+  suffix?: string;
+}
 
 export interface WordFormsDetail {
   base: string[];
-  idiom: string[];
-  compound: string[];
-  derivation: string[];
+  past?: string[];
+  present?: string[];
+  gerund?: string[];
+  idiom?: string[];
+  compound?: string[];
+  derivation?: string[];
 }
-
-// ============= Affix Info =============
 
 export interface AffixInfo {
-  prefix: string;
-  root: string;
-  suffix: string;
-  meaning: string;
-  example: string;
+  prefix?: string;
+  root?: string;
+  suffix?: string;
+  meaningChange?: string;
+  meaning?: string;
+  example?: string;
 }
 
-// ============= Textbook Index =============
+export type NavigationRoute = 'home' | 'favorites' | 'quiz' | 'word' | '404';
 
-export interface TextbookIndexItem {
-  version: string;  // 版本：康軒、龍騰等
-  vol: string;      // 冊次：B1, B2 等
-  lesson: string;   // 課次：L1, L2, U1, U2 等
-}
-
-// ============= Theme Index =============
-
-export interface ThemeIndexItem {
-  range: string;   // 1200 或 800（國中），Level 4/5/6（高中）
-  theme: string;   // family, climate 等主題
-}
-
-// ============= Vocabulary Word =============
-
-export interface VocabularyWord {
-  id: number;
-  english_word: string;
-  kk_phonetic?: string;
-  chinese_definition?: string;
-
-  // POS and Grammar
-  posTags: POSType[];
-  basic_pos?: string;
-  grammar_main_category?: string;
-  grammar_sub_category?: string;
-  grammar_function?: string;
-  applicable_sentence_pattern?: string;
-
-  // Examples (up to 5)
-  example_sentence?: string;
-  example_translation?: string;
-  example_sentence_2?: string;
-  example_translation_2?: string;
-  example_sentence_3?: string;
-  example_translation_3?: string;
-  example_sentence_4?: string;
-  example_translation_4?: string;
-  example_sentence_5?: string;
-  example_translation_5?: string;
-  example_source_2?: string;  // Format: "year\tpart\tsource"
-
-  // Themes and Levels
-  theme?: string;
-  themes: string[];
-  theme_order?: Record<string, number>;
-  level?: string;
-  cefr?: string;
-
-  // Word Forms and Relations
-  word_forms?: string;
-  word_forms_detail: WordFormsDetail;
-  derivatives?: string[];
-  synonyms?: string[];
-  antonyms?: string[];
-  confusables?: string[];
-  phrases?: string[];
-
-  // Affix Information
-  affix_info?: AffixInfo;
-
-  // New Fields for Enhanced Filtering
-  stage?: 'junior' | 'senior' | null;  // 國中/高中
-  textbook_index: TextbookIndexItem[];  // 課本索引陣列
-  exam_tags: string[];                   // 大考標籤（例如：108學測、109會考）
-  theme_index: ThemeIndexItem[];         // 主題索引陣列
-
-  // Multimedia
-  videoUrl?: string;
-}
-
-// ============= User Settings =============
-
-export interface UserSettings {
-  stage: 'junior' | 'senior';  // 學程
-  version: string;              // 課本版本（康軒、翰林、龍騰等）
-}
-
-// ============= Filter Types =============
-
-export interface TextbookFilter {
-  vol?: string;     // 冊次
-  lesson?: string;  // 課次
-}
-
-export interface ExamFilter {
-  year?: string;    // 年份（例如：108學測、109會考）
-}
-
-export interface ThemeFilter {
-  range?: string;   // 程度範圍（1200/800 或 Level 4/5/6）
-  theme?: string;   // 主題分類
-}
+export type CurrentTab = 'exam' | 'theme' | 'textbook';
 
 export interface Filters {
-  textbook: TextbookFilter;
-  exam: ExamFilter;
-  theme: ThemeFilter;
+  exam_tags?: string[];
+  theme_index?: string[];
+  stage?: string;
+  version?: string;
+  pos?: POSType[];
+
+  // Nested objects for tab-specific filters
+  textbook?: { vol?: string; lesson?: string };
+  exam?: { year?: string };
+  theme?: { range?: string; theme?: string };
+
+  // Backward compatibility - keep flat fields
+  vol?: string;
+  lesson?: string;
+  year?: string;
+  range?: string;
+
+  // Other miscellaneous filters
+  cefr?: string[];
 }
 
-export type CurrentTab = 'textbook' | 'exam' | 'theme';
-
-// ============= User Examples =============
+export interface QuizAnswer {
+  word: VocabularyWord;
+  userAnswer: string;
+  userAnswerDefinition?: string;
+  isCorrect: boolean;
+  correctAnswer?: string;
+  question?: string;
+  wordDefinition?: string;
+  sentenceTranslation?: string;
+  wordId?: number;
+}
+export interface FilterOptions {
+  searchTerm?: string;
+  posFilter?: string;
+  levelFilter?: string;
+  themeFilter?: string;
+  textbook?: { vol?: string; lesson?: string };
+  exam?: { year?: string };
+  theme?: { range?: string; theme?: string };
+}
 
 export interface UserExample {
+  id: string;
   sentence: string;
-  translation: string;
-  source: 'user';
+  translation?: string;
+  source: 'user' | 'ai' | 'imported';
   createdAt: string;
 }
 
 export interface UserExamplesStore {
   [wordId: number]: UserExample[];
-}
-
-// ============= Quiz Types =============
-
-export interface QuizAnswer {
-  wordId: number;
-  word: string;
-  correctAnswer: string;
-  userAnswer?: string;
-  isCorrect: boolean;
-  question?: string;
-  translation?: string;
-  wordDefinition?: string;
-  sentenceTranslation?: string;
-  userAnswerDefinition?: string;
-}
-
-export interface QuizRecord {
-  id: string;
-  date: string;
-  type: 'multiple-choice' | 'flashcard';
-  totalQuestions: number;
-  correct: number;
-  wrong: number;
-  learning: number;
-  wrongWords: Array<{
-    wordId: number;
-    word: string;
-    correctAnswer?: string;
-    userAnswer?: string;
-    question?: string;
-    chinese_definition?: string;
-    sentenceTranslation?: string;
-    userAnswerDefinition?: string;
-  }>;
-  learningWords: Array<{
-    wordId: number;
-    word: string;
-  }>;
-  correctWords: number[];
-  duration: number;
-  mode: string | null;
-}
-
-// ============= Google Sheets Config =============
-
-export interface GoogleSheetConfig {
-  name: string;
-  sheetId: string;
-  gid: string;
-  theme: string;
-}
-
-export interface GoogleSheetsConfig {
-  enabled: boolean;
-  showImporter: boolean;
-  sheets: GoogleSheetConfig[];
-}
-
-// ============= CSV Source =============
-
-export interface CSVSource {
-  url?: string;
-  urls?: string[];
-  embeddedText?: string;
-  defaults?: {
-    theme?: string;
-  };
-  limit?: number;
-}
-
-// ============= Import Options =============
-
-export interface ImportOptions {
-  overrideExamples: boolean;
-  replace: boolean;
 }
 
 export interface ImportStats {
@@ -262,7 +215,10 @@ export interface ImportStats {
   totalAfter: number;
 }
 
-// ============= LocalStorage Keys =============
+export interface ImportOptions {
+  overrideExamples?: boolean;
+  replace?: boolean;
+}
 
 export const LS = {
   favorites: 'mvp_vocab_favorites',
@@ -277,41 +233,3 @@ export const LS = {
   filters: 'wordgym_filters_v1',
   quickFilterPos: 'wordgym_quick_filter_pos_v1'
 } as const;
-
-// ============= Export Sections =============
-
-export interface ExportSections {
-  pos: boolean;
-  relations: boolean;
-  affix: boolean;
-}
-
-// ============= Route Types =============
-
-export type RouteType =
-  | 'home'
-  | 'category'
-  | 'word'
-  | 'favorites'
-  | 'quiz-history'
-  | 'quiz';
-
-export interface NavHistory {
-  current: {
-    route: RouteType;
-    param: string | null;
-  };
-  previous: {
-    route: RouteType;
-    param: string | null;
-  } | null;
-}
-
-// ============= Filter Options =============
-
-export interface FilterOptions {
-  searchTerm: string;
-  posFilter: POSType | 'all';
-  levelFilter: string;
-  themeFilter: string;
-}

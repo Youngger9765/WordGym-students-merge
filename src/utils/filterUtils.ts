@@ -54,7 +54,8 @@ export function getFilteredWords(
   // 2. Tab-specific Filters
   if (currentTab === 'textbook') {
     // Textbook Tab: Filter by version, vol, and lesson
-    const { vol, lesson } = filters.textbook;
+    const vol = filters.textbook?.vol;
+    const lesson = filters.textbook?.lesson;
 
     if (userSettings && userSettings.version) {
       // Sample textbook_index for debugging
@@ -80,7 +81,7 @@ export function getFilteredWords(
     }
   } else if (currentTab === 'exam') {
     // Exam Tab: Filter by exam tags
-    const { year } = filters.exam;
+    const year = filters.exam?.year;
 
     if (year) {
       filtered = filtered.filter(word => {
@@ -105,7 +106,8 @@ export function getFilteredWords(
     console.log(`Exam filter applied (year: ${year}): ${filtered.length} words`);
   } else if (currentTab === 'theme') {
     // Theme Tab: Filter by range and theme
-    const { range, theme } = filters.theme;
+    const range = filters.theme?.range;
+    const theme = filters.theme?.theme;
 
     if (range || theme) {
       filtered = filtered.filter(word => {

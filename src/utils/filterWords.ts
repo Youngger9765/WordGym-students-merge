@@ -23,42 +23,42 @@ export function filterWords(
     // Tab-specific filters
     switch (currentTab) {
       case 'textbook':
-        if (word.textbook_index.length === 0) return false;
-        const textbookMatch = word.textbook_index.some(item => {
+        if (!word.textbook_index || word.textbook_index.length === 0) return false;
+        const textbookMatch = word.textbook_index?.some(item => {
           if (!item) return false;
           let match = true;
           // Only check if filter is set
           if (userSettings.version && item.version !== userSettings.version) match = false;
-          if (filters.textbook.vol && item.vol !== filters.textbook.vol) match = false;
-          if (filters.textbook.lesson && item.lesson !== filters.textbook.lesson) match = false;
+          if (filters.textbook?.vol && item.vol !== filters.textbook.vol) match = false;
+          if (filters.textbook?.lesson && item.lesson !== filters.textbook.lesson) match = false;
           return match;
         });
         if (!textbookMatch) return false;
         break;
 
       case 'exam':
-        const examMatch = word.exam_tags.includes(filters.exam.year || '');
+        const examMatch = word.exam_tags?.includes(filters.exam?.year || '') || false;
         if (!examMatch) return false;
         break;
 
       case 'theme':
         if (userSettings.stage === 'junior') {
           // Junior: Use theme_index
-          const themeMatch = word.theme_index.some(
+          const themeMatch = word.theme_index?.some(
             item =>
-              item.range === filters.theme.range &&
-              (filters.theme.theme ? item.theme === filters.theme.theme : true)
+              item.range === filters.theme?.range &&
+              (filters.theme?.theme ? item.theme === filters.theme.theme : true)
           );
           if (!themeMatch) return false;
         } else {
           // Senior: Use level and themes
-          if (filters.theme.range) {
+          if (filters.theme?.range) {
             // Check level match
             if (String(word.level || '').trim() !== String(filters.theme.range).trim()) {
               return false;
             }
           }
-          if (filters.theme.theme) {
+          if (filters.theme?.theme) {
             // Check if word has this theme
             if (!word.themes || !word.themes.includes(filters.theme.theme)) {
               return false;
@@ -70,7 +70,7 @@ export function filterWords(
 
     // POS filter
     if (quickFilterPos !== 'all') {
-      const posMatch = word.posTags.includes(quickFilterPos);
+      const posMatch = word.posTags?.includes(quickFilterPos) || false;
       if (!posMatch) return false;
     }
 

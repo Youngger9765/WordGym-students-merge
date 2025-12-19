@@ -4,37 +4,24 @@ import { QuizRecord, QuizAnswer } from '../types';
  * Create a QuizRecord from quiz answers
  */
 export function createQuizRecord(
-  type: 'multiple-choice' | 'flashcard',
+  type: 'multiple_choice' | 'flashcard',
   answers: QuizAnswer[],
-  mode: string | null = null
-): QuizRecord {
+  _mode: string | null = null
+): Omit<QuizRecord, 'id'> {
   const correct = answers.filter(a => a.isCorrect).length;
   const wrong = answers.filter(a => !a.isCorrect).length;
 
   return {
-    id: `quiz-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-    date: new Date().toISOString(),
-    type,
+    quizType: type,
     totalQuestions: answers.length,
-    correct,
+    correctAnswers: correct,
+    timestamp: Date.now(),
+    words: answers.map(a => String(a.wordId || 0)),
+    difficulty: answers.length > 15 ? 'hard' : answers.length > 10 ? 'medium' : 'easy',
+    score: (correct / answers.length) * 100,
     wrong,
-    learning: 0, // Not used in new implementation
-    wrongWords: answers
-      .filter(a => !a.isCorrect)
-      .map(a => ({
-        wordId: a.wordId,
-        word: a.word,
-        correctAnswer: a.correctAnswer,
-        userAnswer: a.userAnswer,
-        question: a.question,
-        chinese_definition: a.wordDefinition,
-        sentenceTranslation: a.sentenceTranslation,
-        userAnswerDefinition: a.userAnswerDefinition
-      })),
-    learningWords: [],
-    correctWords: answers.filter(a => a.isCorrect).map(a => a.wordId),
-    duration: 0, // Can be calculated if needed
-    mode
+    learning: 0,
+    mastered: correct
   };
 }
 
@@ -43,19 +30,19 @@ export function createQuizRecord(
  */
 export function getQuizAccuracy(record: QuizRecord): number {
   if (record.totalQuestions === 0) return 0;
-  return (record.correct / record.totalQuestions) * 100;
+  return ((record.correctAnswers ?? 0) / record.totalQuestions) * 100;
 }
 
 /**
  * Get timestamp from QuizRecord
  */
-export function getQuizTimestamp(record: QuizRecord): string {
-  return record.date;
+export function getQuizTimestamp(record: QuizRecord): number {
+  return record.timestamp;
 }
 
 /**
  * Get quiz type display name
  */
-export function getQuizTypeLabel(type: 'multiple-choice' | 'flashcard'): string {
-  return type === 'multiple-choice' ? '选择题' : '闪卡';
+export function getQuizTypeLabel(type: 'multiple_choice' | 'flashcard'): string {
+  return type === 'multiple_choice' ? '选择题' : '闪卡';
 }

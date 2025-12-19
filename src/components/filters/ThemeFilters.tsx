@@ -68,12 +68,12 @@ export const ThemeFilters: React.FC<ThemeFiltersProps> = ({
   }, [availableRanges, filters.range, updateFilter]);
 
   React.useEffect(() => {
-    if (availableThemes.length > 0) {
-      if (!filters.theme || !availableThemes.includes(filters.theme)) {
+    if (availableThemes.length > 0 && availableThemes[0]) {
+      if (!filters?.theme || !availableThemes.includes(filters.theme)) {
         updateFilter('theme', availableThemes[0]);
       }
     }
-  }, [availableThemes, filters.theme, updateFilter]);
+  }, [availableThemes, filters, updateFilter]);
 
   return (
     <div className="mb-6 grid gap-4 md:grid-cols-2">
