@@ -191,11 +191,23 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
 
           {/* Tags */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
+            {/* Stage */}
+            {word.stage && (
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-slate-50 text-slate-700">
+                {word.stage === '高中' || word.stage === 'senior' ? '高中' :
+                 word.stage === '國中' || word.stage === 'junior' ? '國中' :
+                 word.stage === '國小' || word.stage === 'beginner' ? '國小' : word.stage}
+              </span>
+            )}
+
+            {/* Level */}
             {word.level && (
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-amber-50 text-amber-700">
                 Level {word.level}
               </span>
             )}
+
+            {/* POS Tags */}
             {word.posTags?.map((pos, idx) => (
               <span
                 key={idx}
@@ -204,11 +216,43 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
                 {POS_LABEL[pos as POSType] || pos}
               </span>
             ))}
+
+            {/* CEFR */}
             {word.cefr && (
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-50 text-purple-700">
                 {word.cefr}
               </span>
             )}
+
+            {/* Textbook Index */}
+            {word.textbook_index && word.textbook_index.length > 0 && word.textbook_index.map((item, idx) => (
+              <span
+                key={`tb-${idx}`}
+                className="px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700"
+              >
+                {item.version} {item.vol} {item.lesson}
+              </span>
+            ))}
+
+            {/* Exam Tags */}
+            {word.exam_tags && word.exam_tags.length > 0 && word.exam_tags.map((tag, idx) => (
+              <span
+                key={`exam-${idx}`}
+                className="px-3 py-1 rounded-full text-sm font-medium bg-red-50 text-red-700"
+              >
+                {tag}
+              </span>
+            ))}
+
+            {/* Theme Index */}
+            {word.theme_index && word.theme_index.length > 0 && word.theme_index.map((item, idx) => (
+              <span
+                key={`theme-${idx}`}
+                className="px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700"
+              >
+                {item.range} - {item.theme}
+              </span>
+            ))}
           </div>
         </div>
 
