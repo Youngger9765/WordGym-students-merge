@@ -1,5 +1,5 @@
-import React from 'react';
-import { VocabularyWord } from '../../types';
+import React, { useState } from 'react';
+import { VocabularyWord, POS_LABEL, ExportSections } from '../../types';
 import { useSpeech } from '../../hooks/useSpeech';
 import { useFavorites } from '../../hooks/useFavorites';
 import SpeakerButton from '../ui/SpeakerButton';
@@ -11,62 +11,450 @@ interface WordDetailPageProps {
 export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
   const { speak } = useSpeech();
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
+  const [exportSections, setExportSections] = useState<ExportSections>({
+    pos: true,
+    relations: true,
+    affix: true
+  });
+  const [mdPreview, setMdPreview] = useState('');
+  const [mdStatus, setMdStatus] = useState('');
+  const [showMdPreview, setShowMdPreview] = useState(false);
 
   const handleToggleFavorite = () => {
     isFavorite(word.id) ? removeFavorite(word.id) : addFavorite(word.id);
   };
 
+  const handleBack = () => {
+    window.history.back();
+  };
+
+  const toggleExportSection = (key: keyof ExportSections) => {
+    setExportSections(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const wordToMarkdown = (): string => {
+    const lines: string[] = [];
+    lines.push(`## ${word.english_word}`);
+    lines.push('');
+
+    // Basic info
+    lines.push('### 基本資訊');
+    if (word.kk_phonetic) lines.push(`- KK音標：${word.kk_phonetic}`);
+    if (word.posTags?.length) {
+      const posText = word.posTags.map(p => POS_LABEL[p] || p).join('、');
+      lines.push(`- 詞性：${posText}`);
+    }
+    if (word.level) lines.push(`- Level：${word.level}`);
+    if (word.chinese_definition) lines.push(`- 中文定義：${word.chinese_definition}`);
+    lines.push('');
+
+    // Examples
+    if (word.example_sentence || word.example_sentence_2) {
+      lines.push('### 例句');
+      if (word.example_sentence) {
+        lines.push(`- 例句1：${word.example_sentence}`);
+        if (word.example_translation) lines.push(`  → ${word.example_translation}`);
+      }
+      if (word.example_sentence_2) {
+        lines.push(`- 例句2：${word.example_sentence_2}`);
+        if (word.example_translation_2) lines.push(`  → ${word.example_translation_2}`);
+      }
+      lines.push('');
+    }
+
+    // POS section
+    if (exportSections.pos) {
+      const wordForms = word.word_forms ? String(word.word_forms).split('\n').filter(Boolean) : [];
+      if (wordForms.length || word.grammar_sub_category || word.grammar_function) {
+        lines.push('### 詞性');
+        if (word.grammar_sub_category) lines.push(`- 子分類：${word.grammar_sub_category}`);
+        if (word.grammar_function) lines.push(`- 語法功能：${word.grammar_function}`);
+        if (wordForms.length) lines.push(`- 詞性變化：${wordForms.join('、')}`);
+        lines.push('');
+      }
+    }
+
+    // Relations section
+    if (exportSections.relations) {
+      const hasSynonyms = word.synonyms && word.synonyms.length > 0;
+      const hasAntonyms = word.antonyms && word.antonyms.length > 0;
+      const hasConfusables = word.confusables && word.confusables.length > 0;
+
+      if (hasSynonyms || hasAntonyms || hasConfusables) {
+        lines.push('### 同義／反義／易混淆');
+        if (hasSynonyms) lines.push(`- 同義字：${word.synonyms!.join('、')}`);
+        if (hasAntonyms) lines.push(`- 反義字：${word.antonyms!.join('、')}`);
+        if (hasConfusables) lines.push(`- 易混淆字：${word.confusables!.join('、')}`);
+        lines.push('');
+      }
+    }
+
+    // Affix section
+    if (exportSections.affix && word.affix_info) {
+      const affix = word.affix_info;
+      if (affix.prefix || affix.root || affix.suffix || affix.meaning || affix.example) {
+        lines.push('### 字根字首字尾');
+        if (affix.prefix) lines.push(`- 字首：${affix.prefix}`);
+        if (affix.root) lines.push(`- 字根：${affix.root}`);
+        if (affix.suffix) lines.push(`- 字尾：${affix.suffix}`);
+        if (affix.meaning) lines.push(`- 字源意涵：${affix.meaning}`);
+        if (affix.example) lines.push(`- 延伸例子：${affix.example}`);
+        lines.push('');
+      }
+    }
+
+    return lines.join('\n');
+  };
+
+  const handleOutput = () => {
+    const md = wordToMarkdown();
+    setMdPreview(md);
+    if (!md || !md.trim()) {
+      setMdStatus('無匯出內容');
+      setShowMdPreview(false);
+    } else {
+      setMdStatus('已產生 Markdown');
+      setShowMdPreview(true);
+    }
+  };
+
+  // Parse word forms for display
+  const getWordFormsList = () => {
+    if (!word.word_forms) return [];
+    return String(word.word_forms).split('\n').filter(line => line.trim());
+  };
+
+  // Check if relations exist
+  const hasRelations = () => {
+    return (word.synonyms && word.synonyms.length > 0) ||
+           (word.antonyms && word.antonyms.length > 0) ||
+           (word.confusables && word.confusables.length > 0);
+  };
+
+  const wordFormsList = getWordFormsList();
+  const isFav = isFavorite(word.id);
+
   return (
-    <div className="container mx-auto p-6 max-w-xl">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-3xl font-bold">{word.english_word}</h1>
-          <p className="text-gray-600">{word.kk_phonetic}</p>
+    <div className="bg-gray-50 min-h-screen pb-8">
+      <div className="max-w-5xl mx-auto px-4 pt-6">
+        {/* Top action bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleBack}
+              className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-800 text-sm font-medium transition duration-150 min-h-[44px] flex items-center"
+            >
+              ← 返回
+            </button>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={handleToggleFavorite}
+              className={`px-4 py-2 rounded-lg font-medium transition duration-150 min-h-[44px] ${
+                isFav
+                  ? 'bg-red-500 text-white hover:bg-red-600'
+                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              }`}
+            >
+              {isFav ? '移除重點訓練' : '加入重點訓練'}
+            </button>
+          </div>
         </div>
-        <div className="flex space-x-2">
-          <SpeakerButton onClick={() => speak(word.english_word)} />
-          <button
-            onClick={handleToggleFavorite}
-            className={`p-2 rounded ${
-              isFavorite(word.id)
-                ? 'bg-red-500 text-white'
-                : 'bg-gray-200 text-gray-700'
-            }`}
-          >
-            {isFavorite(word.id) ? '❤️ Remove' : '🤍 Add to Favorites'}
-          </button>
-        </div>
-      </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Definition</h2>
-          <p>{word.chinese_definition}</p>
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Part of Speech</h2>
-          <p>{word.posTags?.[0] || 'Not specified'}</p>
-        </div>
-      </div>
+        {/* Main content card */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+          {/* Word and pronunciation */}
+          <div className="flex items-center gap-3 flex-wrap mb-4">
+            <h1 className="text-4xl font-bold text-gray-900">{word.english_word}</h1>
+            <SpeakerButton onClick={() => speak(word.english_word)} />
+            {word.kk_phonetic && (
+              <div className="text-xl font-medium text-indigo-600">{word.kk_phonetic}</div>
+            )}
+          </div>
 
-      {word.example_sentence && (
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Example</h2>
-          <div className="bg-gray-100 p-4 rounded">
-            <p className="italic">{word.example_sentence}</p>
-            {word.example_translation && (
-              <p className="text-gray-600 mt-2">
-                {word.example_translation}
-              </p>
+          {/* Chinese definition */}
+          <div className="mb-4">
+            <p className="text-lg text-gray-900 whitespace-pre-wrap">
+              {word.chinese_definition || '—'}
+            </p>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            {word.level && (
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-amber-50 text-amber-700">
+                Level {word.level}
+              </span>
+            )}
+            {word.posTags?.map((pos, idx) => (
+              <span
+                key={idx}
+                className="px-3 py-1 rounded-full text-sm font-medium bg-indigo-50 text-indigo-700"
+              >
+                {POS_LABEL[pos] || pos}
+              </span>
+            ))}
+            {word.cefr && (
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-50 text-purple-700">
+                {word.cefr}
+              </span>
             )}
           </div>
         </div>
-      )}
 
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Related Words</h2>
-        {/* TODO: Implement related words feature */}
-        <p className="text-gray-500">No related words found</p>
+        {/* Examples card */}
+        {(word.example_sentence || word.example_sentence_2) && (
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">例句</h2>
+            <div className="space-y-4">
+              {word.example_sentence && (
+                <div className="pl-4 border-l-4 border-indigo-400">
+                  <div className="flex items-start gap-2">
+                    <div className="flex flex-col flex-1">
+                      <div className="text-xl font-bold text-gray-800 leading-snug">
+                        {word.example_sentence}
+                      </div>
+                      {word.example_translation && (
+                        <div className="text-sm text-gray-400 mt-2">
+                          {word.example_translation}
+                        </div>
+                      )}
+                    </div>
+                    <SpeakerButton
+                      onClick={() => speak(word.example_sentence!)}
+                      className="mt-0.5"
+                    />
+                  </div>
+                </div>
+              )}
+              {word.example_sentence_2 && (
+                <div className="pl-4 border-l-4 border-indigo-400">
+                  <div className="flex items-start gap-2">
+                    <div className="flex flex-col flex-1">
+                      <div className="text-xl font-bold text-gray-800 leading-snug">
+                        {word.example_sentence_2}
+                      </div>
+                      {word.example_translation_2 && (
+                        <div className="text-sm text-gray-400 mt-2">
+                          {word.example_translation_2}
+                        </div>
+                      )}
+                    </div>
+                    <SpeakerButton
+                      onClick={() => speak(word.example_sentence_2!)}
+                      className="mt-0.5"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Word forms and relations card */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">詞性與關聯字</h2>
+
+          <div className="space-y-6">
+            {/* Word forms */}
+            {wordFormsList.length > 0 && (
+              <div>
+                <div className="text-sm font-semibold text-gray-500 mb-2">詞性變化</div>
+                <div className="flex flex-wrap gap-2">
+                  {wordFormsList.map((form, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 text-sm font-medium border border-indigo-200"
+                    >
+                      {form.trim()}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Phrases */}
+            {word.phrases && word.phrases.length > 0 && (
+              <div>
+                <div className="text-sm font-semibold text-gray-500 mb-2">片語</div>
+                <div className="flex flex-wrap gap-2">
+                  {word.phrases.map((phrase, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1.5 rounded-lg bg-purple-50 text-purple-700 text-sm font-medium border border-purple-200"
+                    >
+                      {phrase}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Synonyms / Antonyms / Confusables */}
+            {hasRelations() && (
+              <div>
+                <div className="text-sm font-semibold text-gray-500 mb-2">同義／反義／易混淆</div>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {word.synonyms && word.synonyms.length > 0 && (
+                    <div>
+                      <div className="text-xs font-semibold text-gray-400 mb-2">同義字</div>
+                      <div className="flex flex-wrap gap-2">
+                        {word.synonyms.map((syn, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              // Try to navigate to synonym if it exists in dataset
+                              window.location.hash = `#/word/${syn}`;
+                            }}
+                            className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200 hover:bg-blue-100 transition cursor-pointer"
+                          >
+                            {syn}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {word.antonyms && word.antonyms.length > 0 && (
+                    <div>
+                      <div className="text-xs font-semibold text-gray-400 mb-2">反義字</div>
+                      <div className="flex flex-wrap gap-2">
+                        {word.antonyms.map((ant, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              window.location.hash = `#/word/${ant}`;
+                            }}
+                            className="px-3 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-sm font-medium border border-rose-200 hover:bg-rose-100 transition cursor-pointer"
+                          >
+                            {ant}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {word.confusables && word.confusables.length > 0 && (
+                    <div>
+                      <div className="text-xs font-semibold text-gray-400 mb-2">易混淆字</div>
+                      <div className="flex flex-wrap gap-2">
+                        {word.confusables.map((conf, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              window.location.hash = `#/word/${conf}`;
+                            }}
+                            className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 text-sm font-medium border border-amber-200 hover:bg-amber-100 transition cursor-pointer"
+                            title="點擊查看差異"
+                          >
+                            {conf}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {!wordFormsList.length && !word.phrases?.length && !hasRelations() && (
+              <p className="text-gray-500 text-sm">無額外關聯資訊</p>
+            )}
+          </div>
+        </div>
+
+        {/* Affix card */}
+        {word.affix_info && (word.affix_info.prefix || word.affix_info.root || word.affix_info.suffix) && (
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              {[
+                word.affix_info.prefix && '字首',
+                word.affix_info.suffix && '字尾',
+                word.affix_info.root && '字根'
+              ].filter(Boolean).join('｜') || '字首｜字尾｜字根'}
+            </h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {word.affix_info.prefix && (
+                <div>
+                  <div className="text-xs font-semibold text-gray-500 mb-1">字首</div>
+                  <div className="text-base text-gray-900">{word.affix_info.prefix}</div>
+                </div>
+              )}
+              {word.affix_info.suffix && (
+                <div>
+                  <div className="text-xs font-semibold text-gray-500 mb-1">字尾</div>
+                  <div className="text-base text-gray-900">{word.affix_info.suffix}</div>
+                </div>
+              )}
+              {word.affix_info.root && (
+                <div className="md:col-span-2">
+                  <div className="text-xs font-semibold text-gray-500 mb-1">字根</div>
+                  <div className="text-base text-gray-900">{word.affix_info.root}</div>
+                </div>
+              )}
+              {word.affix_info.meaning && (
+                <div className="md:col-span-2">
+                  <div className="text-xs font-semibold text-gray-500 mb-1">意思</div>
+                  <div className="text-base text-gray-900 whitespace-pre-wrap">{word.affix_info.meaning}</div>
+                </div>
+              )}
+              {word.affix_info.example && (
+                <div className="md:col-span-2">
+                  <div className="text-xs font-semibold text-gray-500 mb-1">例子</div>
+                  <div className="text-base text-gray-900 whitespace-pre-wrap">{word.affix_info.example}</div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Export card */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+          <details>
+            <summary className="cursor-pointer list-none text-lg font-semibold text-gray-800 flex items-center gap-2">
+              匯出內容
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-gray-300 text-gray-500 text-xs"></span>
+            </summary>
+            <div className="mt-4 flex flex-wrap gap-4 text-sm text-gray-700">
+              {[
+                { key: 'pos' as const, label: '詞性區塊' },
+                { key: 'relations' as const, label: '同義／反義／易混淆' },
+                { key: 'affix' as const, label: '字根字首字尾' }
+              ].map((opt) => (
+                <label key={opt.key} className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={exportSections[opt.key]}
+                    onChange={() => toggleExportSection(opt.key)}
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                  <span>{opt.label}</span>
+                </label>
+              ))}
+              <div className="flex justify-end gap-2 pt-2 w-full">
+                <button
+                  onClick={handleOutput}
+                  className="px-4 py-2 rounded-lg bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 transition"
+                >
+                  匯出 Markdown
+                </button>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        {/* Export status and preview */}
+        {mdStatus && <div className="text-sm text-gray-500 text-right mb-4">{mdStatus}</div>}
+        {showMdPreview && (
+          <div className="mt-3 mb-4">
+            <textarea
+              value={mdPreview}
+              readOnly
+              className="w-full h-32 md:h-40 px-3 py-2 rounded-lg border border-gray-300 text-xs font-mono bg-white/80"
+            />
+            <div className="mt-1 text-xs text-gray-400 text-right">
+              選取並複製後即可貼到 Google 文件／投影片。
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

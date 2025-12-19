@@ -164,8 +164,19 @@ function App() {
   const renderContent = () => {
     // Word detail page
     if (hash.startsWith('#/word/')) {
-      const wordId = parseInt(hash.replace('#/word/', ''));
-      const word = data.find(w => w.id === wordId);
+      const param = hash.replace('#/word/', '');
+      // Try to parse as ID first, otherwise treat as word text
+      const wordId = parseInt(param);
+      let word: typeof data[0] | undefined;
+
+      if (!isNaN(wordId)) {
+        word = data.find(w => w.id === wordId);
+      } else {
+        // Try to find by english_word text (for synonym/antonym links)
+        const wordText = decodeURIComponent(param);
+        word = data.find(w => w.english_word.toLowerCase() === wordText.toLowerCase());
+      }
+
       if (!word) {
         return (
           <div className="text-center py-12">
