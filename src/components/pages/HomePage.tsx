@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { LazyWordCard } from '../cards/LazyWordCard';
 import { useCurrentTab } from '../../hooks/useCurrentTab';
 import { useTabFilters } from '../../hooks/useTabFilters';
@@ -29,15 +29,6 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
   const { quickFilterPos } = useQuickFilterPos();
 
   const [searchTerm, setSearchTerm] = useState('');
-
-  // Enhanced debug logging
-  useEffect(() => {
-    console.log('🏠 HomePage userSettings:', {
-      value: userSettings,
-      stage: userSettings?.stage,
-      version: userSettings?.version
-    });
-  }, [userSettings]);
 
   // Show message only if truly no settings
   const isSettingsMissing = !userSettings?.stage || !userSettings?.version;

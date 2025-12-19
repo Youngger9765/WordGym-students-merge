@@ -14,15 +14,17 @@ test.describe('Version Selection Flow', () => {
       }
     });
 
+    await page.goto('http://localhost:5173/', {
+      waitUntil: 'networkidle',
+      timeout: 45000
+    });
+
     await page.evaluate(() => {
       localStorage.clear();
       sessionStorage.clear();
     });
 
-    await page.goto('http://localhost:5173/', {
-      waitUntil: 'networkidle',
-      timeout: 45000
-    });
+    await page.reload();
 
     const loadingSelectors = [
       '[data-testid="welcome-modal"]',
