@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import type { UserSettings } from '../types';
 import { VersionService } from '../services/VersionService';
 import { LS } from '../types';
@@ -118,17 +118,33 @@ export function useUserSettings() {
     }
   );
 
+  // Track previous version to detect changes
+  const [previousVersion, setPreviousVersion] = useState<string | undefined>(
+    state.userSettings?.version
+  );
+
   useEffect(() => {
     try {
       if (state.userSettings) {
         localStorage.setItem(LS.userSettings, JSON.stringify(state.userSettings));
+
+        // Check if version changed (and both old and new versions exist)
+        const currentVersion = state.userSettings.version;
+        if (previousVersion && currentVersion && previousVersion !== currentVersion) {
+          // Version changed - reload the page to ensure all data is refreshed
+          window.location.reload();
+        } else {
+          // Update tracked version
+          setPreviousVersion(currentVersion);
+        }
       } else {
         localStorage.removeItem(LS.userSettings);
+        setPreviousVersion(undefined);
       }
     } catch (e) {
       console.error('Failed to save user settings:', e);
     }
-  }, [state.userSettings]);
+  }, [state.userSettings, previousVersion]);
 
   const setStage = (stage: string) => {
     dispatch({ type: 'SET_STAGE', stage });
