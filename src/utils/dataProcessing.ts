@@ -113,14 +113,27 @@ export function wordHasTheme(word: { themes?: string[]; theme?: string }, themeK
 
 /**
  * Categorize word forms into base/idiom/compound/derivation
+ * Supports both legacy string arrays and new {pos, details} object arrays
  * Migrated from index.html lines 680-700
  */
-export function categorizeWordForms(forms: string[], baseWord: string): WordFormsDetail {
+export function categorizeWordForms(
+  forms: (string | { pos: string; details: string })[],
+  baseWord: string
+): WordFormsDetail {
   const detail = emptyWordFormsDetail();
   const lower = baseWord.toLowerCase();
 
   forms.forEach(form => {
-    const f = form.trim();
+    // Handle new format: {pos: string, details: string}
+    let f: string;
+    if (typeof form === 'object' && form !== null && 'details' in form) {
+      f = form.details.trim();
+    } else if (typeof form === 'string') {
+      f = form.trim();
+    } else {
+      return; // Skip invalid entries
+    }
+
     if (!f) return;
     const fLower = f.toLowerCase();
 
@@ -153,6 +166,7 @@ export function categorizeWordForms(forms: string[], baseWord: string): WordForm
 
 /**
  * Normalize word forms detail from various input formats
+ * Supports legacy string arrays and new {pos, details} object arrays
  * Migrated from index.html lines 702-720
  */
 export function normalizeWordFormsDetail(
@@ -162,19 +176,32 @@ export function normalizeWordFormsDetail(
 ): WordFormsDetail {
   let detail = emptyWordFormsDetail();
 
+  // Handle structured WordFormsDetail object (not array)
   if (rawDetail && typeof rawDetail === 'object' && !Array.isArray(rawDetail)) {
-    detail.base = dedupeList(rawDetail.base || rawDetail.root || []);
-    detail.idiom = dedupeList(rawDetail.idiom || rawDetail.phrase || []);
-    detail.compound = dedupeList(rawDetail.compound || rawDetail.compounds || []);
-    detail.derivation = dedupeList(
-      rawDetail.derivation || rawDetail.other || rawDetail.misc || []
-    );
+    // Check if it has WordFormsDetail structure
+    if ('base' in rawDetail || 'idiom' in rawDetail || 'compound' in rawDetail || 'derivation' in rawDetail) {
+      detail.base = dedupeList(rawDetail.base || rawDetail.root || []);
+      detail.idiom = dedupeList(rawDetail.idiom || rawDetail.phrase || []);
+      detail.compound = dedupeList(rawDetail.compound || rawDetail.compounds || []);
+      detail.derivation = dedupeList(
+        rawDetail.derivation || rawDetail.other || rawDetail.misc || []
+      );
+      return detail;
+    }
   }
 
-  const remaining: string[] = [];
-  if (Array.isArray(rawDetail)) remaining.push(...rawDetail);
-  if (Array.isArray(fallback)) remaining.push(...fallback);
-  if (typeof fallback === 'string') remaining.push(...multiSplit(fallback));
+  // Collect remaining forms for categorization
+  const remaining: (string | { pos: string; details: string })[] = [];
+
+  if (Array.isArray(rawDetail)) {
+    remaining.push(...rawDetail);
+  }
+  if (Array.isArray(fallback)) {
+    remaining.push(...fallback);
+  }
+  if (typeof fallback === 'string') {
+    remaining.push(...multiSplit(fallback));
+  }
 
   const categorized = categorizeWordForms(remaining, baseWord);
   if (!detail.base.length) detail.base = categorized.base;

@@ -91,6 +91,60 @@ def parse_theme_index(value):
         return [{"range": range_val, "theme": theme_val}]
     return []
 
+def parse_word_forms(value):
+    """
+    Parse word_forms into structured format
+    Expected format:
+    名詞
+    可數；複數: criminals
+
+    形容詞
+    比較級: more criminal
+    最高級: most criminal
+    """
+    if not value or value.strip() == '':
+        return []
+
+    result = []
+    lines = value.split('\n')
+    current_pos = None
+    current_details = []
+
+    for line in lines:
+        line = line.strip()
+        if not line:
+            if current_pos and current_details:
+                result.append({
+                    'pos': current_pos,
+                    'details': '\n'.join(current_details)
+                })
+                current_details = []
+            continue
+
+        # Check if it's a POS header (名詞, 動詞, 形容詞, etc.)
+        if line in ['名詞', '動詞', '形容詞', '副詞', '介係詞', '連接詞', '代名詞', '感嘆詞']:
+            # Save previous POS if exists
+            if current_pos and current_details:
+                result.append({
+                    'pos': current_pos,
+                    'details': '\n'.join(current_details)
+                })
+                current_details = []
+            current_pos = line
+        else:
+            # It's a detail line
+            if current_pos:
+                current_details.append(line)
+
+    # Don't forget the last one
+    if current_pos and current_details:
+        result.append({
+            'pos': current_pos,
+            'details': '\n'.join(current_details)
+        })
+
+    return result if result else value  # Return original if parsing fails
+
 def parse_pos_tags(pos_column):
     """
     Parse part of speech tags from the '詞性' column (if exists)
@@ -115,33 +169,173 @@ def parse_pos_tags(pos_column):
     # Check for any known POS markers
     return [pos_mapping.get(tag.strip(), tag.strip()) for tag in pos_mapping.keys() if tag in pos_column]
 
+def merge_word_entries(existing, new_entry):
+    """
+    Merge two word entries, combining arrays and preferring non-empty values
+    """
+    # Helper to merge arrays with deduplication
+    def merge_arrays(arr1, arr2):
+        combined = arr1 + arr2
+        # Deduplicate while preserving order
+        seen = set()
+        result = []
+        for item in combined:
+            # Handle both string and dict items
+            key = item if isinstance(item, str) else json.dumps(item, sort_keys=True)
+            if key not in seen:
+                seen.add(key)
+                result.append(item)
+        return result
+
+    # Helper to prefer non-empty string
+    def prefer_non_empty(val1, val2):
+        if val1 and val2:
+            # Both have values, prefer longer or more complete one
+            return val1 if len(str(val1)) >= len(str(val2)) else val2
+        return val1 or val2
+
+    # Helper to merge word_forms (can be array of objects or string)
+    def merge_word_forms(forms1, forms2):
+        if not forms1:
+            return forms2
+        if not forms2:
+            return forms1
+
+        # If both are arrays of objects, merge them
+        if isinstance(forms1, list) and isinstance(forms2, list):
+            if all(isinstance(f, dict) for f in forms1) and all(isinstance(f, dict) for f in forms2):
+                return merge_arrays(forms1, forms2)
+
+        # Otherwise prefer non-empty
+        return prefer_non_empty(forms1, forms2)
+
+    # Helper to merge affix_info objects
+    def merge_affix_info(info1, info2):
+        if not info1:
+            return info2
+        if not info2:
+            return info1
+
+        merged = {}
+        all_keys = set(info1.keys()) | set(info2.keys())
+        for key in all_keys:
+            merged[key] = prefer_non_empty(info1.get(key, ''), info2.get(key, ''))
+        return merged
+
+    # Merge arrays
+    existing['textbook_index'] = merge_arrays(existing['textbook_index'], new_entry['textbook_index'])
+    existing['exam_tags'] = merge_arrays(existing['exam_tags'], new_entry['exam_tags'])
+    existing['theme_index'] = merge_arrays(existing['theme_index'], new_entry['theme_index'])
+    existing['phrases'] = merge_arrays(existing['phrases'], new_entry['phrases'])
+    existing['synonyms'] = merge_arrays(existing['synonyms'], new_entry['synonyms'])
+    existing['antonyms'] = merge_arrays(existing['antonyms'], new_entry['antonyms'])
+    existing['confusables'] = merge_arrays(existing['confusables'], new_entry['confusables'])
+    existing['posTags'] = merge_arrays(existing['posTags'], new_entry['posTags'])
+
+    # Merge word_forms
+    existing['word_forms'] = merge_word_forms(existing['word_forms'], new_entry['word_forms'])
+
+    # Merge affix_info
+    existing['affix_info'] = merge_affix_info(existing['affix_info'], new_entry['affix_info'])
+
+    # Prefer non-empty strings
+    for key in ['stage', 'level', 'cefr', 'kk_phonetic', 'chinese_definition',
+                'example_sentence', 'example_translation', 'example_sentence_2',
+                'example_translation_2', 'example_sentence_3', 'example_translation_3',
+                'example_sentence_4', 'example_translation_4', 'example_sentence_5',
+                'example_translation_5', 'year_1', 'part_1', 'source_1', 'pos', 'videoUrl']:
+        existing[key] = prefer_non_empty(existing[key], new_entry[key])
+
+    return existing
+
 def csv_to_json(csv_path, json_path):
-    # Field name mapping from Chinese to English
+    # Complete field name mapping from Chinese to English
     field_mapping = {
+        'stage': 'stage',
+        'textbook_index': 'textbook_index',
+        'exam_tags': 'exam_tags',
+        'level': 'level',
+        'CEFR': 'cefr',
+        '主題': 'theme_index',
+        'english_word': 'english_word',
+        'KK音標': 'kk_phonetic',
         '中譯': 'chinese_definition',
         '例句': 'example_sentence',
         '翻譯': 'example_translation',
-        'KK音標': 'kk_phonetic',
+        '例句2': 'example_sentence_2',
+        '翻譯2': 'example_translation_2',
+        '例句3': 'example_sentence_3',
+        '翻譯3': 'example_translation_3',
+        '例句4': 'example_sentence_4',
+        '翻譯4': 'example_translation_4',
+        '例句5': 'example_sentence_5',
+        '翻譯5': 'example_translation_5',
+        'Year_1': 'year_1',
+        'Part_1': 'part_1',
+        'Source_1': 'source_1',
         '詞性': 'pos',
-        '主題': 'theme_index'
+        '詞性變化': 'word_forms',
+        '片語': 'phrases',
+        '同義字': 'synonyms',
+        '反義字': 'antonyms',
+        '易混淆字': 'confusables',
+        '字首': 'prefix',
+        '字尾': 'suffix',
+        '字根': 'root',
+        '意思': 'meaning',
+        '例子': 'example',
+        'videoUrl': 'videoUrl'
     }
 
     with open(csv_path, 'r', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
-        data = []
+        # Use dictionary to track words by lowercase english_word
+        words_dict = {}
 
         for row in reader:
-            # Create a new row for processing
-            processed_row = {}
+            # Create a new row with all possible keys initialized
+            processed_row = {
+                'stage': '',
+                'textbook_index': [],
+                'exam_tags': [],
+                'level': '',
+                'cefr': '',
+                'theme_index': [],
+                'english_word': '',
+                'kk_phonetic': '',
+                'chinese_definition': '',
+                'example_sentence': '',
+                'example_translation': '',
+                'example_sentence_2': '',
+                'example_translation_2': '',
+                'example_sentence_3': '',
+                'example_translation_3': '',
+                'example_sentence_4': '',
+                'example_translation_4': '',
+                'example_sentence_5': '',
+                'example_translation_5': '',
+                'year_1': '',
+                'part_1': '',
+                'source_1': '',
+                'pos': '',
+                'posTags': [],
+                'word_forms': [],
+                'phrases': [],
+                'synonyms': [],
+                'antonyms': [],
+                'confusables': [],
+                'affix_info': {},
+                'videoUrl': ''
+            }
 
             # Go through each key-value pair
             for key, value in row.items():
-                # Skip completely empty values
-                if value is None or value.strip() == '':
-                    continue
-
                 # Map Chinese field names to English
                 mapped_key = field_mapping.get(key, key)
+
+                # Skip if value is None or empty string
+                if value is None or value.strip() == '':
+                    continue
 
                 # Special parsing for specific fields
                 if key == 'textbook_index' or mapped_key == 'textbook_index':
@@ -152,22 +346,68 @@ def csv_to_json(csv_path, json_path):
                     processed_row['theme_index'] = parse_theme_index(value)
                 elif key == '詞性':
                     processed_row['posTags'] = parse_pos_tags(value)
-                elif key == 'videoUrl':
-                    processed_row[key] = value or ''
+                elif key == '詞性變化' or mapped_key == 'word_forms':
+                    processed_row['word_forms'] = parse_word_forms(value)
+                elif key == '片語' or mapped_key == 'phrases':
+                    processed_row['phrases'] = parse_array_field(value)
+                elif key == '同義字' or mapped_key == 'synonyms':
+                    processed_row['synonyms'] = parse_array_field(value, delimiter=';')
+                elif key == '反義字' or mapped_key == 'antonyms':
+                    processed_row['antonyms'] = parse_array_field(value, delimiter=';')
+                elif key == '易混淆字' or mapped_key == 'confusables':
+                    processed_row['confusables'] = parse_array_field(value, delimiter=';')
+                elif key in ['字首', '字尾', '字根', '意思', '例子']:
+                    # Collect affix info
+                    if key == '字首':
+                        if not processed_row['affix_info']:
+                            processed_row['affix_info'] = {}
+                        processed_row['affix_info']['prefix'] = value
+                    elif key == '字尾':
+                        if not processed_row['affix_info']:
+                            processed_row['affix_info'] = {}
+                        processed_row['affix_info']['suffix'] = value
+                    elif key == '字根':
+                        if not processed_row['affix_info']:
+                            processed_row['affix_info'] = {}
+                        processed_row['affix_info']['root'] = value
+                    elif key == '意思':
+                        if not processed_row['affix_info']:
+                            processed_row['affix_info'] = {}
+                        processed_row['affix_info']['meaning'] = value
+                    elif key == '例子':
+                        if not processed_row['affix_info']:
+                            processed_row['affix_info'] = {}
+                        processed_row['affix_info']['example'] = value
                 elif key == '中譯' or mapped_key == 'chinese_definition':
                     # Extract POS from definition but keep original value
                     pos_tags, _ = extract_pos_from_definition(value)
                     processed_row['chinese_definition'] = value  # Keep original with POS
                     # Only set posTags if not already set by '詞性' column
-                    if 'posTags' not in processed_row and pos_tags:
+                    if not processed_row['posTags'] and pos_tags:
                         processed_row['posTags'] = pos_tags
                 else:
                     # For other fields, use mapped key
-                    processed_row[mapped_key] = value
+                    if mapped_key in processed_row:
+                        processed_row[mapped_key] = value
 
-            # Only add non-empty rows
-            if processed_row:
-                data.append(processed_row)
+            # Clean up empty affix_info
+            if not processed_row['affix_info']:
+                processed_row['affix_info'] = {}
+
+            # Only process rows with at least english_word
+            if processed_row.get('english_word'):
+                word_key = processed_row['english_word'].lower()
+
+                # Check if we've seen this word before
+                if word_key in words_dict:
+                    # Merge with existing entry
+                    words_dict[word_key] = merge_word_entries(words_dict[word_key], processed_row)
+                else:
+                    # First occurrence of this word
+                    words_dict[word_key] = processed_row
+
+    # Convert dictionary to list
+    data = list(words_dict.values())
 
     # Write processed data to JSON
     with open(json_path, 'w', encoding='utf-8') as jsonfile:

@@ -1,24 +1,17 @@
 #!/bin/bash
-set -e
+# Convert CSV to JSON and place in correct location
 
-# Get the directory of the script
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+CSV_FILE="WordGym for students 國高中 - 工作表1.csv"
+OUTPUT_FILE="src/data/vocabulary.json"
 
-# Find the CSV file dynamically
-CSV_PATH=$(find "$PROJECT_ROOT" -maxdepth 1 -type f -name "*國高中*工作表1.csv" | head -n 1)
+echo "Converting $CSV_FILE to $OUTPUT_FILE..."
+python scripts/csv_to_json.py "$CSV_FILE" "$OUTPUT_FILE"
 
-if [ -z "$CSV_PATH" ]; then
-    echo "Error: No matching CSV file found!"
+if [ $? -eq 0 ]; then
+    echo "✅ Conversion successful!"
+    echo "📊 Generated: $OUTPUT_FILE"
+    wc -l "$OUTPUT_FILE"
+else
+    echo "❌ Conversion failed!"
     exit 1
 fi
-
-# Output path for JSON
-JSON_PATH="$PROJECT_ROOT/src/data/vocabulary.json"
-
-# Run the conversion
-python3 "$SCRIPT_DIR/csv_to_json.py" "$CSV_PATH" "$JSON_PATH"
-
-echo "Vocabulary CSV converted to JSON successfully!"
-echo "Source: $CSV_PATH"
-echo "Output: $JSON_PATH"

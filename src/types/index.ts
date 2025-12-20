@@ -28,7 +28,7 @@ export interface VocabularyWord {
   grammar_sub_category?: string;
   grammar_function?: string;
   applicable_sentence_pattern?: string;
-  word_forms?: string | {
+  word_forms?: string | Array<{ pos: string; details: string }> | {
     base: string[];
     idiom: string[];
     compound: string[];

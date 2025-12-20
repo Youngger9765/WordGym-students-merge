@@ -128,6 +128,13 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
   // Parse word forms for display
   const getWordFormsList = () => {
     if (!word.word_forms) return [];
+
+    // If word_forms is an array of objects (structured format)
+    if (Array.isArray(word.word_forms)) {
+      return word.word_forms;
+    }
+
+    // If it's a string, split by newline (legacy format)
     return String(word.word_forms).split('\n').filter(line => line.trim());
   };
 
@@ -256,55 +263,6 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
           </div>
         </div>
 
-        {/* Examples card */}
-        {(word.example_sentence || word.example_sentence_2) && (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">例句</h2>
-            <div className="space-y-4">
-              {word.example_sentence && (
-                <div className="pl-4 border-l-4 border-indigo-400">
-                  <div className="flex items-start gap-2">
-                    <div className="flex flex-col flex-1">
-                      <div className="text-xl font-bold text-gray-800 leading-snug">
-                        {word.example_sentence}
-                      </div>
-                      {word.example_translation && (
-                        <div className="text-sm text-gray-400 mt-2">
-                          {word.example_translation}
-                        </div>
-                      )}
-                    </div>
-                    <SpeakerButton
-                      onClick={() => speak(word.example_sentence!)}
-                      className="mt-0.5"
-                    />
-                  </div>
-                </div>
-              )}
-              {word.example_sentence_2 && (
-                <div className="pl-4 border-l-4 border-indigo-400">
-                  <div className="flex items-start gap-2">
-                    <div className="flex flex-col flex-1">
-                      <div className="text-xl font-bold text-gray-800 leading-snug">
-                        {word.example_sentence_2}
-                      </div>
-                      {word.example_translation_2 && (
-                        <div className="text-sm text-gray-400 mt-2">
-                          {word.example_translation_2}
-                        </div>
-                      )}
-                    </div>
-                    <SpeakerButton
-                      onClick={() => speak(word.example_sentence_2!)}
-                      className="mt-0.5"
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
         {/* Word forms and relations card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
           <h2 className="text-xl font-bold text-gray-900 mb-4">詞性與關聯字</h2>
@@ -314,15 +272,40 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
             {wordFormsList.length > 0 && (
               <div>
                 <div className="text-sm font-semibold text-gray-500 mb-2">詞性變化</div>
-                <div className="flex flex-wrap gap-2">
-                  {wordFormsList.map((form, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 text-sm font-medium border border-indigo-200"
-                    >
-                      {form.trim()}
-                    </span>
-                  ))}
+                <div className="px-4 py-3 rounded-lg bg-indigo-50 border border-indigo-200 grid gap-4 md:grid-cols-2">
+                  {wordFormsList.map((form, idx) => {
+                    // Check if it's structured format (object with pos and details)
+                    if (typeof form === 'object' && form.pos && form.details) {
+                      // Parse details into separate lines for better readability
+                      const detailLines = form.details
+                        .split(/[；\n]/) // Split by semicolon or newline
+                        .map(line => line.trim())
+                        .filter(line => line.length > 0);
+
+                      return (
+                        <div
+                          key={idx}
+                          className="pl-3 border-l-4 border-indigo-400 text-sm text-indigo-900"
+                        >
+                          <div className="font-bold mb-1">{form.pos}</div>
+                          <div className="space-y-0.5 ml-2">
+                            {detailLines.map((line, lineIdx) => (
+                              <div key={lineIdx}>{line}</div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    }
+                    // Legacy format: just a string
+                    return (
+                      <div
+                        key={idx}
+                        className="pl-3 border-l-4 border-indigo-400 text-sm text-indigo-900"
+                      >
+                        {typeof form === 'string' ? form.trim() : String(form)}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -414,6 +397,55 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word }) => {
             )}
           </div>
         </div>
+
+        {/* Examples card */}
+        {(word.example_sentence || word.example_sentence_2) && (
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">例句</h2>
+            <div className="space-y-4">
+              {word.example_sentence && (
+                <div className="pl-4 border-l-4 border-indigo-400">
+                  <div className="flex items-start gap-2">
+                    <div className="flex flex-col flex-1">
+                      <div className="text-xl font-bold text-gray-800 leading-snug">
+                        {word.example_sentence}
+                      </div>
+                      {word.example_translation && (
+                        <div className="text-sm text-gray-400 mt-2">
+                          {word.example_translation}
+                        </div>
+                      )}
+                    </div>
+                    <SpeakerButton
+                      onClick={() => speak(word.example_sentence!)}
+                      className="mt-0.5"
+                    />
+                  </div>
+                </div>
+              )}
+              {word.example_sentence_2 && (
+                <div className="pl-4 border-l-4 border-indigo-400">
+                  <div className="flex items-start gap-2">
+                    <div className="flex flex-col flex-1">
+                      <div className="text-xl font-bold text-gray-800 leading-snug">
+                        {word.example_sentence_2}
+                      </div>
+                      {word.example_translation_2 && (
+                        <div className="text-sm text-gray-400 mt-2">
+                          {word.example_translation_2}
+                        </div>
+                      )}
+                    </div>
+                    <SpeakerButton
+                      onClick={() => speak(word.example_sentence_2!)}
+                      className="mt-0.5"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Affix card */}
         {word.affix_info && (affixInfo?.prefix || affixInfo?.root || affixInfo?.suffix) && (
