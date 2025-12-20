@@ -108,3 +108,4 @@ This enables the built `dist/index.html` to work both when:
 2. Vite bundling with React
 3. Single-file plugin combines all assets into one HTML file
 4. Result: Self-contained 194KB HTML file with all JavaScript, CSS, and assets inlined
+<!-- Last updated: 2025年12月20日 週六 15時07分53秒 CST -->
