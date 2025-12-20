@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Button } from '../ui';
+import React, { useMemo } from 'react';
 import { VersionService } from '../../services/VersionService';
 import type { UserSettings } from '../../types';
 
@@ -20,47 +19,34 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
   versions,
   loadingMessage = '載入版本中...'
 }) => {
-  const [selectedStage, setSelectedStage] = useState<Stage>('senior');
-  const [selectedVersion, setSelectedVersion] = useState('');
-
-  // When stage changes, reset selected version
-  useEffect(() => {
-    setSelectedVersion('');
-  }, [selectedStage]);
-
-  // Show available versions based on selected stage
-  const availableVersions = useMemo(() => {
-    // If versions are provided, use them
+  // Get all versions grouped by stage
+  const allVersions = useMemo(() => {
     if (versions) {
-      if (selectedStage === 'senior') {
-        return versions['high'] || [];
-      } else if (selectedStage === 'junior') {
-        return versions['junior'] || [];
-      }
+      return {
+        high: versions['high'] || [],
+        junior: versions['junior'] || []
+      };
     }
 
     // If loading, return empty
-    if (isLoading) return [];
+    if (isLoading) {
+      return { high: [], junior: [] };
+    }
 
     // Use default versions from VersionService
-    return VersionService.getAvailableVersions(
-      selectedStage === 'senior' ? 'high' : 'junior'
-    );
-  }, [selectedStage, versions, isLoading]);
+    return {
+      high: VersionService.getAvailableVersions('high'),
+      junior: VersionService.getAvailableVersions('junior')
+    };
+  }, [versions, isLoading]);
 
-  // Clear selected version when stage changes
-  useEffect(() => {
-    setSelectedVersion('');
-  }, [selectedStage]);
-
-  const handleConfirm = () => {
-    if (selectedStage && selectedVersion) {
-      setUserSettings({
-        stage: selectedStage,
-        version: selectedVersion
-      });
-      if (onClose) onClose();
-    }
+  const handleVersionSelect = (version: string, stage: Stage) => {
+    // Auto-confirm immediately
+    setUserSettings({
+      stage,
+      version
+    });
+    if (onClose) onClose();
   };
 
   return (
@@ -70,72 +56,55 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
         <p className="text-gray-600 mb-6">請選擇您的學程和使用的課本版本</p>
 
         <div className="space-y-6">
-          {/* Stage selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">學程</label>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setSelectedStage('senior')}
-                className={`flex-1 px-4 py-3 rounded-xl font-medium transition ${
-                  selectedStage === 'senior'
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                高中
-              </button>
-              <button
-                onClick={() => setSelectedStage('junior')}
-                className={`flex-1 px-4 py-3 rounded-xl font-medium transition ${
-                  selectedStage === 'junior'
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                國中
-              </button>
+          {isLoading ? (
+            <div className="px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-500 animate-pulse">
+              {loadingMessage}
             </div>
-          </div>
+          ) : (
+            <>
+              {/* High school versions */}
+              {allVersions.high.length > 0 && (
+                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-4 rounded-2xl border-2 border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-900 mb-3">高中</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {allVersions.high.map(version => (
+                      <button
+                        key={version}
+                        onClick={() => handleVersionSelect(version, 'senior')}
+                        className="px-6 py-4 rounded-xl font-semibold bg-white text-purple-700 hover:bg-purple-600 hover:text-white transition shadow-sm hover:shadow-md text-lg"
+                      >
+                        {version}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-          {/* Version selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">課本版本</label>
-            {!selectedStage ? (
-              <div className="px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-500">
-                請先選擇學程
-              </div>
-            ) : isLoading ? (
-              <div className="px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-500 animate-pulse">
-                {loadingMessage}
-              </div>
-            ) : availableVersions.length > 0 ? (
-              <select
-                value={selectedVersion}
-                onChange={(e) => setSelectedVersion(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              >
-                <option value="">請選擇版本</option>
-                {availableVersions.map(version => (
-                  <option key={version} value={version}>{version}</option>
-                ))}
-              </select>
-            ) : (
-              <div className="px-4 py-3 rounded-xl border border-red-300 bg-red-50 text-red-600">
-                無法載入版本列表
-              </div>
-            )}
-          </div>
-        </div>
+              {/* Junior high versions */}
+              {allVersions.junior.length > 0 && (
+                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-2xl border-2 border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-900 mb-3">國中</h3>
+                  <div className="grid grid-cols-3 gap-3">
+                    {allVersions.junior.map(version => (
+                      <button
+                        key={version}
+                        onClick={() => handleVersionSelect(version, 'junior')}
+                        className="px-6 py-4 rounded-xl font-semibold bg-white text-blue-700 hover:bg-blue-600 hover:text-white transition shadow-sm hover:shadow-md text-lg"
+                      >
+                        {version}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-        <div className="mt-6 flex gap-3">
-          <Button
-            variant="primary"
-            onClick={handleConfirm}
-            disabled={!selectedStage || !selectedVersion || isLoading}
-            className="flex-1"
-          >
-            確認
-          </Button>
+              {allVersions.high.length === 0 && allVersions.junior.length === 0 && (
+                <div className="px-4 py-3 rounded-xl border border-red-300 bg-red-50 text-red-600">
+                  無法載入版本列表
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>

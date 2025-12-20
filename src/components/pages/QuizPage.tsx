@@ -1,139 +1,149 @@
-import React, { useState } from 'react';
-import { QuizConfiguration } from '../../types/quiz';
+import React, { useMemo } from 'react';
 import { VocabularyWord } from '../../types';
 import { useHashRoute } from '../../hooks/useHashRoute';
+import MultipleChoiceQuiz from '../quiz/MultipleChoiceQuiz';
+import FlashcardQuiz from '../quiz/FlashcardQuiz';
 
 interface QuizPageProps {
   words: VocabularyWord[];
 }
 
 export const QuizPage: React.FC<QuizPageProps> = ({ words }) => {
-  const { push } = useHashRoute();
+  const { hash, push } = useHashRoute();
 
-  const [quizType, setQuizType] = useState<QuizConfiguration['type']>('multiple_choice');
-  const [numberOfQuestions, setNumberOfQuestions] = useState(10);
-  const [difficulty, setDifficulty] = useState<QuizConfiguration['difficulty']>('medium');
+  // Parse URL params
+  const params = useMemo(() => {
+    return new URLSearchParams(hash.split('?')[1] || '');
+  }, [hash]);
 
-  const startQuiz = () => {
-    // Check if words are loaded
-    if (words.length === 0) {
-      return;
+  const quizType = params.get('type') || 'selection';
+  const restartKey = `${quizType}-${params.get('_restart') || '0'}`;
+
+  // Parse word IDs from URL params
+  const quizWords = useMemo(() => {
+    const wordIdsParam = params.get('words');
+
+    if (!wordIdsParam) {
+      return words; // Use all words if no specific words selected
     }
 
-    // Filter and shuffle words based on difficulty
-    const selectedWords = words
-      .filter(word => {
-        switch (difficulty) {
-          case 'easy':
-            return true;  // All words
-          case 'medium':
-            return ['beginner', 'intermediate'].includes(word.level || 'beginner');
-          case 'hard':
-            return ['advanced', 'expert'].includes(word.level || 'beginner');
-        }
-      })
-      .sort(() => 0.5 - Math.random())
-      .slice(0, numberOfQuestions);
+    const wordIds = wordIdsParam.split(',').map(id => parseInt(id, 10));
+    return words.filter(w => wordIds.includes(w.id));
+  }, [params, words]);
 
-    if (selectedWords.length === 0) {
-      alert('No words available for this quiz. Please try a different difficulty level.');
-      return;
-    }
+  const validQuizWords = useMemo(() => {
+    // Filter words that have example sentences for multiple choice quiz
+    return quizWords.filter(w => w.example_sentence && w.example_sentence.trim());
+  }, [quizWords]);
 
-    const searchParams = new URLSearchParams({
-      difficulty,
-      count: numberOfQuestions.toString(),
-      wordIds: selectedWords.map(w => w.id).join(',')
-    });
-
-    // Navigate to specific quiz route
-    switch (quizType) {
-      case 'multiple_choice':
-        push(`#/multiple-choice-quiz?${searchParams.toString()}`);
-        break;
-      case 'flashcard':
-        push(`#/flashcard-quiz?${searchParams.toString()}`);
-        break;
-    }
+  const handleStartMultipleChoice = () => {
+    const currentParams = new URLSearchParams(hash.split('?')[1] || '');
+    currentParams.set('type', 'multiple-choice');
+    currentParams.delete('_restart'); // Remove restart flag if exists
+    push(`#/quiz?${currentParams.toString()}`);
   };
 
-  const isLoading = words.length === 0;
+  const handleStartFlashcard = () => {
+    const currentParams = new URLSearchParams(hash.split('?')[1] || '');
+    currentParams.set('type', 'flashcard');
+    currentParams.delete('_restart'); // Remove restart flag if exists
+    push(`#/quiz?${currentParams.toString()}`);
+  };
 
+  const handleViewHistory = () => {
+    push('#/quiz-history');
+  };
+
+  const handleRestart = () => {
+    sessionStorage.removeItem('quiz_completed_state');
+    sessionStorage.removeItem('quiz_return_path');
+    const currentParams = new URLSearchParams(hash.split('?')[1] || '');
+    currentParams.set('_restart', Date.now().toString());
+    push(`#/quiz?${currentParams.toString()}`);
+  };
+
+  if (quizWords.length === 0) {
+    return (
+      <div className="container mx-auto p-6 max-w-2xl">
+        <div className="text-center py-12 bg-gray-50 rounded-2xl">
+          <p className="text-gray-600 mb-4">沒有可測驗的單字</p>
+          <button
+            onClick={() => window.location.hash = '#/'}
+            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+          >
+            返回首頁
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Render quiz based on type
+  if (quizType === 'multiple-choice') {
+    return (
+      <MultipleChoiceQuiz
+        key={`multiple-choice-${restartKey}`}
+        words={quizWords}
+        onRestart={handleRestart}
+      />
+    );
+  }
+
+  if (quizType === 'flashcard') {
+    return (
+      <FlashcardQuiz
+        key={`flashcard-${restartKey}`}
+        words={quizWords}
+        onRestart={handleRestart}
+      />
+    );
+  }
+
+  // Selection screen
   return (
-    <div className="container mx-auto p-6 max-w-md">
-      <h1 className="text-2xl font-bold mb-6">Quiz Configuration</h1>
+    <div className="container mx-auto p-6 max-w-2xl">
+      <div className="bg-white rounded-2xl shadow-lg border-t-4 border-indigo-600 p-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">實力驗收</h1>
+        <p className="text-center text-gray-600 mb-8">
+          你已選擇練習 <span className="font-bold text-indigo-600">{quizWords.length}</span> 題
+        </p>
 
-      {isLoading && (
-        <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded text-center">
-          <p className="text-blue-700">Loading words...</p>
-        </div>
-      )}
+        <div className="space-y-4">
+          {/* Multiple Choice Button */}
+          <button
+            onClick={handleStartMultipleChoice}
+            disabled={validQuizWords.length === 0}
+            className={`w-full py-6 px-6 rounded-2xl text-white font-bold text-xl transition shadow-lg ${
+              validQuizWords.length === 0
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl'
+            }`}
+          >
+            選擇題
+            {validQuizWords.length === 0 && (
+              <span className="block text-sm font-normal mt-1">
+                （需要有例句的單字）
+              </span>
+            )}
+          </button>
 
-      <div className="mb-4">
-        <label className="block text-lg font-semibold mb-2">Quiz Type</label>
-        <div className="grid grid-cols-3 gap-2">
-          {(['multiple_choice', 'flashcard', 'writing'] as QuizConfiguration['type'][]).map(type => (
-            <button
-              key={type}
-              className={`p-2 rounded ${
-                quizType === type
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200 text-gray-700'
-              }`}
-              onClick={() => setQuizType(type)}
-              disabled={isLoading}
-            >
-              {type.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-            </button>
-          ))}
-        </div>
-      </div>
+          {/* Flashcard Button */}
+          <button
+            onClick={handleStartFlashcard}
+            className="w-full py-6 px-6 rounded-2xl bg-white border-2 border-indigo-600 text-indigo-600 font-bold text-xl hover:bg-indigo-50 transition shadow-md hover:shadow-lg"
+          >
+            閃卡
+          </button>
 
-      <div className="mb-4">
-        <label className="block text-lg font-semibold mb-2">Number of Questions</label>
-        <input
-          type="range"
-          min={5}
-          max={30}
-          value={numberOfQuestions}
-          onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
-          className="w-full"
-          disabled={isLoading}
-        />
-        <p className="text-center">{numberOfQuestions} Questions</p>
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-lg font-semibold mb-2">Difficulty</label>
-        <div className="grid grid-cols-3 gap-2">
-          {(['easy', 'medium', 'hard'] as QuizConfiguration['difficulty'][]).map(level => (
-            <button
-              key={level}
-              className={`p-2 rounded ${
-                difficulty === level
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200 text-gray-700'
-              }`}
-              onClick={() => setDifficulty(level)}
-              disabled={isLoading}
-            >
-              {level.charAt(0).toUpperCase() + level.slice(1)}
-            </button>
-          ))}
+          {/* Quiz History Button */}
+          <button
+            onClick={handleViewHistory}
+            className="w-full py-6 px-6 rounded-2xl bg-gray-100 border-2 border-gray-300 text-gray-700 font-bold text-xl hover:bg-gray-200 transition shadow-md hover:shadow-lg"
+          >
+            查看歷史記錄
+          </button>
         </div>
       </div>
-
-      <button
-        onClick={startQuiz}
-        disabled={isLoading}
-        className={`w-full p-3 rounded transition ${
-          isLoading
-            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            : 'bg-green-500 text-white hover:bg-green-600'
-        }`}
-      >
-        {isLoading ? 'Loading...' : `Start ${quizType.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())} Quiz`}
-      </button>
     </div>
   );
 };

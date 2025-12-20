@@ -5,17 +5,20 @@ import { Button } from '../ui/Button';
 import QuizCompletionScreen from './QuizCompletionScreen';
 import { useFavorites } from '../../hooks/useFavorites';
 import { useQuizHistory } from '../../hooks/useQuizHistory';
+import { useHashRoute } from '../../hooks/useHashRoute';
 
 interface FlashcardQuizProps {
   words: VocabularyWord[];
+  onRestart?: () => void;
 }
 
-const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
+const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words, onRestart }) => {
   const { favorites, addFavorite, removeFavorite } = useFavorites();
   const { add: addRecord, history } = useQuizHistory();
+  const { hash } = useHashRoute();
 
-  const pool = words;
   const data = words;
+  const pool = words; // Use words directly from props (already filtered by QuizPage)
   const favoritesApi = {
     favorites: Array.from(favorites),
     toggle: (id: number) => {
@@ -30,13 +33,35 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
     add: addRecord,
     getAll: () => history
   };
-  const onRestart = () => {
+  const handleRestartClick = onRestart || (() => {
     window.location.hash = '#/quiz';
-  };
+  });
+  // Check if we should show completion screen directly
+  // Only show completion if we're returning from word detail page, not when starting fresh
   const shouldShowCompletion = (() => {
+    const params = new URLSearchParams(hash.split('?')[1] || '');
+    const hasRestart = params.has('_restart');
+
+    // If _restart parameter exists, never show completion (user wants to restart)
+    if (hasRestart) {
+      return false;
+    }
+
+    // Otherwise check if we just completed and are returning
     try {
       const completedState = JSON.parse(sessionStorage.getItem('quiz_completed_state') || 'null');
-      if (completedState && completedState.type === 'flashcard' && completedState.timestamp && Date.now() - completedState.timestamp < 3600000) {
+      const returnPath = JSON.parse(sessionStorage.getItem('quiz_return_path') || 'null');
+
+      // Only show completion if:
+      // 1. We have a completion state for this quiz type
+      // 2. It's recent (within 1 hour)
+      // 3. We're returning from a word detail page
+      if (completedState &&
+          completedState.type === 'flashcard' &&
+          completedState.timestamp &&
+          Date.now() - completedState.timestamp < 3600000 &&
+          returnPath &&
+          Date.now() - returnPath.timestamp < 60000) { // Within 1 minute
         return true;
       }
     } catch {}
@@ -169,7 +194,7 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
           wrongWords={[]}
           learningWords={latest.learningWords || []}
           favoritesApi={favoritesApi}
-          onRestart={onRestart}
+          onRestart={handleRestartClick}
           data={data}
         />
       );
@@ -191,7 +216,7 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
         wrongWords={[]}
         learningWords={learningWords}
         favoritesApi={favoritesApi}
-        onRestart={onRestart}
+        onRestart={handleRestartClick}
         data={data}
       />
     );
@@ -205,6 +230,32 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words }) => {
 
   return (
     <div>
+      <h1 className="text-2xl font-bold text-gray-900 mb-4">實力驗收</h1>
+      {/* Quiz Mode Selection Buttons */}
+      <div className="mb-4 flex gap-3">
+        <button
+          onClick={() => {
+            const params = new URLSearchParams(hash.split('?')[1] || '');
+            params.set('type', 'multiple-choice');
+            window.location.hash = `#/quiz?${params.toString()}`;
+          }}
+          className="flex-1 px-8 py-3 rounded-xl bg-white border border-gray-300 text-gray-700 text-lg font-medium hover:bg-gray-50 transition"
+        >
+          選擇題
+        </button>
+        <button
+          className="flex-1 px-8 py-3 rounded-xl bg-indigo-600 text-white text-lg font-medium transition"
+        >
+          閃卡
+        </button>
+        <button
+          onClick={() => window.location.hash = '#/quiz-history'}
+          className="flex-1 px-8 py-3 rounded-xl bg-gray-100 border border-gray-300 text-gray-700 text-lg font-medium hover:bg-gray-200 transition"
+        >
+          查看歷史記錄
+        </button>
+      </div>
+
       <div className="mb-4 flex items-center justify-between flex-wrap gap-2">
         <div className="text-sm text-gray-600">
           第 {idx + 1} 張 / {shuffledPool.length} 張

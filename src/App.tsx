@@ -4,16 +4,12 @@ import { HomePage } from './components/pages/HomePage';
 import { FavoritesPage } from './components/pages/FavoritesPage';
 import { QuizPage } from './components/pages/QuizPage';
 import QuizHistoryPage from './components/pages/QuizHistoryPage';
-import MultipleChoiceQuiz from './components/quiz/MultipleChoiceQuiz';
-import FlashcardQuiz from './components/quiz/FlashcardQuiz';
 import { WordDetailPage } from './components/pages/WordDetailPage';
 import { Shell } from './components/layout/Shell';
 import { WelcomeModal } from './components/modals/WelcomeModal';
 import { useDataset } from './hooks/useDataset';
 import { useUserSettings } from './hooks/useUserSettings';
-// Removed Google Sheet imports
 import { VersionService } from './services/VersionService';
-import { extractAvailableVersions } from './utils/versionExtraction';
 import type { UserSettings } from './types';
 
 function App() {
@@ -29,14 +25,6 @@ function App() {
     // Removed logging;
     if (data.length > 0) {
       // Removed logging.map(w => ({ id: w.id, type: typeof w.id, word: w.english_word })));
-    }
-  }, [data.length]);
-
-  // Initialize available versions from local data
-  useEffect(() => {
-    if (data.length > 0) {
-      const versions = extractAvailableVersions(data);
-      VersionService.updateAvailableVersions(versions);
     }
   }, [data.length]);
 
@@ -67,7 +55,7 @@ function App() {
   // Get current route for Shell
   const getRoute = () => {
     const [basePath] = hash.split('?');
-    if (basePath.startsWith('#/quiz') || basePath.startsWith('#/multiple-choice-quiz') || basePath.startsWith('#/flashcard-quiz')) return 'quiz';
+    if (basePath.startsWith('#/quiz')) return 'quiz';
     if (basePath.startsWith('#/favorites')) return 'favorites';
     if (basePath.startsWith('#/word/')) return 'word';
     return 'home';
@@ -116,10 +104,6 @@ function App() {
         return <FavoritesPage words={data} />;
       case '#/quiz':
         return <QuizPage words={data} />;
-      case '#/multiple-choice-quiz':
-        return <MultipleChoiceQuiz words={data} />;
-      case '#/flashcard-quiz':
-        return <FlashcardQuiz words={data} />;
       case '#/quiz-history':
         return <QuizHistoryPage />;
       default:

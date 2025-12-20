@@ -6,17 +6,20 @@ import { Button } from '../ui/Button';
 import QuizCompletionScreen from './QuizCompletionScreen';
 import { useFavorites } from '../../hooks/useFavorites';
 import { useQuizHistory } from '../../hooks/useQuizHistory';
+import { useHashRoute } from '../../hooks/useHashRoute';
 
 interface MultipleChoiceQuizProps {
   words: VocabularyWord[];
+  onRestart?: () => void;
 }
 
-const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
+const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words, onRestart }) => {
   const { favorites, addFavorite, removeFavorite } = useFavorites();
   const { add: addRecord, history } = useQuizHistory();
+  const { hash } = useHashRoute();
 
   const data = words;
-  const pool = words;
+  const pool = words; // Use words directly from props (already filtered by QuizPage)
   const favoritesApi = {
     favorites: Array.from(favorites),
     toggle: (id: number) => {
@@ -31,14 +34,35 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
     add: addRecord,
     getAll: () => history
   };
-  const onRestart = () => {
+  const handleRestartClick = onRestart || (() => {
     window.location.hash = '#/quiz';
-  };
+  });
   // Check if we should show completion screen directly
+  // Only show completion if we have _restart parameter or if this is a return from word detail
   const shouldShowCompletion = (() => {
+    const params = new URLSearchParams(hash.split('?')[1] || '');
+    const hasRestart = params.has('_restart');
+
+    // If _restart parameter exists, never show completion (user wants to restart)
+    if (hasRestart) {
+      return false;
+    }
+
+    // Otherwise check if we just completed and are returning
     try {
       const completedState = JSON.parse(sessionStorage.getItem('quiz_completed_state') || 'null');
-      if (completedState && completedState.type === 'multiple-choice' && completedState.timestamp && Date.now() - completedState.timestamp < 3600000) {
+      const returnPath = JSON.parse(sessionStorage.getItem('quiz_return_path') || 'null');
+
+      // Only show completion if:
+      // 1. We have a completion state for this quiz type
+      // 2. It's recent (within 1 hour)
+      // 3. We're returning from a word detail page
+      if (completedState &&
+          completedState.type === 'multiple-choice' &&
+          completedState.timestamp &&
+          Date.now() - completedState.timestamp < 3600000 &&
+          returnPath &&
+          Date.now() - returnPath.timestamp < 60000) { // Within 1 minute
         return true;
       }
     } catch {}
@@ -50,9 +74,10 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
     [pool]
   );
 
-  // Shuffle questions
+  // Shuffle questions and limit to 5
   const shuffledPool = useMemo(() => {
-    return [...validPool].sort(() => Math.random() - 0.5);
+    const shuffled = [...validPool].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 5);
   }, [validPool]);
 
   // Pre-assign correct answer positions (0=A, 1=B, 2=C, 3=D) to ensure even distribution
@@ -89,61 +114,40 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
     const correctAnswer = currentWord.english_word;
     const correctPosition = correctAnswerPositions[idx];
 
-    const sameTheme = shuffledPool.filter(w =>
-      w.theme === currentWord.theme &&
-      w.english_word !== correctAnswer
-    );
+    // Get current word's POS
+    const currentPOS = (currentWord.posTags && currentWord.posTags.length > 0)
+      ? currentWord.posTags[0]
+      : currentWord.pos;
 
-    const distractors: string[] = [];
-    const shuffled = [...sameTheme].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < Math.min(3, shuffled.length); i++) {
-      distractors.push(shuffled[i].english_word);
+    // Step 1: Get same POS words from the same pool (current quiz range)
+    const samePOSInPool = pool.filter(w => {
+      const wordPOS = (w.posTags && w.posTags.length > 0)
+        ? w.posTags[0]
+        : w.pos;
+
+      return wordPOS && currentPOS &&
+        wordPOS === currentPOS &&
+        w.english_word !== correctAnswer;
+    });
+
+    const allDistractors: string[] = [];
+
+    // Add random words from same POS in pool
+    const shuffledSamePOS = [...samePOSInPool].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < Math.min(3, shuffledSamePOS.length); i++) {
+      allDistractors.push(shuffledSamePOS[i].english_word);
     }
 
-    while (distractors.length < 3 && distractors.length < shuffledPool.length - 1) {
-      const random = shuffledPool[Math.floor(Math.random() * shuffledPool.length)];
-      if (random.english_word !== correctAnswer && !distractors.includes(random.english_word)) {
-        distractors.push(random.english_word);
-      }
-    }
-
-    const allDistractors = [...distractors];
-
-    // Stage 1: Add from same theme
-    const sameThemeRemaining = sameTheme.filter(w => !allDistractors.includes(w.english_word));
-    for (let i = 0; i < Math.min(3 - allDistractors.length, sameThemeRemaining.length); i++) {
-      allDistractors.push(sameThemeRemaining[i].english_word);
-    }
-
-    // Stage 2: Add from same POS in all data
+    // Step 2: If not enough, add random words from pool (any POS)
     if (allDistractors.length < 3) {
-      const samePOS = data.filter(w =>
-        w.pos === currentWord.pos &&
+      const otherWords = pool.filter(w =>
         w.english_word !== correctAnswer &&
-        !allDistractors.includes(w.english_word) &&
-        w.example_sentence && w.example_sentence.trim()
+        !allDistractors.includes(w.english_word)
       );
-      const shuffledSamePOS = [...samePOS].sort(() => Math.random() - 0.5);
+      const shuffledOthers = [...otherWords].sort(() => Math.random() - 0.5);
 
-      for (let i = 0; i < Math.min(3 - allDistractors.length, shuffledSamePOS.length); i++) {
-        allDistractors.push(shuffledSamePOS[i].english_word);
-      }
-    }
-
-    // Stage 3: Add from all available data
-    if (allDistractors.length < 3) {
-      const allAvailable = data.filter(w =>
-        w.english_word !== correctAnswer &&
-        !allDistractors.includes(w.english_word) &&
-        w.example_sentence && w.example_sentence.trim()
-      );
-      const shuffledAll = [...allAvailable].sort(() => Math.random() - 0.5);
-
-      for (let i = 0; i < Math.min(3 - allDistractors.length, shuffledAll.length); i++) {
-        const word = shuffledAll[i].english_word;
-        if (word) {
-          allDistractors.push(word);
-        }
+      for (let i = 0; i < Math.min(3 - allDistractors.length, shuffledOthers.length); i++) {
+        allDistractors.push(shuffledOthers[i].english_word);
       }
     }
 
@@ -265,7 +269,7 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
           wrongWords={latest.wrongWords || []}
           learningWords={[]}
           favoritesApi={favoritesApi}
-          onRestart={onRestart}
+          onRestart={handleRestartClick}
           data={data}
         />
       );
@@ -287,7 +291,7 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
         wrongWords={wrongWords}
         learningWords={[]}
         favoritesApi={favoritesApi}
-        onRestart={onRestart}
+        onRestart={handleRestartClick}
         data={data}
       />
     );
@@ -305,6 +309,32 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words }) => {
 
   return (
     <div>
+      <h1 className="text-2xl font-bold text-gray-900 mb-4">實力驗收</h1>
+      {/* Quiz Mode Selection Buttons */}
+      <div className="mb-4 flex gap-3">
+        <button
+          className="flex-1 px-8 py-3 rounded-xl bg-indigo-600 text-white text-lg font-medium transition"
+        >
+          選擇題
+        </button>
+        <button
+          onClick={() => {
+            const params = new URLSearchParams(hash.split('?')[1] || '');
+            params.set('type', 'flashcard');
+            window.location.hash = `#/quiz?${params.toString()}`;
+          }}
+          className="flex-1 px-8 py-3 rounded-xl bg-white border border-gray-300 text-gray-700 text-lg font-medium hover:bg-gray-50 transition"
+        >
+          閃卡
+        </button>
+        <button
+          onClick={() => window.location.hash = '#/quiz-history'}
+          className="flex-1 px-8 py-3 rounded-xl bg-gray-100 border border-gray-300 text-gray-700 text-lg font-medium hover:bg-gray-200 transition"
+        >
+          查看歷史記錄
+        </button>
+      </div>
+
       <div className="mb-4 flex items-center justify-between">
         <div className="text-sm text-gray-600">
           第 {idx + 1} 題 / {shuffledPool.length} 題
