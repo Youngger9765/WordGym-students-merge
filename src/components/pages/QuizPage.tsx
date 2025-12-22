@@ -39,7 +39,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({ words, userSettings }) => {
     const wordIdsParam = params.get('words');
 
     if (!wordIdsParam) {
-      return versionFilteredWords; // Use version-filtered words if no specific words selected
+      return []; // Default to 0 questions - user must select range first
     }
 
     // When specific word IDs are provided (e.g., from favorites), don't apply version filter

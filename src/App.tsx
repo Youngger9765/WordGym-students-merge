@@ -93,7 +93,7 @@ function App() {
           </div>
         );
       }
-      return <WordDetailPage word={word} />;
+      return <WordDetailPage word={word} userSettings={userSettings} />;
     }
 
     switch (basePath) {

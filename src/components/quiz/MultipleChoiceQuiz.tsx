@@ -74,10 +74,10 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words, onRestar
     [pool]
   );
 
-  // Shuffle questions and limit to 5
+  // Shuffle questions - use all selected words (no limit)
   const shuffledPool = useMemo(() => {
     const shuffled = [...validPool].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 5);
+    return shuffled; // Use all words from selected range
   }, [validPool]);
 
   // Pre-assign correct answer positions (0=A, 1=B, 2=C, 3=D) to ensure even distribution
@@ -422,7 +422,7 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words, onRestar
                   disabled={showResult}
                   className={`${bgColor} border-2 rounded-xl p-4 text-left transition hover:shadow-md disabled:cursor-not-allowed`}
                 >
-                  <span className="font-medium">{String.fromCharCode(65 + i)}.</span> {option}
+                  <span className="font-medium">{String.fromCharCode(65 + i)}.</span> {option.replace(/\s*\([a-z\.\/]+\)\s*/gi, '').trim()}
                   {showCorrect && <span className="ml-2">✓</span>}
                   {showWrong && <span className="ml-2">✗</span>}
                 </button>
