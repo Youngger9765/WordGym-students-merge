@@ -46,6 +46,8 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
       stage,
       version
     });
+    // Navigate to flashcard page after curriculum selection
+    window.location.hash = '#/';
     if (onClose) onClose();
   };
 

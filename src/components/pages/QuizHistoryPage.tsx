@@ -77,7 +77,7 @@ const QuizHistoryPage: React.FC = () => {
                 <div className="flex justify-between items-center p-4 hover:bg-gray-50 transition">
                   <div className="flex-1">
                     <div className="font-semibold text-gray-900 text-lg mb-1">
-                      {formatDate(record.timestamp ?? 0)}
+                      {formatDate(record.timestamp || (record.date ? new Date(record.date).getTime() : Date.now()))}
                     </div>
                     <div className="text-sm text-gray-600">
                       {renderQuizType(record.type)} | {record.correct}/{record.totalQuestions} 正確 ({correctRate}%)

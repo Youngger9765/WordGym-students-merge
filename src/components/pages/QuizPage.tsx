@@ -82,13 +82,27 @@ export const QuizPage: React.FC<QuizPageProps> = ({ words, userSettings }) => {
   if (quizWords.length === 0) {
     return (
       <div className="container mx-auto p-6 max-w-2xl">
-        <div className="text-center py-12 bg-gray-50 rounded-2xl">
-          <p className="text-gray-600 mb-4">沒有可測驗的單字</p>
+        <div className="text-center py-12 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl border-2 border-orange-200">
+          <svg
+            className="mx-auto h-16 w-16 text-orange-400 mb-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
+          </svg>
+          <p className="text-gray-800 text-lg font-semibold mb-2">請先選擇題目範圍</p>
+          <p className="text-gray-600 mb-6">請先到「單字卡」選擇題目範圍</p>
           <button
             onClick={() => window.location.hash = '#/'}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+            className="px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 font-medium transition shadow-md hover:shadow-lg"
           >
-            返回首頁
+            前往單字卡
           </button>
         </div>
       </div>
