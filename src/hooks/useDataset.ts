@@ -18,6 +18,7 @@ import {
   getWordThemes
 } from '../utils/dataProcessing';
 import { exampleFor, translationFor } from '../utils/wordUtils';
+import { VersionService } from '../services/VersionService';
 import vocabularyData from '../data/vocabulary.json';
 // Removed Google Sheet import
 
@@ -170,7 +171,12 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       themeOrderRef.current = counters;
 
       const next: VocabularyWord[] = replace ? [] : preparedCurrent;
-      const byWord = new Map(next.map(w => [String(w.english_word || '').toLowerCase(), w]));
+      // Create a composite key combining english_word and normalized stage to prevent cross-stage merging
+      const byWord = new Map(next.map(w => {
+        const wordKey = String(w.english_word || '').toLowerCase();
+        const stageKey = VersionService.normalizeStage(w.stage || '');
+        return [`${wordKey}_${stageKey}`, w];
+      }));
       let maxId = next.reduce((m, w) => Math.max(m, Number(w.id) || 0), 0);
 
       let skippedNoRaw = 0;
@@ -383,7 +389,10 @@ export function useDataset(initialData: VocabularyWord[] = []) {
 
         // Removed debug logging
 
-        const key = english.toLowerCase();
+        // Create composite key using normalized stage to prevent cross-stage merging
+        const wordKey = english.toLowerCase();
+        const incomingStageNormalized = VersionService.normalizeStage(incoming.stage || '');
+        const key = `${wordKey}_${incomingStageNormalized}`;
         const existing = byWord.get(key);
 
         if (existing) {
