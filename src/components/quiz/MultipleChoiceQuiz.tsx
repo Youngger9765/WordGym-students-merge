@@ -151,13 +151,45 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words, onRestar
       }
     }
 
-    // Build final options: always 4 options
-    const finalOptions: string[] = [];
-    for (let i = 0; i < Math.min(3, allDistractors.length); i++) {
-      finalOptions.push(allDistractors[i]);
+    // Step 3: Fallback strategies to ensure exactly 3 distractors
+    const fallbackOptions = [
+      'apple', 'banana', 'computer', 'develop', 'education',
+      'family', 'government', 'history', 'important', 'justice',
+      'knowledge', 'language', 'mountain', 'nature', 'organization'
+    ];
+
+    while (allDistractors.length < 3) {
+      // Try to find unused fallback words
+      const unusedFallbacks = fallbackOptions.filter(fb =>
+        fb !== correctAnswer.toLowerCase() &&
+        !allDistractors.some(d => d.toLowerCase() === fb)
+      );
+
+      if (unusedFallbacks.length > 0) {
+        const randomFallback = unusedFallbacks[Math.floor(Math.random() * unusedFallbacks.length)];
+        allDistractors.push(randomFallback);
+      } else {
+        // Last resort: generate synthetic options
+        allDistractors.push(`option_${allDistractors.length + 1}`);
+      }
     }
 
-    const adjustedPosition = Math.min(correctPosition, finalOptions.length);
+    // Ensure exactly 3 unique distractors
+    const uniqueDistractors = [...new Set(allDistractors.slice(0, 3))];
+
+    // If we still don't have 3 after deduplication, pad with fallbacks
+    while (uniqueDistractors.length < 3) {
+      const syntheticOption = `word_${uniqueDistractors.length + 1}`;
+      if (!uniqueDistractors.includes(syntheticOption) && syntheticOption !== correctAnswer) {
+        uniqueDistractors.push(syntheticOption);
+      }
+    }
+
+    // Build final options: ALWAYS exactly 4 options (3 distractors + 1 correct)
+    const finalOptions: string[] = [...uniqueDistractors.slice(0, 3)];
+
+    // Insert correct answer at the predetermined position
+    const adjustedPosition = Math.min(correctPosition, 3); // Position must be 0-3
     finalOptions.splice(adjustedPosition, 0, correctAnswer);
 
     const clozedSentence = makeCloze(currentWord.example_sentence || '', correctAnswer);

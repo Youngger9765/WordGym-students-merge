@@ -73,7 +73,7 @@ test.describe('Quiz Page', () => {
       const optionsContainer = page.locator('.space-y-4.mt-6');
       const optionButtons = optionsContainer.locator('button');
       const count = await optionButtons.count();
-      expect(count).toBeGreaterThanOrEqual(3); // At least 3 options
+      expect(count).toBe(4); // Must have exactly 4 options (A, B, C, D)
 
       // Select first option button
       await optionButtons.first().click();
@@ -91,6 +91,48 @@ test.describe('Quiz Page', () => {
     // Check completion screen appears
     await expect(page.getByText(/選擇題測驗結束|Multiple Choice.*Complete/i)).toBeVisible({ timeout: 5000 });
     await expect(page.getByText(/正確答案|Correct/i)).toBeVisible();
+  });
+
+  test('Multiple Choice Quiz Always Has 4 Options', async ({ page }) => {
+    // This test ensures that even with edge cases, all questions have exactly 4 options
+
+    // Select multiple choice quiz (use exact match)
+    await page.getByRole('button', { name: 'Multiple Choice', exact: true }).click();
+
+    // Configure quiz with minimal questions to test edge cases
+    await page.getByRole('slider').fill('3');
+    await page.getByRole('button', { name: /Start.*Quiz/i }).click();
+
+    // Wait for quiz to load
+    await page.waitForSelector('text=/Question \\d+ of \\d+/', { timeout: 10000 });
+
+    // Check each question for exactly 4 options
+    for (let i = 0; i < 3; i++) {
+      // Wait for question to be visible
+      await expect(page.getByRole('heading', { name: new RegExp(`Question ${i + 1} of 3`) })).toBeVisible();
+
+      // Count option buttons (should be in grid layout)
+      const gridContainer = page.locator('.grid.grid-cols-1.md\\:grid-cols-2');
+      const optionButtons = gridContainer.locator('button');
+      const count = await optionButtons.count();
+
+      // CRITICAL: Must have exactly 4 options
+      expect(count, `Question ${i + 1} must have exactly 4 options`).toBe(4);
+
+      // Verify options are labeled A, B, C, D
+      const labels = await optionButtons.allTextContents();
+      expect(labels.some(l => l.includes('A.')), 'Must have option A').toBeTruthy();
+      expect(labels.some(l => l.includes('B.')), 'Must have option B').toBeTruthy();
+      expect(labels.some(l => l.includes('C.')), 'Must have option C').toBeTruthy();
+      expect(labels.some(l => l.includes('D.')), 'Must have option D').toBeTruthy();
+
+      // Click first option and proceed
+      await optionButtons.first().click();
+
+      if (i < 2) {
+        await page.waitForSelector(`text=/Question ${i + 2} of 3/`, { timeout: 3000 });
+      }
+    }
   });
 
   test('Flashcard Quiz Flow', async ({ page }) => {
