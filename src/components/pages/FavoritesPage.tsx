@@ -88,7 +88,12 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({ words, onStartQuiz
                 <>
                   <button
                     onClick={handleStartQuiz}
-                    className="px-6 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 font-medium transition duration-150 min-h-[44px]"
+                    disabled={favoriteWords.length < 5}
+                    className={`px-6 py-2 rounded-lg font-medium transition duration-150 min-h-[44px] ${
+                      favoriteWords.length < 5
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                    }`}
                   >
                     開始測驗
                   </button>
@@ -102,6 +107,13 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({ words, onStartQuiz
               )}
             </div>
           </div>
+          {favoriteWords.length > 0 && favoriteWords.length < 5 && (
+            <div className="mt-4 p-4 rounded-lg bg-amber-50 border border-amber-200">
+              <p className="text-sm text-amber-800">
+                <span className="font-semibold">提醒：</span>建議累積至少 5 題再進行測驗，以確保測驗選項充足（目前 {favoriteWords.length} 題）
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Word cards */}
