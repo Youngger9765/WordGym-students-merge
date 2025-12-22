@@ -28,7 +28,7 @@ Even if ALL of these are complete, DO NOT close the issue:
 - ✅ Tests passing
 - ✅ PR merged
 - ✅ Deployed to production
-- ✅ Browser verified
+- ✅ Browser AI-verified
 
 **MUST WAIT FOR**: Case owner comment with approval keywords like:
 - "測試通過" / "测试通过"
@@ -53,7 +53,7 @@ gh issue edit <NUM> --remove-label "ready-for-review"
 
 # Add completion labels
 gh issue edit <NUM> --add-label "ready-for-testing"
-gh issue edit <NUM> --add-label "verified"
+gh issue edit <NUM> --add-label "AI-verified"
 
 # Keep issue OPEN - do NOT close!
 # Issue stays OPEN until case owner approves
@@ -63,7 +63,7 @@ gh issue edit <NUM> --add-label "verified"
 - `in-progress` (🟡 Yellow #FFA500): Development started
 - `ready-for-review` (🔵 Blue #0E8A16): PR created, awaiting review
 - `ready-for-testing` (🟢 Green #0E8A16): Deployed, awaiting case owner testing
-- `verified` (🟣 Purple #8B5CF6): Automated verification passed
+- `AI-verified` (🟣 Purple #8B5CF6): Automated verification passed
 - `approved` (🟢 Dark Green #006B75): Case owner approved
 
 ### 📝 Correct PR Description Format
@@ -98,7 +98,7 @@ Resolves #5
    ↓
 3. Create PR (OPEN, add: ready-for-review, remove: in-progress)
    ↓
-4. Merge PR (OPEN, add: ready-for-testing + verified)
+4. Merge PR (OPEN, add: ready-for-testing + AI-verified)
    ↓
 5. Automated Verification (OPEN, labels stay)
    ↓
@@ -109,7 +109,7 @@ Resolves #5
 8. ONLY AFTER APPROVAL: Close Issue (CLOSED)
 ```
 
-**Key Point**: Issue stays OPEN at step 6 even if everything is deployed and verified!
+**Key Point**: Issue stays OPEN at step 6 even if everything is deployed and AI-verified!
 
 ---
 
@@ -273,7 +273,7 @@ gcloud run services list --region=asia-east1 | grep "preview-issue"  # Should be
 
    # Add completion labels
    gh issue edit <NUM> --add-label "ready-for-testing"
-   gh issue edit <NUM> --add-label "verified"
+   gh issue edit <NUM> --add-label "AI-verified"
 
    # Add comment explaining status
    gh issue comment <NUM> --body "✅ **已部署並驗證完成**
