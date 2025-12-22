@@ -27,11 +27,13 @@ export function useQuizHistory() {
     }
   }, [history]);
 
-  const add = useCallback((record: Omit<QuizRecord, 'id' | 'date'>) => {
+  const add = useCallback((record: Omit<QuizRecord, 'id' | 'date' | 'timestamp'>) => {
+    const now = Date.now();
     const newRecord: QuizRecord = {
       ...record,
       id: uuidv4(),
-      date: new Date().toISOString()
+      date: new Date(now).toISOString(),
+      timestamp: now
     };
     setHistory(prev => [newRecord, ...prev].slice(0, MAX_RECORDS));
   }, []);
