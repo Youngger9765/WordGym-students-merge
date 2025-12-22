@@ -42,6 +42,9 @@ export interface VocabularyWord {
   example_translation?: string;
   example_translation_2?: string;
 
+  // Video URL (YouTube video ID)
+  videoUrl?: string;
+
   // Lexical relations
   synonyms?: string[];
   antonyms?: string[];
