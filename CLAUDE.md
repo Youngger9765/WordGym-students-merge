@@ -194,3 +194,51 @@ If you cannot complete a task:
 - DO NOT find excuses after starting
 
 **Remember:** The user expects completion, not excuses.
+
+## AI Capability Limitations & Compensation Strategies
+
+### Known Limitations
+
+1. **Visual Understanding Deficit**
+   - ❌ AI cannot "see" rendered web pages like humans
+   - ❌ Cannot intuitively spot layout/styling issues
+   - ✅ MUST use Chrome automation for all UI verification
+   - ✅ MUST provide screenshot evidence
+
+2. **Root Cause Analysis Bias**
+   - ❌ AI tends to fix symptoms (UI display) rather than root causes (source data)
+   - ❌ Lack of "common sense" to question "why am I fixing this in 3 places?"
+   - ✅ MUST apply 5 Whys methodology before implementation
+   - ✅ MUST escalate to human when fixing same issue in multiple locations
+
+3. **Product Intuition Gap**
+   - ❌ AI follows "代碼能跑就行" mentality (if it compiles, ship it)
+   - ❌ Cannot detect "這樣很蠢，肯定哪裡不對" (intuitive wrongness)
+   - ✅ MUST seek human validation for architectural decisions
+   - ✅ MUST verify actual user experience, not just code correctness
+
+### Compensation Strategies
+
+#### Chrome Verification前置化
+- Take screenshots BEFORE and AFTER fixes
+- Compare evidence to verify actual behavior
+- Document visual changes in issue comments
+
+#### Mandatory Root Cause Analysis
+- Apply 5 Whys before writing code
+- Question assumptions when fixing in multiple places
+- Seek human insight for systemic issues
+
+#### Human-AI Collaboration Optimization
+- AI provides evidence (screenshots, analysis)
+- Human validates architectural decisions
+- Human spots systemic problems AI misses
+- AI executes fixes at correct layer
+
+#### Client Feedback Triggers改進
+- After client-feedback-1: Deep analysis of failure mode
+- After client-feedback-2: Escalate complexity, seek human review
+- After client-feedback-3+: Human takes over
+
+### Remember
+The user expects **completion**, not excuses. If you cannot complete a task due to these limitations, **SAY SO AT THE START** and explain which limitation applies.
