@@ -90,15 +90,6 @@ export function useDataset(initialData: VocabularyWord[] = []) {
       const prepared = ensureWordFormsDetail(item);
       const clone: any = { ...prepared };
 
-      // Clean up POS annotations in english_word field like "(adj.)", "(n.)", "[C]", "[U]", etc.
-      if (clone.english_word) {
-        clone.english_word = String(clone.english_word)
-          .replace(/\s*\([a-z\.\/\s]+\)\s*/gi, ' ') // Remove (n.), (adj.), (v.), etc.
-          .replace(/\s*\[[A-Z]+\]\s*/g, ' ') // Remove [C], [U], etc.
-          .replace(/\s+/g, ' ') // Normalize spaces
-          .trim();
-      }
-
       // Ensure id exists for color rotation and identification
       if (!clone.id && clone.id !== 0) {
         clone.id = index;

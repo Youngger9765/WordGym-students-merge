@@ -145,6 +145,28 @@ def parse_word_forms(value):
 
     return result if result else value  # Return original if parsing fails
 
+def clean_english_word(word):
+    """
+    Clean POS annotations and markers from english_word field
+    Removes: (adj.), (n.), (adv.), (v.), [C], [U], etc.
+    Examples:
+      "historic (adj.)" -> "historic"
+      "appearance (n.) [C]" -> "appearance"
+      "joyous (adj.)" -> "joyous"
+    """
+    if not word or word.strip() == '':
+        return ''
+
+    cleaned = word
+    # Remove POS annotations like (adj.), (n.), (adv.), (v.), etc.
+    cleaned = re.sub(r'\s*\([a-z\.\/]+\)\s*', ' ', cleaned)
+    # Remove countable/uncountable markers like [C], [U]
+    cleaned = re.sub(r'\s*\[[A-Z]\]\s*', ' ', cleaned)
+    # Clean up extra whitespace
+    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+
+    return cleaned
+
 def parse_pos_tags(pos_column):
     """
     Parse part of speech tags from the '詞性' column (if exists)
@@ -385,6 +407,9 @@ def csv_to_json(csv_path, json_path):
                     # Only set posTags if not already set by '詞性' column
                     if not processed_row['posTags'] and pos_tags:
                         processed_row['posTags'] = pos_tags
+                elif key == 'english_word' or mapped_key == 'english_word':
+                    # Clean POS annotations from english_word at source
+                    processed_row['english_word'] = clean_english_word(value)
                 else:
                     # For other fields, use mapped key
                     if mapped_key in processed_row:

@@ -422,7 +422,7 @@ const MultipleChoiceQuiz: React.FC<MultipleChoiceQuizProps> = ({ words, onRestar
                   disabled={showResult}
                   className={`${bgColor} border-2 rounded-xl p-4 text-left transition hover:shadow-md disabled:cursor-not-allowed`}
                 >
-                  <span className="font-medium">{String.fromCharCode(65 + i)}.</span> {option.replace(/\s*\([a-z\.\/]+\)\s*/gi, '').trim()}
+                  <span className="font-medium">{String.fromCharCode(65 + i)}.</span> {option}
                   {showCorrect && <span className="ml-2">✓</span>}
                   {showWrong && <span className="ml-2">✗</span>}
                 </button>
