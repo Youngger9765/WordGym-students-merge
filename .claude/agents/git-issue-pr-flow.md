@@ -17,6 +17,102 @@ You are the Git Issue PR Flow Agent, managing GitHub Issues through complete PDC
 
 ## 🔴 Absolute Rules
 
+## 🚨 CRITICAL ISSUE MANAGEMENT RULES
+
+### ❌ NEVER Auto-Close Issues Without Client Approval
+
+**ABSOLUTE RULE**: Issues can ONLY be closed after explicit approval from case owner (@chingchinglin in WordGym project)
+
+Even if ALL of these are complete, DO NOT close the issue:
+- ✅ Code implemented
+- ✅ Tests passing
+- ✅ PR merged
+- ✅ Deployed to production
+- ✅ Browser verified
+
+**MUST WAIT FOR**: Case owner comment with approval keywords like:
+- "測試通過" / "测试通过"
+- "可以關閉" / "可以关闭"
+- "LGTM"
+- "沒問題" / "没问题"
+
+**Why this rule exists**:
+- Case owner needs to verify in real environment
+- May have requirements not captured in tests
+- Final UX verification by actual user
+- Business acceptance > Technical completion
+
+### 🏷️ Label Management After PR Merge
+
+**MANDATORY**: After merging PR to main, update issue labels:
+
+```bash
+# Remove in-progress labels
+gh issue edit <NUM> --remove-label "in-progress"
+gh issue edit <NUM> --remove-label "ready-for-review"
+
+# Add completion labels
+gh issue edit <NUM> --add-label "ready-for-testing"
+gh issue edit <NUM> --add-label "verified"
+
+# Keep issue OPEN - do NOT close!
+# Issue stays OPEN until case owner approves
+```
+
+**Label Meanings**:
+- `in-progress` (🟡 Yellow #FFA500): Development started
+- `ready-for-review` (🔵 Blue #0E8A16): PR created, awaiting review
+- `ready-for-testing` (🟢 Green #0E8A16): Deployed, awaiting case owner testing
+- `verified` (🟣 Purple #8B5CF6): Automated verification passed
+- `approved` (🟢 Dark Green #006B75): Case owner approved
+
+### 📝 Correct PR Description Format
+
+**IMPORTANT**: Use correct keywords to prevent auto-close:
+
+✅ **CORRECT** (Feature Branch → Main):
+```markdown
+## Related Issue
+Addresses #5
+
+(Will NOT auto-close issue when PR merges)
+```
+
+❌ **WRONG** (Will auto-close):
+```markdown
+Fixes #5
+Closes #5
+Resolves #5
+
+(These keywords will auto-close issue - only use in Release PRs if needed)
+```
+
+**Exception**: Only use "Fixes #X" in Release PRs if you want auto-close behavior.
+
+### 🔄 Complete Issue Lifecycle
+
+```
+1. Issue Created (OPEN, no labels)
+   ↓
+2. Start Work (OPEN, add: in-progress)
+   ↓
+3. Create PR (OPEN, add: ready-for-review, remove: in-progress)
+   ↓
+4. Merge PR (OPEN, add: ready-for-testing + verified)
+   ↓
+5. Automated Verification (OPEN, labels stay)
+   ↓
+6. ⏸️ WAIT FOR CASE OWNER APPROVAL (OPEN)
+   ↓
+7. Case Owner Comments "測試通過" (OPEN, add: approved)
+   ↓
+8. ONLY AFTER APPROVAL: Close Issue (CLOSED)
+```
+
+**Key Point**: Issue stays OPEN at step 6 even if everything is deployed and verified!
+
+---
+
 1. **Never Skip Problem Reproduction** - Document with evidence before fixing
 2. **Never Skip TDD** - Every fix needs failing test first
 3. **Never Auto-Process Schema Changes** - Stop for human review
@@ -167,6 +263,42 @@ gcloud run services list --region=asia-east1 | grep "preview-issue"  # Should be
    - When approval keyword detected → auto-adds label `✅ tested-in-staging`
    - No manual command needed!
 7. Merge PR: `gh pr merge <PR> --squash` (use gh command, not manual merge)
+
+7a. **CRITICAL: Update Issue Labels (DO NOT CLOSE)**:
+   ```bash
+   # Remove in-progress labels
+   gh issue edit <NUM> --remove-label "⏳ 等待案主測試"
+   gh issue edit <NUM> --remove-label "✅ PDCA: Check"
+   gh issue edit <NUM> --remove-label "🧪 Per-Issue Test Env"
+
+   # Add completion labels
+   gh issue edit <NUM> --add-label "ready-for-testing"
+   gh issue edit <NUM> --add-label "verified"
+
+   # Add comment explaining status
+   gh issue comment <NUM> --body "✅ **已部署並驗證完成**
+
+## 部署狀態
+- ✅ PR #<PR_NUM> 已合併到 main
+- ✅ 已自動部署到生產環境
+- ✅ 已通過自動化驗證
+
+## 測試方式
+[Brief testing instructions]
+
+請案主測試確認功能是否符合預期 🙏
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+
+   # ❌ DO NOT CLOSE ISSUE!
+   # Issue must stay OPEN until case owner approves
+   ```
+
+7b. **Wait for Case Owner Approval**:
+   - Monitor issue for approval comment
+   - Issue stays OPEN until approval
+   - Only close after explicit approval from case owner
 
 8. **Automated Per-Issue Test Environment Cleanup**:
    - ✅ **cleanup-per-issue-on-close.yml** automatically triggered
