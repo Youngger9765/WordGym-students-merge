@@ -333,119 +333,6 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word, userSettin
           </div>
         )}
 
-        {/* Examples card - MOVED HERE (after video, before word forms) */}
-        {(word.example_sentence || word.example_sentence_2) && (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">例句</h2>
-            <div className="space-y-4">
-              {word.example_sentence && (
-                <div className="pl-4 border-l-4 border-indigo-400">
-                  <div className="flex items-start gap-2">
-                    <div className="flex flex-col flex-1">
-                      <div className="text-xl font-bold text-gray-800 leading-snug">
-                        {word.example_sentence}
-                      </div>
-                      {word.example_translation && (
-                        <div className="text-sm text-gray-400 mt-2">
-                          {word.example_translation}
-                        </div>
-                      )}
-                    </div>
-                    <SpeakerButton
-                      onClick={() => speak(word.example_sentence!)}
-                      className="mt-0.5"
-                    />
-                  </div>
-                </div>
-              )}
-              {word.example_sentence_2 && (
-                <div className="pl-4 border-l-4 border-indigo-400">
-                  <div className="flex items-start gap-2">
-                    <div className="flex flex-col flex-1">
-                      <div className="text-xl font-bold text-gray-800 leading-snug">
-                        {word.example_sentence_2}
-                      </div>
-                      {word.example_translation_2 && (
-                        <div className="text-sm text-gray-400 mt-2">
-                          {word.example_translation_2}
-                        </div>
-                      )}
-                    </div>
-                    <SpeakerButton
-                      onClick={() => speak(word.example_sentence_2!)}
-                      className="mt-0.5"
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Synonyms / Antonyms / Confusables - MOVED HERE (visible by default) */}
-        {hasRelations() && (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">同義／反義／易混淆</h2>
-            <div className="grid gap-4 md:grid-cols-3">
-              {word.synonyms && word.synonyms.length > 0 && (
-                <div>
-                  <div className="text-xs font-semibold text-gray-400 mb-2">同義字</div>
-                  <div className="flex flex-wrap gap-2">
-                    {word.synonyms.map((syn, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => {
-                          window.location.hash = `#/word/${syn}`;
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200 hover:bg-blue-100 transition cursor-pointer"
-                      >
-                        {syn}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {word.antonyms && word.antonyms.length > 0 && (
-                <div>
-                  <div className="text-xs font-semibold text-gray-400 mb-2">反義字</div>
-                  <div className="flex flex-wrap gap-2">
-                    {word.antonyms.map((ant, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => {
-                          window.location.hash = `#/word/${ant}`;
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-sm font-medium border border-rose-200 hover:bg-rose-100 transition cursor-pointer"
-                      >
-                        {ant}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {word.confusables && word.confusables.length > 0 && (
-                <div>
-                  <div className="text-xs font-semibold text-gray-400 mb-2">易混淆字</div>
-                  <div className="flex flex-wrap gap-2">
-                    {word.confusables.map((conf, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => {
-                          window.location.hash = `#/word/${conf}`;
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 text-sm font-medium border border-amber-200 hover:bg-amber-100 transition cursor-pointer"
-                        title="點擊查看差異"
-                      >
-                        {conf}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
         {/* Word forms and relations card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
           <h2 className="text-xl font-bold text-gray-900 mb-4">詞性與關聯字</h2>
@@ -515,6 +402,70 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word, userSettin
             )}
           </div>
         </div>
+
+        {/* Synonyms / Antonyms / Confusables */}
+        {hasRelations() && (
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">同義／反義／易混淆</h2>
+            <div className="grid gap-4 md:grid-cols-3">
+              {word.synonyms && word.synonyms.length > 0 && (
+                <div>
+                  <div className="text-xs font-semibold text-gray-400 mb-2">同義字</div>
+                  <div className="flex flex-wrap gap-2">
+                    {word.synonyms.map((syn, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          window.location.hash = `#/word/${syn}`;
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200 hover:bg-blue-100 transition cursor-pointer"
+                      >
+                        {syn}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {word.antonyms && word.antonyms.length > 0 && (
+                <div>
+                  <div className="text-xs font-semibold text-gray-400 mb-2">反義字</div>
+                  <div className="flex flex-wrap gap-2">
+                    {word.antonyms.map((ant, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          window.location.hash = `#/word/${ant}`;
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-sm font-medium border border-rose-200 hover:bg-rose-100 transition cursor-pointer"
+                      >
+                        {ant}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {word.confusables && word.confusables.length > 0 && (
+                <div>
+                  <div className="text-xs font-semibold text-gray-400 mb-2">易混淆字</div>
+                  <div className="flex flex-wrap gap-2">
+                    {word.confusables.map((conf, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          window.location.hash = `#/word/${conf}`;
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 text-sm font-medium border border-amber-200 hover:bg-amber-100 transition cursor-pointer"
+                        title="點擊查看差異"
+                      >
+                        {conf}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Affix card */}
         {word.affix_info && (affixInfo?.prefix || affixInfo?.root || affixInfo?.suffix) && (
