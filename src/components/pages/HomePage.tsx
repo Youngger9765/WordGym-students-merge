@@ -15,7 +15,7 @@ import { ThemeFilters } from '../filters/ThemeFilters';
 const TABS = {
   textbook: '課本進度',
   exam: '大考衝刺',
-  theme: '主題探索'
+  theme: '程度分級'
 };
 
 interface HomePageProps {
@@ -92,7 +92,7 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
       {/* Welcome Section */}
       <div className="text-gray-600 mb-6 leading-relaxed space-y-1">
         <p className="text-lg font-medium text-gray-500">歡迎來到 WordGym 單字健身坊！</p>
-        <p className="text-base text-gray-500">請從課本進度、大考衝刺或主題探索，選擇想要學習的內容！</p>
+        <p className="text-base text-gray-500">請從課本進度、大考衝刺或程度分級，選擇想要學習的內容！</p>
       </div>
 
       {/* Tab Navigation - Updated styling to match original */}
@@ -184,8 +184,8 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
           <div>
             <h2 className="text-xl font-semibold">
               {currentTab === 'textbook' && '課本進度'}
-              {currentTab === 'exam' && '大考衝刺'}
-              {currentTab === 'theme' && '主題探索'}
+              {currentTab === 'exam' && '大考衝刺（歷屆試題）'}
+              {currentTab === 'theme' && '程度分級（Level 分類）'}
             </h2>
             <p className="text-sm text-gray-500">
               符合條件的單字：{filteredWords.length} 筆
