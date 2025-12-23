@@ -373,10 +373,15 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words, onRestart }) => {
         .flashcard {
           perspective: 1000px;
           margin-bottom: 100px;
+          width: 100%;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
         }
         .flashcard-inner {
           position: relative;
           width: 100%;
+          min-width: 320px;
           transition: transform 0.6s;
           transform-style: preserve-3d;
         }
