@@ -4,6 +4,7 @@ import { useCurrentTab } from '../../hooks/useCurrentTab';
 import { useTabFilters } from '../../hooks/useTabFilters';
 import { useQuickFilterPos } from '../../hooks/useQuickFilterPos';
 import { useFavorites } from '../../hooks/useFavorites';
+import { useFilteredWordIds } from '../../hooks/useFilteredWordIds';
 import { filterWords } from '../../utils/filterWords';
 import type { VocabularyWord, UserSettings } from '../../types';
 
@@ -27,10 +28,19 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
   // Removed local useUserSettings() call, now using userSettings prop directly
   const { currentTab, setCurrentTab } = useCurrentTab();
   const { filters, updateFilter } = useTabFilters(userSettings);
-  const { quickFilterPos } = useQuickFilterPos();
+  const { quickFilterPos, setQuickFilterPos } = useQuickFilterPos();
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
+  const { setFilteredWordIds } = useFilteredWordIds();
 
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Clear search term and POS filter when switching tabs
+  React.useEffect(() => {
+    setSearchTerm('');
+    if (setQuickFilterPos) {
+      setQuickFilterPos('all');
+    }
+  }, [currentTab, setQuickFilterPos]);
 
   const handleToggleFavorite = (wordId: number) => {
     if (isFavorite(wordId)) {
@@ -58,6 +68,12 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
     quickFilterPos,
     searchTerm
   );
+
+  // Auto-sync filtered word IDs to global state whenever filters change
+  React.useEffect(() => {
+    const wordIds = filteredWords.map(word => word.id);
+    setFilteredWordIds(wordIds);
+  }, [filteredWords, setFilteredWordIds]);
 
   const handleTestRange = () => {
     const wordIds = filteredWords.map(word => word.id).join(',');

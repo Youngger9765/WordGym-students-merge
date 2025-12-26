@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { VocabularyWord, UserSettings } from '../../types';
 import { useHashRoute } from '../../hooks/useHashRoute';
+import { useFilteredWordIds } from '../../hooks/useFilteredWordIds';
 import { VersionService } from '../../services/VersionService';
 import MultipleChoiceQuiz from '../quiz/MultipleChoiceQuiz';
 import FlashcardQuiz from '../quiz/FlashcardQuiz';
@@ -12,6 +13,7 @@ interface QuizPageProps {
 
 export const QuizPage: React.FC<QuizPageProps> = ({ words, userSettings }) => {
   const { hash, push } = useHashRoute();
+  const { filteredWordIds } = useFilteredWordIds();
 
   // Parse URL params
   const params = useMemo(() => {
@@ -34,19 +36,24 @@ export const QuizPage: React.FC<QuizPageProps> = ({ words, userSettings }) => {
     });
   }, [words, userSettings]);
 
-  // Parse word IDs from URL params
+  // Parse word IDs from URL params OR use global filtered word IDs
   const quizWords = useMemo(() => {
     const wordIdsParam = params.get('words');
 
-    if (!wordIdsParam) {
-      return []; // Default to 0 questions - user must select range first
+    // Priority 1: URL params (from explicit "測驗此範圍" button click)
+    if (wordIdsParam) {
+      const wordIds = wordIdsParam.split(',').map(id => parseInt(id, 10));
+      return words.filter(w => wordIds.includes(w.id));
     }
 
-    // When specific word IDs are provided (e.g., from favorites), don't apply version filter
-    // because favorites can contain words from any version
-    const wordIds = wordIdsParam.split(',').map(id => parseInt(id, 10));
-    return words.filter(w => wordIds.includes(w.id));
-  }, [params, words, versionFilteredWords]);
+    // Priority 2: Global filtered word IDs (from HomePage filter state)
+    if (filteredWordIds && filteredWordIds.length > 0) {
+      return words.filter(w => filteredWordIds.includes(w.id));
+    }
+
+    // Priority 3: Empty (show prompt to select range)
+    return [];
+  }, [params, words, filteredWordIds, versionFilteredWords]);
 
   const validQuizWords = useMemo(() => {
     // Filter words that have example sentences for multiple choice quiz

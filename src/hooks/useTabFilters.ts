@@ -40,25 +40,25 @@ export const useTabFilters = (userSettings: UserSettings | null) => {
       : getDefaultFilters();
   });
 
-  // Reset theme filters when stage changes
+  // Reset ALL filters when stage OR version changes
   useEffect(() => {
     const currentStage = VersionService.normalizeStage(userSettings?.stage || '');
+    const currentVersion = userSettings?.version || '';
     const prevStage = prevStageRef.current;
+    const prevVersionRef = (prevStageRef as any).prevVersion;
 
-    if (prevStage && prevStage !== currentStage) {
-      // Stage changed - reset theme filter to default for new stage
-      const newRange = currentStage === 'junior' ? '1200' : 'Level 4';
-      setFilters((prev: any) => ({
-        ...prev,
-        theme: {
-          range: newRange,
-          theme: ''
-        }
-      }));
+    const stageChanged = prevStage && prevStage !== currentStage;
+    const versionChanged = prevVersionRef && prevVersionRef !== currentVersion;
+
+    if (stageChanged || versionChanged) {
+      // Stage or version changed - reset ALL filters to defaults
+      const defaults = getDefaultFilters();
+      setFilters(defaults);
     }
 
     prevStageRef.current = currentStage;
-  }, [userSettings?.stage]);
+    (prevStageRef as any).prevVersion = currentVersion;
+  }, [userSettings?.stage, userSettings?.version]);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(filters));
