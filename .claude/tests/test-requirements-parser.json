@@ -1,0 +1,447 @@
+{
+  "test_suite": "requirements-parser",
+  "description": "验证 requirements-parser skill 的效果，包含 Negative cases (F→T) 和 Positive cases (T→T 防止回归)",
+  "created_date": "2025-12-26",
+  "total_cases": 6,
+  "negative_cases": 3,
+  "positive_cases": 3,
+
+  "test_cases": [
+    {
+      "case_id": "NEG-001",
+      "test_type": "negative",
+      "issue_id": "4",
+      "issue_url": "https://github.com/Youngger9765/WordGym-students-merge/issues/4",
+      "client_feedback_count": 2,
+      "failure_pattern": "Pattern 1: 需求理解偏差",
+
+      "scenario": "需求明确但AI未按照实施",
+      "description": "客户在 issue 中明确列出了顺序要求，但 AI 第1次实施时没有按照客户指定的顺序排列区块",
+
+      "input": {
+        "issue_title": "單字卡順序仍有錯誤",
+        "client_feedback": "單字卡順序仍有錯誤\n\n正確順序：\n1. 單字（音標、詞性、tag）\n2. 影片\n3. 詞性與關聯字，這是一個grop，裡面的順序是:詞性→ 同義字 ｜反義字 ｜易混淆字 →字根 ｜字首 ｜字尾\n4. 匯出內容"
+      },
+
+      "expected_behavior": {
+        "without_skill": {
+          "action": "AI 自行理解并实施，没有提取明确的 checklist",
+          "result": "FAIL - 顺序错误（例句独立显示在词性之前）",
+          "reason": "AI 没有仔细阅读客户明确列出的顺序要求"
+        },
+        "with_skill": {
+          "action": "requirements-parser 提取明确要求",
+          "output_structure": {
+            "明确要求": [
+              "顺序1: 单字区块（包含音标、词性、tag）",
+              "顺序2: 影片区块",
+              "顺序3: 词性与关联字 GROUP（内部顺序：词性变化 → 同义字｜反义字｜易混淆字 → 字根｜字首｜字尾）",
+              "顺序4: 汇出内容区块"
+            ],
+            "模糊需求": [],
+            "建议行动": "所有需求明确，可以直接实施。实施时严格按照客户指定的顺序排列区块。"
+          },
+          "result": "PASS - 按照客户顺序正确实施",
+          "expected_outcome": "F → T (失败变成功)"
+        }
+      },
+
+      "scoring_criteria": {
+        "pass_conditions": [
+          "提取到所有4个顺序要求",
+          "识别出 GROUP 的内部顺序",
+          "没有误判为模糊需求",
+          "明确建议'可以直接实施'"
+        ],
+        "fail_conditions": [
+          "漏掉任何一个顺序要求",
+          "没有识别 GROUP 内部顺序",
+          "误判为需要澄清",
+          "提取的顺序与客户指定不一致"
+        ],
+        "weight": "高 - 这是典型的需求理解偏差案例"
+      }
+    },
+
+    {
+      "case_id": "NEG-002",
+      "test_type": "negative",
+      "issue_id": "19",
+      "issue_url": "https://github.com/Youngger9765/WordGym-students-merge/issues/19",
+      "client_feedback_count": 2,
+      "failure_pattern": "Pattern 4: 缺少澄清环节",
+
+      "scenario": "需求模糊AI盲目猜测",
+      "description": "客户说'你改壞了'、'回到上一個版本'，但没有明确是哪个版本。AI 盲目猜测了 2 次（600px, 900px）都失败。",
+
+      "input": {
+        "issue_title": "閃卡的正反面寬度要一樣",
+        "client_feedback": "你改壞了，正反面的寬度還是不一樣，且反面改動寬度，導致句子斷行，不是原本的設計\n\n請先回到上一個版本反面的寬度，正面與上一版的寬度相同"
+      },
+
+      "expected_behavior": {
+        "without_skill": {
+          "action": "AI 猜测客户想要的宽度（600px → 失败 → 900px → 失败）",
+          "result": "FAIL - 连续 2 次猜测都失败",
+          "reason": "没有识别'上一個版本'是模糊需求，盲目猜测"
+        },
+        "with_skill": {
+          "action": "requirements-parser 识别模糊需求并要求澄清",
+          "output_structure": {
+            "明确要求": [
+              "正反面宽度必须一致",
+              "不可以导致句子断行"
+            ],
+            "模糊需求": [
+              {
+                "问题": "客户说'上一個版本'，但没有明确是哪个版本",
+                "可能含义": [
+                  "原始设计 (commit 65f497b): 无宽度限制",
+                  "第一次尝试 (commit 713a353): max-width: 600px",
+                  "第二次尝试 (commit f0340e7): max-width: 900px"
+                ]
+              },
+              {
+                "问题": "客户说'原本的設計'，但没有明确具体是什么",
+                "可能含义": [
+                  "响应式宽度（随屏幕自适应）",
+                  "固定宽度（但不确定多少px）"
+                ]
+              }
+            ],
+            "建议行动": "发布澄清评论，提供选项让客户选择，等待明确回复后再实施第3次修复。"
+          },
+          "result": "PASS - 停止猜测，要求澄清",
+          "expected_outcome": "F → T (失败变成功 - 避免了第3、4次盲目猜测)"
+        }
+      },
+
+      "scoring_criteria": {
+        "pass_conditions": [
+          "识别出'上一個版本'是模糊需求",
+          "识别出'原本的設計'是模糊需求",
+          "提取到2个明确要求（宽度一致 + 不断行）",
+          "明确建议'发布澄清评论，等待回复'",
+          "提供了具体的澄清选项"
+        ],
+        "fail_conditions": [
+          "没有识别模糊需求",
+          "建议直接实施（猜测）",
+          "没有提供澄清选项"
+        ],
+        "weight": "高 - 这是 Failed Fix Principle 的核心案例"
+      }
+    },
+
+    {
+      "case_id": "NEG-003",
+      "test_type": "negative",
+      "issue_id": "9",
+      "issue_url": "https://github.com/Youngger9765/WordGym-students-merge/issues/9",
+      "client_feedback_count": 1,
+      "failure_pattern": "Pattern 1: 需求理解偏差",
+
+      "scenario": "需求误解（预设0题 vs 加提示）",
+      "description": "客户要求'預設0題'和'顯示說明'，但 AI 第1次只添加了提示卡片，没有改预设题数。",
+
+      "input": {
+        "issue_title": "實力驗收畫面預設題目0題",
+        "client_feedback": "看起來沒有改\n\n目前預設是全部單字，希望能改為：\n加上說明：請先到「單字卡」選擇題目範圍\nuser在單字卡選擇範圍後，才能作答"
+      },
+
+      "expected_behavior": {
+        "without_skill": {
+          "action": "AI 理解成'加提示卡片'，但没有改预设题数",
+          "result": "FAIL - 客户说'看起來沒有改'",
+          "reason": "误解了需求，只做了一半（加提示，忘了改预设题数）"
+        },
+        "with_skill": {
+          "action": "requirements-parser 正确提取2个要求",
+          "output_structure": {
+            "明确要求": [
+              "预设题数改为 0 题（不是'全部单字'）",
+              "显示说明：'請先到「單字卡」選擇題目範圍'",
+              "必须先在单字卡选择范围才能作答"
+            ],
+            "模糊需求": [],
+            "建议行动": "所有需求明确。实施：1) 预设题数 = 0  2) 显示引导提示  3) 未选择时禁用作答"
+          },
+          "result": "PASS - 两个要求都实施",
+          "expected_outcome": "F → T (失败变成功)"
+        }
+      },
+
+      "scoring_criteria": {
+        "pass_conditions": [
+          "提取到'预设0题'这个关键要求",
+          "提取到'显示说明'要求",
+          "提取到'必须先选择才能作答'的逻辑要求",
+          "没有误判为模糊需求"
+        ],
+        "fail_conditions": [
+          "漏掉'预设0题'要求",
+          "只提取到'显示说明'",
+          "没有理解'必须先选择'的逻辑"
+        ],
+        "weight": "中 - 需求相对明确，但容易漏掉关键点"
+      }
+    },
+
+    {
+      "case_id": "POS-001",
+      "test_type": "positive",
+      "issue_id": "5",
+      "issue_url": "https://github.com/Youngger9765/WordGym-students-merge/issues/5",
+      "client_feedback_count": 0,
+      "first_attempt_result": "PASS",
+
+      "scenario": "需求简单明确，AI一次成功",
+      "description": "需求非常明确（'選擇題的選項必須要有四個'），AI 第1次就成功实施了 4 层 fallback 确保 4 个选项。",
+
+      "input": {
+        "issue_title": "選擇題的選項必須要有四個",
+        "issue_description": "選擇題的選項必須要有四個"
+      },
+
+      "expected_behavior": {
+        "without_skill": {
+          "action": "AI 理解'四個選項' → 实施 4 层 fallback",
+          "result": "PASS - 一次成功",
+          "reason": "需求明确，AI 正确理解"
+        },
+        "with_skill": {
+          "action": "requirements-parser 提取明确要求",
+          "output_structure": {
+            "明确要求": [
+              "选择题必须有恰好 4 个选项（A, B, C, D）"
+            ],
+            "模糊需求": [],
+            "建议行动": "需求明确，实施 fallback 机制确保总是有 4 个选项"
+          },
+          "result": "PASS - 仍然成功（无回归）",
+          "expected_outcome": "T → T (成功保持成功)",
+          "regression_risk": {
+            "risk_level": "中",
+            "risk_scenario": "requirements-parser 可能过度分析'四個'，误判为模糊需求（'至少4个'还是'恰好4个'？）",
+            "acceptable": false,
+            "reason": "这是明确的需求，不应该要求澄清"
+          }
+        }
+      },
+
+      "scoring_criteria": {
+        "pass_conditions": [
+          "正确提取'4个选项'要求",
+          "没有误判为模糊需求",
+          "没有要求澄清'至少4个'还是'恰好4个'",
+          "建议直接实施"
+        ],
+        "fail_conditions": [
+          "误判为模糊需求",
+          "要求澄清（这是明确需求）",
+          "过度分析简单需求"
+        ],
+        "weight": "高 - 防止回归的关键案例"
+      }
+    },
+
+    {
+      "case_id": "POS-002",
+      "test_type": "positive",
+      "issue_id": "6",
+      "issue_url": "https://github.com/Youngger9765/WordGym-students-merge/issues/6",
+      "client_feedback_count": 0,
+      "first_attempt_result": "PASS",
+
+      "scenario": "需求具体有数量指标，AI一次成功",
+      "description": "需求明确（'累積到五題以上才能測驗'），AI 第1次就正确实施了门槛逻辑。",
+
+      "input": {
+        "issue_title": "重點訓練裡的測驗，建議累積到五題以上才能測驗",
+        "issue_description": "重點訓練裡的測驗，建議累積到五題以上才能測驗，以免ABCD選項不足"
+      },
+
+      "expected_behavior": {
+        "without_skill": {
+          "action": "AI 理解'五題以上' → 设置门槛 >= 5",
+          "result": "PASS - 一次成功",
+          "reason": "数量指标明确，AI 正确实施"
+        },
+        "with_skill": {
+          "action": "requirements-parser 提取明确要求",
+          "output_structure": {
+            "明确要求": [
+              "重点训练的测验需要累积到 5 题以上才能开始",
+              "原因：避免 ABCD 选项不足"
+            ],
+            "模糊需求": [],
+            "建议行动": "需求明确，设置门槛：题数 >= 5 才允许测验"
+          },
+          "result": "PASS - 仍然成功（无回归）",
+          "expected_outcome": "T → T (成功保持成功)",
+          "regression_risk": {
+            "risk_level": "中",
+            "risk_scenario": "requirements-parser 可能误判'五題以上'为模糊需求（'>5'还是'>=5'？）",
+            "acceptable": false,
+            "reason": "'五題以上'在中文中明确表示 >=5，不需要澄清"
+          }
+        }
+      },
+
+      "scoring_criteria": {
+        "pass_conditions": [
+          "正确提取'5题以上'要求",
+          "正确理解'以上'表示 >=5",
+          "没有误判为模糊需求",
+          "理解了原因（避免选项不足）"
+        ],
+        "fail_conditions": [
+          "误判为模糊需求（'>5'还是'>=5'）",
+          "要求澄清（这是明确需求）",
+          "过度纠结数学符号"
+        ],
+        "weight": "高 - 防止过度分析数量指标"
+      }
+    },
+
+    {
+      "case_id": "POS-003",
+      "test_type": "positive",
+      "issue_id": "7",
+      "issue_url": "https://github.com/Youngger9765/WordGym-students-merge/issues/7",
+      "client_feedback_count": 0,
+      "first_attempt_result": "PASS",
+
+      "scenario": "Bug修复需求清晰，AI一次成功",
+      "description": "Bug 描述明确（'歷史紀錄的時間錯誤'），AI 第1次就正确修复了时间显示问题。",
+
+      "input": {
+        "issue_title": "歷史紀錄的時間錯誤",
+        "issue_description": "歷史紀錄的時間錯誤"
+      },
+
+      "expected_behavior": {
+        "without_skill": {
+          "action": "AI 识别时间显示 bug → 修复时间格式",
+          "result": "PASS - 一次成功",
+          "reason": "Bug 描述清晰，AI 正确修复"
+        },
+        "with_skill": {
+          "action": "requirements-parser 提取明确要求",
+          "output_structure": {
+            "明确要求": [
+              "修复历史记录中的时间显示错误"
+            ],
+            "模糊需求": [],
+            "建议行动": "需求明确，检查历史记录的时间显示逻辑并修复"
+          },
+          "result": "PASS - 仍然成功（无回归）",
+          "expected_outcome": "T → T (成功保持成功)",
+          "regression_risk": {
+            "risk_level": "低",
+            "risk_scenario": "requirements-parser 可能要求澄清'什么是正确的时间格式'",
+            "acceptable": false,
+            "reason": "Bug 修复场景，时间'错误'已经足够明确，不需要澄清格式"
+          }
+        }
+      },
+
+      "scoring_criteria": {
+        "pass_conditions": [
+          "正确提取'修复时间错误'要求",
+          "没有误判为模糊需求",
+          "没有要求澄清'正确的时间格式'",
+          "理解这是 Bug 修复，不需要过度澄清"
+        ],
+        "fail_conditions": [
+          "误判为模糊需求",
+          "要求澄清时间格式（Bug 场景不需要）",
+          "过度分析简单的 Bug 描述"
+        ],
+        "weight": "中 - Bug 修复场景的回归检测"
+      }
+    }
+  ],
+
+  "evaluation_metrics": {
+    "primary_metrics": {
+      "FT_rate": {
+        "formula": "FT / (FT + FF)",
+        "target": ">=80%",
+        "description": "失败变成功的比例，衡量改进有效性"
+      },
+      "TF_rate": {
+        "formula": "TF / (TT + TF)",
+        "target": "<=10%",
+        "description": "成功变失败的比例，衡量回归风险"
+      },
+      "net_improvement": {
+        "formula": "FT - TF",
+        "target": ">0",
+        "description": "净改进数量，必须为正数"
+      },
+      "quality_score": {
+        "formula": "(FT + TT - TF - FF) / total_cases",
+        "target": ">=0.7",
+        "description": "综合质量分数"
+      }
+    },
+
+    "pass_criteria": {
+      "minimum_requirements": [
+        "FT率 >= 80% (至少修复 80% 的失败案例)",
+        "TF率 <= 10% (回归率不超过 10%)",
+        "净改进 > 0 (整体必须是改进)",
+        "质量分数 >= 0.7 (综合质量达标)"
+      ],
+      "ideal_targets": [
+        "FT率 = 100% (所有失败案例都修复)",
+        "TF率 = 0% (无回归)",
+        "净改进 = +3 (3个失败全部修复，无回归)",
+        "质量分数 = 1.0 (完美)"
+      ]
+    }
+  },
+
+  "test_execution": {
+    "before_baseline": {
+      "description": "运行所有测试用例（无 requirements-parser skill）",
+      "expected_results": {
+        "negative_cases": "全部 FAIL (0/3)",
+        "positive_cases": "全部 PASS (3/3)",
+        "total_success_rate": "50% (3/6)"
+      }
+    },
+    "after_improvement": {
+      "description": "运行所有测试用例（有 requirements-parser skill）",
+      "expected_results": {
+        "negative_cases": "全部 PASS (3/3) - FT",
+        "positive_cases": "全部 PASS (3/3) - TT",
+        "total_success_rate": "100% (6/6)"
+      }
+    },
+    "worst_case_scenario": {
+      "description": "修复了失败案例，但破坏了成功案例",
+      "results": {
+        "negative_cases": "全部 PASS (3/3) - FT",
+        "positive_cases": "部分 FAIL (1/3) - TF",
+        "total_success_rate": "67% (4/6)",
+        "verdict": "不可接受 - 严重回归"
+      }
+    }
+  },
+
+  "notes": {
+    "design_rationale": "基于用户的关键洞察：'會不會你改善了他們，但是本來做對的卻錯了呢？'，设计了完整的 Negative + Positive 测试集，确保既能验证改进效果，又能检测回归风险。",
+    "regression_risks": [
+      "POS-001: 过度分析'四個'选项",
+      "POS-002: 误判'五題以上'为模糊",
+      "POS-003: 要求澄清Bug修复的时间格式"
+    ],
+    "key_insights": [
+      "不只看成功率提升 (50% → X%)，更要看是否有回归 (TF率)",
+      "完整测试 = Negative (验证改进) + Positive (防止回归)",
+      "质量分数 = 综合考虑 FT 和 TF，避免片面评估"
+    ]
+  }
+}

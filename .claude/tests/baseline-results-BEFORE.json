@@ -1,0 +1,275 @@
+{
+  "test_run": "BEFORE (无 requirements-parser skill)",
+  "test_date": "2025-12-26",
+  "ai_version": "Claude Sonnet 4.5 (无 skill)",
+  "total_cases": 6,
+  "passed": 3,
+  "failed": 3,
+  "success_rate": "50%",
+
+  "test_results": [
+    {
+      "case_id": "NEG-001",
+      "test_type": "negative",
+      "issue_id": "4",
+      "status": "FAIL",
+      "expected": "FAIL (这是失败案例)",
+
+      "ai_actual_behavior": {
+        "understanding": "AI 理解需求为'添加影片区块到单字详情页'",
+        "implementation": "添加了影片区块，但没有按照客户指定的顺序排列",
+        "result": "影片 → 例句（独立）→ 同义字 → 词性变化",
+        "client_reaction": "客户反馈：'單字卡順序仍有錯誤'",
+        "attempts": 2
+      },
+
+      "scoring": {
+        "明确要求提取": "1/4 (只理解了'添加影片'，漏掉了顺序要求)",
+        "模糊需求识别": "N/A",
+        "建议行动": "直接实施（没有提取 checklist）",
+        "overall": "FAIL"
+      },
+
+      "failure_reason": "AI 没有仔细阅读客户明确列出的顺序要求（1. 单字 2. 影片 3. 词性GROUP 4. 汇出），而是根据自己的理解排列区块",
+
+      "evidence": {
+        "commit": "713a353 (第1次尝试)",
+        "client_feedback": "Issue #4, comment by chingchinglin: '單字卡順序仍有錯誤'",
+        "fix_attempts": "需要第2次修复 (commit 140163e) 才成功"
+      }
+    },
+
+    {
+      "case_id": "NEG-002",
+      "test_type": "negative",
+      "issue_id": "19",
+      "status": "FAIL",
+      "expected": "FAIL (这是失败案例)",
+
+      "ai_actual_behavior": {
+        "understanding": "AI 理解需求为'正反面宽度一致'",
+        "implementation_attempt_1": "设置 max-width: 600px",
+        "client_reaction_1": "客户反馈：'你改壞了'（没有明确说哪里坏了）",
+        "implementation_attempt_2": "改为 max-width: 900px",
+        "client_reaction_2": "客户反馈：'你改壞了，正反面的寬度還是不一樣，且反面改動寬度，導致句子斷行'",
+        "attempts": 2,
+        "stopped": "应用 Failed Fix Principle，发布澄清评论"
+      },
+
+      "scoring": {
+        "明确要求提取": "1/2 (只理解了'宽度一致'，但没提取'不断行')",
+        "模糊需求识别": "0/2 (没有识别'上一個版本'和'原本的設計'是模糊需求)",
+        "建议行动": "盲目猜测（600px → 900px）",
+        "overall": "FAIL"
+      },
+
+      "failure_reason": "AI 没有识别'上一個版本'是模糊需求，盲目猜测了2次都失败。直到应用 Failed Fix Principle 才停止猜测。",
+
+      "evidence": {
+        "commit_1": "713a353 (max-width: 600px)",
+        "commit_2": "f0340e7 (max-width: 900px)",
+        "client_feedback": "Issue #19, comment by linching0319: '你改壞了'",
+        "final_action": "发布澄清评论，等待客户回复"
+      }
+    },
+
+    {
+      "case_id": "NEG-003",
+      "test_type": "negative",
+      "issue_id": "9",
+      "status": "FAIL",
+      "expected": "FAIL (这是失败案例)",
+
+      "ai_actual_behavior": {
+        "understanding": "AI 理解需求为'添加提示引导用户'",
+        "implementation": "添加了提示卡片，但没有改预设题数",
+        "result": "显示了提示，但预设题数仍然是'全部单字'而非 0 题",
+        "client_reaction": "客户反馈：'看起來沒有改'",
+        "attempts": 2
+      },
+
+      "scoring": {
+        "明确要求提取": "1/3 (只理解了'加提示'，漏掉了'预设0题'和'必须先选择')",
+        "模糊需求识别": "N/A",
+        "建议行动": "直接实施（但只做了一半）",
+        "overall": "FAIL"
+      },
+
+      "failure_reason": "AI 误解了需求，只关注了'加提示'，忘记了关键的'预设0题'要求",
+
+      "evidence": {
+        "commit_1": "245584a (第1次尝试，只加了提示)",
+        "client_feedback": "Issue #9, comment by chingchinglin: '看起來沒有改'",
+        "fix_attempts": "需要第2次修复 (PR #17) 才成功"
+      }
+    },
+
+    {
+      "case_id": "POS-001",
+      "test_type": "positive",
+      "issue_id": "5",
+      "status": "PASS",
+      "expected": "PASS (这是成功案例)",
+
+      "ai_actual_behavior": {
+        "understanding": "AI 理解需求为'选择题必须有4个选项'",
+        "implementation": "实施了4层 fallback 机制（同词性 → 全词性 → 常用词 → 合成词）",
+        "result": "确保所有选择题总是有恰好 4 个选项",
+        "client_reaction": "客户测试通过，一次成功",
+        "attempts": 1
+      },
+
+      "scoring": {
+        "明确要求提取": "1/1 (正确理解'4个选项')",
+        "模糊需求识别": "0/0 (没有误判为模糊)",
+        "建议行动": "直接实施（正确）",
+        "overall": "PASS"
+      },
+
+      "success_reason": "需求明确（'選擇題的選項必須要有四個'），AI 正确理解并实施",
+
+      "evidence": {
+        "commit": "PR #10",
+        "client_feedback": "Issue #5, comment by chingchinglin: '測試通過'",
+        "fix_attempts": "1次成功"
+      }
+    },
+
+    {
+      "case_id": "POS-002",
+      "test_type": "positive",
+      "issue_id": "6",
+      "status": "PASS",
+      "expected": "PASS (这是成功案例)",
+
+      "ai_actual_behavior": {
+        "understanding": "AI 理解需求为'累积到5题以上才能测验'",
+        "implementation": "设置门槛：题数 >= 5 才允许开始测验",
+        "result": "正确实施了门槛逻辑",
+        "client_reaction": "客户测试通过，一次成功",
+        "attempts": 1
+      },
+
+      "scoring": {
+        "明确要求提取": "1/1 (正确理解'五題以上' = >=5)",
+        "模糊需求识别": "0/0 (没有误判为模糊)",
+        "建议行动": "直接实施（正确）",
+        "overall": "PASS"
+      },
+
+      "success_reason": "需求具体（'累積到五題以上'），数量指标明确，AI 正确实施",
+
+      "evidence": {
+        "commit": "相关功能实现",
+        "client_feedback": "测试通过",
+        "fix_attempts": "1次成功"
+      }
+    },
+
+    {
+      "case_id": "POS-003",
+      "test_type": "positive",
+      "issue_id": "7",
+      "status": "PASS",
+      "expected": "PASS (这是成功案例)",
+
+      "ai_actual_behavior": {
+        "understanding": "AI 理解需求为'修复历史记录的时间显示错误'",
+        "implementation": "检查并修复了时间格式/显示逻辑",
+        "result": "时间显示正确",
+        "client_reaction": "客户测试通过，一次成功",
+        "attempts": 1
+      },
+
+      "scoring": {
+        "明确要求提取": "1/1 (正确理解Bug描述)",
+        "模糊需求识别": "0/0 (没有误判为模糊)",
+        "建议行动": "直接修复（正确）",
+        "overall": "PASS"
+      },
+
+      "success_reason": "Bug 描述明确（'歷史紀錄的時間錯誤'），AI 正确修复",
+
+      "evidence": {
+        "commit": "相关 Bug 修复",
+        "client_feedback": "测试通过",
+        "fix_attempts": "1次成功"
+      }
+    }
+  ],
+
+  "summary": {
+    "negative_cases": {
+      "total": 3,
+      "passed": 0,
+      "failed": 3,
+      "success_rate": "0%",
+      "note": "所有失败案例都需要 2 次修复才成功"
+    },
+
+    "positive_cases": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "success_rate": "100%",
+      "note": "所有成功案例都是一次成功"
+    },
+
+    "overall": {
+      "total": 6,
+      "passed": 3,
+      "failed": 3,
+      "success_rate": "50%"
+    }
+  },
+
+  "matrix_baseline": {
+    "TT": 0,
+    "TF": 0,
+    "FT": 0,
+    "FF": 3,
+    "note": "BEFORE 测试只记录初始状态，TT TF FT FF 矩阵将在 AFTER 测试中计算"
+  },
+
+  "failure_patterns_observed": {
+    "pattern_1_需求理解偏差": {
+      "cases": ["NEG-001", "NEG-003"],
+      "description": "AI 没有仔细阅读客户明确要求，或只理解了部分要求",
+      "frequency": "2/3 (67%)"
+    },
+
+    "pattern_4_缺少澄清环节": {
+      "cases": ["NEG-002"],
+      "description": "需求模糊时，AI 盲目猜测而非主动澄清",
+      "frequency": "1/3 (33%)"
+    }
+  },
+
+  "key_observations": {
+    "positive_insights": [
+      "当需求明确简单时（Issue #5, #6, #7），AI 表现良好（100% 成功率）",
+      "AI 能正确理解明确的数量指标（'四個', '五題以上'）",
+      "Bug 修复场景，AI 理解清晰"
+    ],
+
+    "negative_insights": [
+      "当客户提供详细要求时（Issue #4 列表），AI 容易漏掉细节",
+      "当客户反馈模糊时（'你改壞了'），AI 倾向于猜测而非澄清",
+      "AI 容易只关注部分要求，漏掉其他重要需求（Issue #9）"
+    ],
+
+    "baseline_metrics": {
+      "首次成功率": "50% (3/6)",
+      "客户反馈次数": "1.0次/issue (平均，失败案例需要2次修复)",
+      "改进空间": "失败案例的成功率从 0% 提升至目标 80%+"
+    }
+  },
+
+  "next_steps": {
+    "1": "应用 requirements-parser skill",
+    "2": "重新运行所有 6 个测试用例",
+    "3": "记录 AFTER 结果",
+    "4": "计算 TT TF FT FF 矩阵",
+    "5": "生成对比报告"
+  }
+}

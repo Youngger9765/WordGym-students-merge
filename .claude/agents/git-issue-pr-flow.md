@@ -66,6 +66,10 @@ gh issue edit <NUM> --add-label "client-feedback-1"
 gh issue edit <NUM> --remove-label "client-feedback-1"
 gh issue edit <NUM> --add-label "client-feedback-2"
 
+# ⚠️ CRITICAL: After 2nd feedback, STOP and ASK for clarification
+# See `.claude/rules/failed-fix-principle.md` for detailed procedure
+# DO NOT attempt a 3rd fix without client clarification!
+
 # Third time or more - escalate to human
 gh issue edit <NUM> --remove-label "client-feedback-2"
 gh issue edit <NUM> --add-label "client-feedback-3+"
@@ -86,6 +90,52 @@ AI 修復嘗試多次仍未解決問題，建議由開發者直接接手。
 **Escalation Rule**:
 - 🔴 **When `client-feedback-3+` is added**: AI should STOP attempting fixes and wait for human developer to take over
 - The human developer will remove the label once they've addressed the issue
+
+### 🛑 Failed Fix Clarification - CRITICAL SKILL
+
+**Skill**: `failed-fix-clarification` (auto-activates on `client-feedback-2` label)
+
+**Reference**: See `.claude/skills/failed-fix-clarification.md` for full workflow
+
+**Core Principle**:
+> **After 2 failed fix attempts, STOP and ASK the client for clarification instead of attempting a third guess.**
+
+**Auto-Activation Triggers**:
+- `client-feedback-2` label on issue
+- Keywords: "你改壞了", "還是不對", "第二次失敗"
+- Manual: `/clarify-fix <issue-number>`
+
+**Process** (automated by skill):
+1. **Attempt 1 Fails** → Add `client-feedback-1` label
+2. **Attempt 2 Fails** → Add `client-feedback-2` label + **Skill AUTO-ACTIVATES**
+3. **Skill Executes**:
+   - Analyzes 2 failed attempts (commits/approaches)
+   - Identifies ambiguities in client feedback
+   - Drafts 3 specific clarification questions
+   - Posts structured clarification comment to issue
+   - STOPS and WAITS for client response
+4. **Attempt 3+** → ONLY after receiving clear client feedback
+
+**Example from Issue #19**:
+- Attempt 1: `max-width: 600px` → Failed ("句子斷行")
+- Attempt 2: `max-width: 900px` → Failed ("你改壞了")
+- **Skill Activated** → Posted clarification comment asking:
+  - What does "上一個版本" mean?
+  - Should width be responsive or fixed?
+  - Is the issue about width or content alignment?
+- **WAITING** → No 3rd attempt until client clarifies
+
+**Why This Matters**:
+- ✅ Prevents wasted effort on random guesses
+- ✅ Shows professional problem-solving
+- ✅ Gets accurate requirements before implementation
+- ✅ Saves time: 1 question > 3 failed attempts
+
+**Integration Points**:
+- Auto-triggers when `client-feedback-2` label detected
+- Documented in `.claude/skills/failed-fix-clarification.md`
+- Applied in PDCA Plan phase for complex issues
+- Part of skill auto-activation system (`.claude/config/skill-rules.json`)
 
 ---
 

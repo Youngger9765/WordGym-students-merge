@@ -1,5 +1,29 @@
 {
   "skills": {
+    "requirements-parser": {
+      "description": "Parse and extract requirements, identify ambiguous needs, generate clarification questions",
+      "keywords": [
+        "issue",
+        "客戶",
+        "反饋",
+        "feedback",
+        "需求",
+        "requirement",
+        "改",
+        "修復",
+        "fix",
+        "client-feedback",
+        "你改壞了",
+        "不對",
+        "錯了",
+        "沒有改",
+        "還是",
+        "仍然"
+      ],
+      "force_activation": true,
+      "priority": "critical",
+      "activation_message": "🎯 CRITICAL: Use requirements-parser to extract明確要求 and identify模糊需求 BEFORE implementation"
+    },
     "requirements-clarification": {
       "description": "Force requirements clarification BEFORE implementation using CARIO framework",
       "keywords": [
@@ -35,6 +59,24 @@
       "force_activation": true,
       "priority": "critical",
       "activation_message": "MANDATORY: Use debugging skill for systematic 5-step workflow"
+    },
+    "failed-fix-clarification": {
+      "description": "Stop and ask client for clarification after 2 failed fix attempts",
+      "keywords": [
+        "client-feedback-2",
+        "第二次失敗",
+        "second failure",
+        "又失敗",
+        "你改壞了",
+        "改錯了",
+        "還是不對",
+        "還是有問題",
+        "兩次失敗",
+        "2次失敗"
+      ],
+      "force_activation": true,
+      "priority": "critical",
+      "activation_message": "🛑 CRITICAL: 2 failed attempts detected. STOP and ASK client for clarification using failed-fix-clarification skill"
     }
   },
   "agents": {
