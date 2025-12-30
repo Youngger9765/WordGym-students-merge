@@ -10,6 +10,7 @@ import type {
   Filters,
   POSType
 } from '../types';
+import { VersionService } from '../services/VersionService';
 
 /**
  * Core filtering logic for vocabulary words
@@ -42,10 +43,14 @@ export function getFilteredWords(
     // Removed logging;
     // Removed logging;
 
+    // STRICT stage filtering - normalize both sides for comparison
+    // Fix for Issue #31: 國高中資料必須互相獨立
+    const normalizedUserStage = VersionService.normalizeStage(userSettings.stage);
+
     filtered = filtered.filter(word => {
-      const hasMatchingStage = word.stage === userSettings.stage;
-      const hasNoStage = !word.stage;
-      return hasMatchingStage || hasNoStage;
+      if (!word.stage) return false; // Exclude words with no stage
+      const normalizedWordStage = VersionService.normalizeStage(word.stage);
+      return normalizedWordStage === normalizedUserStage;
     });
 
     // Removed logging: ${filtered.length} words remaining`);
