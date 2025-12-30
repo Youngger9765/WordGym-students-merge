@@ -333,6 +333,31 @@ export const WordDetailPage: React.FC<WordDetailPageProps> = ({ word, userSettin
           </div>
         )}
 
+        {/* Example sentences section */}
+        {(word.example_sentence || word.example_sentence_2) && (
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">例句</h2>
+            <div className="space-y-4">
+              {word.example_sentence && (
+                <div className="p-4 rounded-lg bg-green-50 border border-green-200">
+                  <p className="text-gray-900 mb-2">{word.example_sentence}</p>
+                  {word.example_translation && (
+                    <p className="text-gray-600 text-sm">{word.example_translation}</p>
+                  )}
+                </div>
+              )}
+              {word.example_sentence_2 && (
+                <div className="p-4 rounded-lg bg-green-50 border border-green-200">
+                  <p className="text-gray-900 mb-2">{word.example_sentence_2}</p>
+                  {word.example_translation_2 && (
+                    <p className="text-gray-600 text-sm">{word.example_translation_2}</p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Word forms and relations card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-4">
           <h2 className="text-xl font-bold text-gray-900 mb-4">詞性與關聯字</h2>
