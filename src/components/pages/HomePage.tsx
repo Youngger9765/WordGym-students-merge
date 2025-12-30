@@ -34,6 +34,13 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Reset to '課本進度' tab when stage or version changes
+  React.useEffect(() => {
+    if (userSettings?.stage && userSettings?.version) {
+      setCurrentTab('textbook');
+    }
+  }, [userSettings?.stage, userSettings?.version, setCurrentTab]);
+
   // Clear search term and POS filter when switching tabs
   React.useEffect(() => {
     setSearchTerm('');
