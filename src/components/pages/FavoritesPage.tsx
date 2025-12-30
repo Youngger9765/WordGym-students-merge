@@ -119,9 +119,16 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({ words, onStartQuiz
         {/* Word cards */}
         {favoriteWords.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
-            <p className="text-gray-500">尚未加入任何重點訓練單字</p>
-            <p className="text-sm text-gray-400 mt-2">
-              在單字學習區，如果有不熟的單字，可以加入重點訓練
+            <div className="mb-4">
+              <img
+                src="https://github.com/user-attachments/assets/346a31c6-d570-4eab-9156-b4715c4eb14f"
+                alt="重點訓練提示"
+                className="mx-auto max-w-sm w-full"
+              />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">重點訓練（0）</h3>
+            <p className="text-gray-500">
+              請同學把不熟悉的單字儲存至重點訓練，加強複習或是進行測驗！
             </p>
           </div>
         ) : (
