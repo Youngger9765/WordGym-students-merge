@@ -1,0 +1,17 @@
+{
+  "hooks": [
+    {
+      "eventName": "UserPromptSubmit",
+      "type": "command",
+      "command": "./.claude/hooks/skill-activation-hook.sh",
+      "timeout": 5
+    }
+  ],
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:code.claude.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
