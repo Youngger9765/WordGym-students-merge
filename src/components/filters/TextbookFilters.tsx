@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { TextbookIndexItem } from '../../types';
 import { useUserSettings } from '../../hooks/useUserSettings';
 import { VersionService } from '../../services/VersionService';
@@ -54,6 +54,13 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
       )
     ).sort();
   }, [dataset.textbook_index, userSettings?.version, userSettings?.stage, filters.vol, availableVols]);
+
+  // Sync default vol selection when availableVols changes
+  useEffect(() => {
+    if (availableVols.length > 0 && !filters.vol && availableVols[0]) {
+      updateFilter('vol', availableVols[0]);
+    }
+  }, [availableVols, filters.vol, updateFilter]);
 
   // Show message if no data available
   if (availableVols.length === 0) {
