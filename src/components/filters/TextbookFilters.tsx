@@ -136,21 +136,27 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-3 border border-gray-300 rounded-lg max-h-40 overflow-y-auto">
-          {availableLessons.filter((l): l is string => l !== undefined).map(lesson => (
-            <label
-              key={lesson}
-              className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1 rounded"
-            >
-              <input
-                type="checkbox"
-                checked={selectedLessons.includes(lesson)}
-                onChange={() => handleLessonToggle(lesson)}
-                className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-              />
-              <span className="text-sm">{lesson}</span>
-            </label>
-          ))}
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-3 border border-gray-300 rounded-lg max-h-40 overflow-y-auto min-h-[120px]">
+          {availableLessons.length === 0 ? (
+            <div className="col-span-3 sm:col-span-4 flex items-center justify-center text-gray-400 text-sm min-h-[96px]">
+              {filters.vol ? '載入中...' : '請選擇冊次'}
+            </div>
+          ) : (
+            availableLessons.filter((l): l is string => l !== undefined).map(lesson => (
+              <label
+                key={lesson}
+                className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1 rounded"
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedLessons.includes(lesson)}
+                  onChange={() => handleLessonToggle(lesson)}
+                  className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                />
+                <span className="text-sm">{lesson}</span>
+              </label>
+            ))
+          )}
         </div>
       </div>
     </div>
