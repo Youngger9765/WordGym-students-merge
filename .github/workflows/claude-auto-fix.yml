@@ -1,0 +1,224 @@
+name: Claude Auto-Fix
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  auto-fix:
+    # 只在 CI 失敗時觸發
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Check retry count
+        id: retry-check
+        run: |
+          # 檢查最近的 commits 中有多少是 Claude auto-fix
+          RETRY_COUNT=$(git log --oneline -10 --grep="🤖 Claude Auto-Fix" | wc -l | tr -d ' ')
+          echo "retry_count=$RETRY_COUNT" >> $GITHUB_OUTPUT
+          echo "📊 當前重試次數: $RETRY_COUNT"
+
+          if [ $RETRY_COUNT -ge 3 ]; then
+            echo "should_stop=true" >> $GITHUB_OUTPUT
+            echo "⚠️ 已達到最大重試次數 (3)"
+          else
+            echo "should_stop=false" >> $GITHUB_OUTPUT
+            echo "✅ 可以繼續自動修復"
+          fi
+
+      - name: Stop and comment if max retries reached
+        if: steps.retry-check.outputs.should_stop == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.payload.workflow_run.pull_requests[0]?.number;
+
+            if (issue_number) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                body: `## 🚨 Claude Auto-Fix 失敗報告
+
+            嘗試次數已達上限 (3 次)，但仍無法修復 CI 錯誤。
+
+            **需要人工介入** 🙋‍♂️
+
+            ### 失敗的 Workflow
+            - Run: ${{ github.event.workflow_run.html_url }}
+            - Branch: \`${{ github.event.workflow_run.head_branch }}\`
+            - Commit: ${{ github.event.workflow_run.head_sha }}
+
+            ### 建議行動
+            1. 檢查最近 3 次 auto-fix commits
+            2. 查看 CI 錯誤日誌
+            3. 手動修復問題
+
+            ### 最近的 auto-fix commits
+            \`\`\`
+            $(git log --oneline -3 --grep="🤖 Claude Auto-Fix")
+            \`\`\`
+
+            @Youngger9765 請協助處理 🙏`
+              });
+            }
+
+            // 也發到 commit 上
+            await github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: '${{ github.event.workflow_run.head_sha }}',
+              body: `🚨 Claude Auto-Fix 已達最大重試次數 (3)，需要人工介入。詳見 PR 留言。`
+            });
+
+            core.setFailed('已達最大重試次數，停止自動修復');
+
+      - name: Install dependencies
+        if: steps.retry-check.outputs.should_stop == 'false'
+        run: npm ci --legacy-peer-deps
+
+      - name: Run auto-fix (ESLint)
+        if: steps.retry-check.outputs.should_stop == 'false'
+        id: eslint-fix
+        run: |
+          echo "🔧 執行 ESLint auto-fix..."
+          npm run lint -- --fix || true
+
+          # 檢查是否有變更
+          if git diff --quiet; then
+            echo "fixed=false" >> $GITHUB_OUTPUT
+            echo "No changes from ESLint fix"
+          else
+            echo "fixed=true" >> $GITHUB_OUTPUT
+            echo "✅ ESLint 修復了一些問題"
+          fi
+
+      - name: Run auto-format (Prettier)
+        if: steps.retry-check.outputs.should_stop == 'false'
+        id: prettier-fix
+        run: |
+          echo "🎨 執行 Prettier auto-format..."
+          npm run format || npx prettier --write "**/*.{ts,tsx,js,jsx,json,css,md}" || true
+
+          # 檢查是否有變更
+          if git diff --quiet; then
+            echo "fixed=false" >> $GITHUB_OUTPUT
+            echo "No changes from Prettier"
+          else
+            echo "fixed=true" >> $GITHUB_OUTPUT
+            echo "✅ Prettier 格式化了一些檔案"
+          fi
+
+      - name: Check if any fixes were made
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "⚠️ 沒有可自動修復的問題"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✅ 已修復一些問題"
+            echo "Changed files:"
+            git diff --name-only
+          fi
+
+      - name: Commit and push fixes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "Claude Auto-Fix Bot"
+          git config user.email "claude-auto-fix[bot]@users.noreply.github.com"
+
+          RETRY_NUM=${{ steps.retry-check.outputs.retry_count }}
+          NEXT_NUM=$((RETRY_NUM + 1))
+
+          git add -A
+          git commit -m "🤖 Claude Auto-Fix (#$NEXT_NUM/3): 自動修復 lint/format 錯誤
+
+自動修復內容:
+- ESLint fixes
+- Prettier formatting
+
+此次嘗試: $NEXT_NUM/3
+Triggered by: CI failure on ${{ github.event.workflow_run.head_sha }}
+
+🤖 Generated by Claude Auto-Fix workflow"
+
+          git push
+
+      - name: Comment on success
+        if: steps.check-changes.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const retry_count = ${{ steps.retry-check.outputs.retry_count }};
+            const next_num = retry_count + 1;
+            const issue_number = context.payload.workflow_run.pull_requests[0]?.number;
+
+            if (issue_number) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                body: `## 🤖 Claude Auto-Fix 報告 (#${next_num}/3)
+
+            ✅ 已自動修復部分問題並重新推送
+
+            ### 修復內容
+            - ESLint 自動修復
+            - Prettier 自動格式化
+
+            ### 狀態
+            - 嘗試次數: ${next_num}/3
+            - Branch: \`${{ github.event.workflow_run.head_branch }}\`
+            - Commit: \`${context.sha}\`
+
+            CI 將自動重新執行，請稍候...`
+              });
+            }
+
+      - name: Comment if no fixes possible
+        if: steps.check-changes.outputs.has_changes == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.payload.workflow_run.pull_requests[0]?.number;
+
+            if (issue_number) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                body: `## ⚠️ Claude Auto-Fix 無法自動修復
+
+            CI 失敗了，但 Claude 無法找到可自動修復的問題。
+
+            可能的原因:
+            - 測試邏輯錯誤（需要手動修正）
+            - 類型錯誤（需要重新設計）
+            - 其他非 lint/format 問題
+
+            請手動檢查 CI 日誌:
+            ${{ github.event.workflow_run.html_url }}
+
+            @Youngger9765`
+              });
+            }

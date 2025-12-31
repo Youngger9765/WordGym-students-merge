@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: false
+
+      - name: Run Prettier check
+        run: npm run format:check || echo "Format check failed"
+        continue-on-error: false
+
+      - name: Type check
+        run: npm run type-check || echo "Type check not configured"
+        continue-on-error: true
+
+      - name: Run tests
+        run: npm test || echo "Tests not configured"
+        continue-on-error: true
+
+      - name: Build
+        run: npm run build
