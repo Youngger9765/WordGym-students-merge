@@ -117,7 +117,7 @@ jobs:
         id: prettier-fix
         run: |
           echo "🎨 執行 Prettier auto-format..."
-          npm run format || npx prettier --write "**/*.{ts,tsx,js,jsx,json,css,md}" || true
+          npx prettier --write "src/**/*.{ts,tsx,js,jsx,json,css,md}" || true
 
           # 檢查是否有變更
           if git diff --quiet; then
