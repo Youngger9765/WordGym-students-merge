@@ -374,7 +374,8 @@ const FlashcardQuiz: React.FC<FlashcardQuizProps> = ({ words, onRestart }) => {
           perspective: 1000px;
           margin-bottom: 100px;
           width: 100%;
-          max-width: 900px;
+          max-width: 1200px;
+          min-width: 280px;
           margin-left: auto;
           margin-right: auto;
         }
