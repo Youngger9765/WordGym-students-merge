@@ -119,17 +119,24 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({ words, onStartQuiz
         {/* Word cards */}
         {favoriteWords.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
-            <div className="mb-4">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">重點訓練（0）</h2>
+            <p className="text-gray-600 mb-6">
+              目前沒有加入重點訓練的單字喔！<br />
+              請在「單字卡區」收藏不熟的單字，我們就會為你自動匯入，幫助你精準複習！
+            </p>
+            <button
+              onClick={() => window.location.hash = '#/'}
+              className="mb-6 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium transition duration-150"
+            >
+              立即前往單字卡
+            </button>
+            <div>
               <img
-                src="https://github.com/user-attachments/assets/346a31c6-d570-4eab-9156-b4715c4eb14f"
-                alt="重點訓練提示"
-                className="mx-auto max-w-sm w-full"
+                src="https://github.com/user-attachments/assets/22a99160-2944-4600-b8c5-a1152624fb5c"
+                alt="背單字女孩插圖"
+                className="mx-auto max-w-md w-full"
               />
             </div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">重點訓練（0）</h3>
-            <p className="text-gray-500">
-              請同學把不熟悉的單字儲存至重點訓練，加強複習或是進行測驗！
-            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
