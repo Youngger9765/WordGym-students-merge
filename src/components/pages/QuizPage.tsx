@@ -90,21 +90,24 @@ export const QuizPage: React.FC<QuizPageProps> = ({ words, userSettings }) => {
     return (
       <div className="container mx-auto p-6 max-w-2xl">
         <div className="text-center py-12 bg-white rounded-2xl shadow-sm border border-gray-100">
-          <div className="mb-4">
-            <img
-              src="https://github.com/user-attachments/assets/5f5790d7-c550-47b5-b9d0-eca7e71503f3"
-              alt="實力驗收提示"
-              className="mx-auto max-w-sm w-full"
-            />
-          </div>
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">實力驗收（0）</h3>
-          <p className="text-gray-500 mb-6">請同學到單字卡區選擇測驗範圍</p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-2">實力驗收（0）</h2>
+          <p className="text-gray-600 mb-6">
+            你還沒有選擇挑戰範圍喔！<br />
+            請先在「單字卡」熟悉內容，累積足夠實力後再來這裡進行挑戰！
+          </p>
           <button
             onClick={() => window.location.hash = '#/'}
-            className="px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 font-medium transition shadow-md hover:shadow-lg"
+            className="mb-6 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium transition duration-150"
           >
-            前往單字卡
+            立即前往單字卡
           </button>
+          <div>
+            <img
+              src="https://github.com/user-attachments/assets/e05d58f4-64fb-4fa7-89ea-65aaabdcc804"
+              alt="健身男孩插圖"
+              className="mx-auto max-w-md w-full"
+            />
+          </div>
         </div>
       </div>
     );
