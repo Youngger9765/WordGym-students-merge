@@ -444,6 +444,26 @@ gcloud run services list --region=asia-east1 | grep "preview-issue"  # Should be
 1. **Confirm Issue Exists**: `gh issue view <NUM>`
    - Verify issue has clear problem description
    - Understand problem content
+
+1a. **Requirements Analysis (需求分析)** ⭐ NEW
+
+   **自動檢測模糊需求**：
+   - Issue 包含「新增功能」但沒有明確的功能規格
+   - Issue 只有截圖沒有文字說明
+   - Issue 可能有多種理解方式
+   - Issue 包含專業術語但沒有定義
+
+   **如果檢測到模糊需求**：
+   → 使用 `Skill(skill="requirements-clarification")` 先釐清需求
+   → 向案主發問，提供選項 A/B/C
+   → 等待案主明確回覆
+   → 確認需求清晰後才繼續
+
+   **範例**：
+   - Issue 說「新增例句功能」→ 需要問：顯示？還是讓用戶新增？
+   - Issue 說「樣式要一致」→ 需要問：和哪個元素一致？什麼顏色？
+   - Issue 說「資料混在一起」→ 需要問：應該如何處理無分類的資料？
+
 2. **Check for Schema Changes**:
    - `ls backend/alembic/versions/` and `backend/app/models/`
    - **If DB schema changes detected → STOP for human approval**
@@ -511,13 +531,67 @@ gcloud run services list --region=asia-east1 | grep "preview-issue"  # Should be
    - ✅ System: PR CI/CD all green
    - ✅ Business: Case owner approves in Issue (留言「測試通過」等關鍵字)
    - ⚠️ **兩者都通過才能 merge**
-6. **Wait for dual approval** (automated detection):
+6. **MANDATORY Chrome Verification (強制 Chrome 驗證)** ⭐ NEW
+
+   **適用條件**：
+   - UI 相關 Issue（樣式、佈局、顯示）
+   - 資料顯示問題（篩選、排序、顯示）
+   - 互動功能（點擊、輸入、導航）
+
+   **驗證步驟**：
+   1. 訪問生產環境 URL: `https://youngger9765.github.io/WordGym-students-merge/`
+   2. 執行測試步驟（根據 Issue 內容）
+   3. 截圖 BEFORE（如果之前沒有） 和 AFTER（修復後）
+   4. 檢查 Console 是否有錯誤
+   5. 填寫驗證報告模板並貼到 Issue comment
+
+   **驗證報告模板**：
+   ```markdown
+   ## Chrome 生產環境驗證報告
+
+   **修復內容**: [簡述]
+   **驗證時間**: [時間]
+   **生產 URL**: https://youngger9765.github.io/WordGym-students-merge/
+
+   ### 修復前 (BEFORE)
+   [截圖或描述問題狀態]
+
+   ### 修復後 (AFTER)
+   [截圖或描述修復後狀態]
+
+   ### 驗證結果
+   - [ ] 問題已解決
+   - [ ] 無新問題產生
+   - [ ] Console 無錯誤
+   - [ ] 其他功能未受影響
+
+   ### 測試環境
+   - Browser: Chrome [版本]
+   - Device: [設備]
+   - Screen Size: [尺寸]
+
+   ### 結論
+   ✅ **驗證通過** / ❌ **驗證失敗**
+
+   理由: [說明]
+   ```
+
+   **❌ 沒有驗證報告 = 不能繼續**
+
+   **絕對規則**：
+   - 沒有 Chrome 驗證報告 → 不能添加 ready-for-testing label
+   - 沒有 Chrome 驗證報告 → 不能說「已修復」
+   - 代碼能 build ≠ 修復成功
+
+7. **Wait for dual approval** (automated detection):
    - ✅ System: PR CI/CD all green (check with `gh pr checks <PR>`)
    - ✅ Business: Case owner approves in Issue
    - 🤖 Auto-Approval Detection workflow monitors Issue comments
    - When approval keyword detected → auto-adds label `✅ tested-in-staging`
    - No manual command needed!
-7. Merge PR: `gh pr merge <PR> --squash` (use gh command, not manual merge)
+
+8. **Update Issue Labels (在驗證通過後)**:
+   - Merge PR: `gh pr merge <PR> --squash` (use gh command, not manual merge)
 
 7a. **CRITICAL: Update Issue Labels (DO NOT CLOSE)**:
    ```bash

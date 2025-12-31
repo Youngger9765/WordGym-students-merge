@@ -1,0 +1,74 @@
+{
+  "issue_types": {
+    "UI問題": {
+      "keywords": ["UI", "樣式", "底色", "框線", "佈局", "layout", "style", "顏色", "color"],
+      "detection": "Issue 標題或內容包含 UI 相關關鍵字",
+      "mandatory_steps": [
+        "讀取案主提供的截圖（如有）",
+        "識別目標樣式（顏色、尺寸、間距）",
+        "修復後在生產環境實際測試",
+        "提供 BEFORE/AFTER 截圖對比",
+        "多屏幕尺寸測試 (375px/768px/1024px/1920px)",
+        "檢查 hover/active/disabled 狀態"
+      ],
+      "verification_template": "Chrome 驗證報告（UI）",
+      "common_mistakes": [
+        "❌ 只改了一個狀態（如 normal），忘記 hover/active",
+        "❌ 只在桌面測試，沒測試行動版",
+        "❌ 假設樣式對，沒有截圖驗證"
+      ]
+    },
+    "資料問題": {
+      "keywords": ["資料", "數據", "混在一起", "篩選", "filter", "分類", "stage", "version"],
+      "detection": "Issue 涉及資料顯示、過濾、分類",
+      "mandatory_steps": [
+        "執行 data-diagnosis skill",
+        "統計資料分佈（jq 分析）",
+        "檢查缺失值比例",
+        "如果缺失值 >10% → 詢問案主如何處理",
+        "提供資料樣本給案主確認",
+        "修復後再次統計驗證"
+      ],
+      "verification_template": "資料驗證報告",
+      "common_mistakes": [
+        "❌ 直接排除缺失資料，未詢問案主",
+        "❌ 假設資料完整，未統計分佈",
+        "❌ 修復後未驗證資料筆數"
+      ]
+    },
+    "功能問題": {
+      "keywords": ["新增功能", "功能", "可以讓user", "需要", "應該要", "feature", "add"],
+      "detection": "Issue 要求新增或修改功能",
+      "mandatory_steps": [
+        "執行 requirements-clarification skill",
+        "列出功能規格清單",
+        "確認 CRUD 操作需求（Create/Read/Update/Delete）",
+        "確認 UI 呈現方式",
+        "確認資料儲存方式（localStorage/API）",
+        "提供功能描述給案主確認"
+      ],
+      "verification_template": "功能驗證報告",
+      "common_mistakes": [
+        "❌ 只做顯示（Read），漏掉新增（Create）",
+        "❌ 假設功能範圍，未詢問案主",
+        "❌ 未確認資料持久化需求"
+      ]
+    },
+    "效能問題": {
+      "keywords": ["慢", "卡", "lag", "performance", "速度", "loading"],
+      "detection": "Issue 反映效能或速度問題",
+      "mandatory_steps": [
+        "使用 Chrome DevTools Performance 錄製",
+        "識別效能瓶頸（render/script/network）",
+        "提供修復前後的效能對比數據",
+        "驗證 bundle size 未顯著增加"
+      ],
+      "verification_template": "效能驗證報告"
+    }
+  },
+  "auto_detection": {
+    "enabled": true,
+    "confidence_threshold": 0.7,
+    "fallback_type": "功能問題"
+  }
+}
