@@ -6,6 +6,10 @@
   --primary-color: #3b82f6;
   --secondary-color: #10b981;
   --accent-color: #ec4899;
+  --primary-purple: #7C4DFF;
+  --hover-bg: #F4F0FF;
+  --disabled-border: #D1D1D1;
+  --disabled-bg: #F9F9F9;
 }
 
 body {
@@ -126,4 +130,33 @@ code {
 
 .quiz-progress-bar {
   @apply h-full bg-blue-500 transition-all duration-300 ease-in-out;
+}
+
+/* Unified Button Style (u-style) - For consistent styling across components */
+.u-style {
+  background-color: #FFFFFF;
+  border: 2px solid var(--primary-purple);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.u-style:hover:not(:disabled) {
+  background-color: var(--hover-bg);
+  border-color: #6200EE;
+}
+
+.u-style:disabled,
+.u-style.is-disabled {
+  border-color: var(--disabled-border) !important;
+  background-color: var(--disabled-bg) !important;
+  color: #9E9E9E !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Selected state for u-style buttons */
+.u-style.selected {
+  background-color: var(--primary-purple);
+  color: #FFFFFF;
 }

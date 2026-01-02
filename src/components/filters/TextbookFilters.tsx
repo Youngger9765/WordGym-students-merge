@@ -184,18 +184,13 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
             availableLessons
               .filter((l): l is string => l !== undefined)
               .map((lesson) => (
-                <label
+                <button
                   key={lesson}
-                  className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1 rounded"
+                  onClick={() => handleLessonToggle(lesson)}
+                  className={`u-style px-3 py-2 text-sm ${selectedLessons.includes(lesson) ? "selected" : ""}`}
                 >
-                  <input
-                    type="checkbox"
-                    checked={selectedLessons.includes(lesson)}
-                    onChange={() => handleLessonToggle(lesson)}
-                    className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                  />
-                  <span className="text-sm">{lesson}</span>
-                </label>
+                  {lesson}
+                </button>
               ))
           )}
         </div>
