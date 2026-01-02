@@ -75,8 +75,11 @@ export const TextbookFilters: React.FC<TextbookFiltersProps> = ({
 
   // Sync default vol selection when availableVols changes
   useEffect(() => {
-    if (availableVols.length > 0 && !filters.vol && availableVols[0]) {
-      updateFilter("vol", availableVols[0]);
+    if (availableVols.length > 0 && availableVols[0]) {
+      // If no vol selected OR current vol is not in available vols, set to first available
+      if (!filters.vol || !availableVols.includes(filters.vol)) {
+        updateFilter("vol", availableVols[0]);
+      }
     }
   }, [availableVols, filters.vol, updateFilter]);
 
