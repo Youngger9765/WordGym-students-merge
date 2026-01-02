@@ -94,28 +94,37 @@ export const QuizPage: React.FC<QuizPageProps> = ({ words, userSettings }) => {
 
   if (quizWords.length === 0) {
     return (
-      <div className="container mx-auto p-6 max-w-2xl">
-        <div className="text-center py-12 bg-white rounded-2xl shadow-sm border border-gray-100">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-            實力驗收（0）
-          </h2>
-          <p className="text-gray-600 mb-6">
-            你還沒有選擇挑戰範圍喔！
-            <br />
-            請先在「單字卡」熟悉內容，累積足夠實力後再來這裡進行挑戰！
-          </p>
-          <button
-            onClick={() => (window.location.hash = "#/")}
-            className="mb-6 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium transition duration-150"
-          >
-            立即前往單字卡
-          </button>
-          <div>
-            <img
-              src="https://github.com/user-attachments/assets/e05d58f4-64fb-4fa7-89ea-65aaabdcc804"
-              alt="健身男孩插圖"
-              className="mx-auto max-w-md w-full"
-            />
+      <div className="min-h-screen bg-gray-50 pb-8">
+        <div className="max-w-7xl mx-auto px-4 pt-6">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* Text content on left */}
+              <div className="flex-1 text-left">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                  實力驗收（0）
+                </h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  你還沒有選擇挑戰範圍喔！
+                  <br />
+                  請先在「單字卡」熟悉內容，累積足夠實力後再來這裡進行挑戰！
+                </p>
+                <button
+                  onClick={() => (window.location.hash = "#/")}
+                  className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium transition duration-150"
+                >
+                  立即前往單字卡
+                </button>
+              </div>
+
+              {/* Image on right */}
+              <div className="flex-1">
+                <img
+                  src="https://github.com/user-attachments/assets/e05d58f4-64fb-4fa7-89ea-65aaabdcc804"
+                  alt="健身男孩插圖"
+                  className="w-full max-w-md mx-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
