@@ -38,18 +38,6 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({
     return (
       <div className="min-h-screen bg-gray-50 pb-8">
         <div className="max-w-7xl mx-auto px-4 pt-6">
-          {/* Top bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => window.history.back()}
-                className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-800 text-sm font-medium transition duration-150 min-h-[44px] flex items-center"
-              >
-                ← 返回
-              </button>
-            </div>
-          </div>
-
           {/* Loading state */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
             <div className="animate-pulse">
@@ -66,89 +54,77 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({
   return (
     <div className="min-h-screen bg-gray-50 pb-8">
       <div className="max-w-7xl mx-auto px-4 pt-6">
-        {/* Top bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => window.history.back()}
-              className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-800 text-sm font-medium transition duration-150 min-h-[44px] flex items-center"
-            >
-              ← 返回
-            </button>
-          </div>
-        </div>
-
-        {/* Header */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
-          <div className="text-sm text-gray-500 mb-2">
-            點擊重點訓練，可以在這邊複習單字，或是進行測驗
-          </div>
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <h1 className="text-2xl font-bold text-gray-900">
-              重點訓練 ({favoriteWords.length})
-            </h1>
-            <div className="flex gap-2">
-              {favoriteWords.length > 0 && (
-                <>
-                  <button
-                    onClick={handleStartQuiz}
-                    disabled={favoriteWords.length < 5}
-                    className={`px-6 py-2 rounded-lg font-medium transition duration-150 min-h-[44px] ${
-                      favoriteWords.length < 5
-                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        : "bg-indigo-600 text-white hover:bg-indigo-700"
-                    }`}
-                  >
-                    開始測驗
-                  </button>
-                  <button
-                    onClick={clearFavorites}
-                    className="px-6 py-2 rounded-lg bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium transition duration-150 min-h-[44px]"
-                  >
-                    全部清除
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-          {favoriteWords.length > 0 && favoriteWords.length < 5 && (
-            <div className="mt-4 p-4 rounded-lg bg-amber-50 border border-amber-200">
-              <p className="text-sm text-amber-800">
-                <span className="font-semibold">提醒：</span>建議累積至少 5
-                題再進行測驗，以確保測驗選項充足（目前 {favoriteWords.length}{" "}
-                題）
-              </p>
-            </div>
-          )}
-        </div>
-
         {/* Word cards */}
         {favoriteWords.length === 0 ? (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-              重點訓練（0）
-            </h2>
-            <p className="text-gray-600 mb-6">
-              目前沒有加入重點訓練的單字喔！
-              <br />
-              請在「單字卡區」收藏不熟的單字，我們就會為你自動匯入，幫助你精準複習！
-            </p>
-            <button
-              onClick={() => (window.location.hash = "#/")}
-              className="mb-6 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium transition duration-150"
-            >
-              立即前往單字卡
-            </button>
-            <div>
-              <img
-                src="https://github.com/user-attachments/assets/22a99160-2944-4600-b8c5-a1152624fb5c"
-                alt="背單字女孩插圖"
-                className="mx-auto max-w-md w-full"
-              />
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* Text content on left */}
+              <div className="flex-1 text-left">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                  重點訓練（0）
+                </h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  目前沒有加入重點訓練的單字喔！
+                  <br />
+                  請在「單字卡區」收藏不熟的單字，我們就會為你自動匯入，幫助你精準複習！
+                </p>
+                <button
+                  onClick={() => (window.location.hash = "#/")}
+                  className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium transition duration-150"
+                >
+                  立即前往單字卡
+                </button>
+              </div>
+
+              {/* Image on right */}
+              <div className="flex-1">
+                <img
+                  src="https://github.com/user-attachments/assets/22a99160-2944-4600-b8c5-a1152624fb5c"
+                  alt="背單字女孩插圖"
+                  className="w-full max-w-md mx-auto"
+                />
+              </div>
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <>
+            {/* Header for non-empty state */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <h1 className="text-2xl font-bold text-gray-900">
+                重點訓練 ({favoriteWords.length})
+              </h1>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleStartQuiz}
+                  disabled={favoriteWords.length < 5}
+                  className={`px-6 py-2 rounded-lg font-medium transition duration-150 min-h-[44px] ${
+                    favoriteWords.length < 5
+                      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      : "bg-indigo-600 text-white hover:bg-indigo-700"
+                  }`}
+                >
+                  開始測驗
+                </button>
+                <button
+                  onClick={clearFavorites}
+                  className="px-6 py-2 rounded-lg bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium transition duration-150 min-h-[44px]"
+                >
+                  全部清除
+                </button>
+              </div>
+            </div>
+
+            {favoriteWords.length > 0 && favoriteWords.length < 5 && (
+              <div className="mb-6 p-4 rounded-lg bg-amber-50 border border-amber-200">
+                <p className="text-sm text-amber-800">
+                  <span className="font-semibold">提醒：</span>建議累積至少 5
+                  題再進行測驗，以確保測驗選項充足（目前{" "}
+                  {favoriteWords.length} 題）
+                </p>
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {favoriteWords.map((word) => (
               <div
                 key={word.id}
@@ -183,7 +159,8 @@ export const FavoritesPage: React.FC<FavoritesPageProps> = ({
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          </>
         )}
       </div>
     </div>
