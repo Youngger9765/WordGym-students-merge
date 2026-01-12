@@ -180,7 +180,7 @@ export const HomePage: React.FC<HomePageProps> = ({ words, userSettings }) => {
               currentTab === key
                 ? "bg-[#5A4FCF] text-white border-transparent shadow-[0_4px_6px_rgba(90,79,207,0.3)]"
                 : hoveredTab === key
-                  ? "bg-[#5A4FCF] text-white border-transparent"
+                  ? "bg-[#5A4FCF] text-white border-transparent hover:bg-[#5A4FCF]"
                   : "bg-white text-gray-700 border-[#E2E8F0] hover:bg-[#EDF2F7]"
             }`}
           >
