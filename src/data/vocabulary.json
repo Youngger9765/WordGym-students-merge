@@ -18,7 +18,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -79,7 +81,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -147,7 +151,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -209,7 +215,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -267,7 +275,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -386,7 +396,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -446,7 +458,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -494,7 +508,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -540,7 +556,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -606,7 +624,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -664,7 +684,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -906,7 +928,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -1035,7 +1059,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -1098,7 +1124,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -1158,7 +1186,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -1340,7 +1370,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -1396,7 +1428,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -1661,7 +1695,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -1719,7 +1755,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -1781,7 +1819,9 @@
         "lesson": "U7"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -1923,7 +1963,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -2090,7 +2132,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -2382,7 +2426,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；113會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -2438,7 +2484,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -2489,7 +2537,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -2605,7 +2655,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -2658,7 +2710,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -2722,7 +2776,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -2838,7 +2894,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -2899,7 +2957,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -2982,7 +3042,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -3054,7 +3116,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -3266,7 +3330,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -3326,7 +3392,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -3391,7 +3459,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -3649,7 +3719,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -3886,7 +3958,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -4078,7 +4152,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -4148,7 +4224,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -4460,7 +4538,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -4624,7 +4704,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -4796,7 +4878,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -4918,7 +5002,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -5030,7 +5116,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -5192,7 +5280,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -5476,7 +5566,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -5589,7 +5681,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -5726,7 +5820,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "",
     "theme_index": [
@@ -5989,7 +6085,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -6045,7 +6143,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6120,7 +6220,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -6260,7 +6362,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6328,7 +6432,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6387,7 +6493,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6445,7 +6553,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6580,7 +6690,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6721,7 +6833,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -6795,7 +6909,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6855,7 +6971,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -6919,7 +7037,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -6991,7 +7111,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -7054,7 +7176,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -7121,7 +7245,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -7277,7 +7403,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -7549,7 +7677,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -7616,7 +7746,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -7905,7 +8037,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -7970,7 +8104,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -8036,7 +8172,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -8103,7 +8241,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -8255,7 +8395,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -8314,7 +8456,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -8420,7 +8564,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -8619,7 +8765,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -9005,7 +9153,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -9120,7 +9270,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -9249,7 +9401,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -9327,7 +9481,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -9394,7 +9550,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -9452,7 +9610,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；112會考；114會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9508,7 +9668,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；112會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9564,7 +9726,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9610,7 +9774,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -9666,7 +9832,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9722,7 +9890,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；112會考；113會考；114會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9778,7 +9948,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9834,7 +10006,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -9890,7 +10064,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -9964,7 +10140,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；112會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -10015,7 +10193,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -10102,7 +10282,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -10154,7 +10336,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -10395,7 +10579,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -10474,7 +10660,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -10600,7 +10788,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -10658,7 +10848,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -10771,7 +10963,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -10832,7 +11026,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -11053,7 +11249,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -11102,7 +11300,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -11187,7 +11387,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -11270,7 +11472,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -11354,7 +11558,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -11422,7 +11628,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -11480,7 +11688,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -11677,7 +11887,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；110會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -11743,7 +11955,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -11933,7 +12147,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -12051,7 +12267,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -12107,7 +12325,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -12291,7 +12511,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考；112會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -12430,7 +12652,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -12510,7 +12734,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -12561,7 +12787,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -12683,7 +12911,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -12781,7 +13011,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -12853,7 +13085,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -12917,7 +13151,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -12983,7 +13219,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -13144,7 +13382,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -13211,7 +13451,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -13263,7 +13505,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -13342,7 +13586,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -13478,7 +13724,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -13607,7 +13855,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -13677,7 +13927,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -13749,7 +14001,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -13817,7 +14071,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -13927,7 +14183,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -14106,7 +14364,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -14194,7 +14454,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -14423,7 +14685,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；112會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -14484,7 +14748,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -14591,7 +14857,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -14662,7 +14930,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -14726,7 +14996,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -14791,7 +15063,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -14856,7 +15130,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；110會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -14917,7 +15193,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -14997,7 +15275,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -15163,7 +15443,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -15231,7 +15513,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -15306,7 +15590,9 @@
         "lesson": "CU"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -15362,7 +15648,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -15421,7 +15709,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -15477,7 +15767,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -15584,7 +15876,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -15640,7 +15934,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -15713,7 +16009,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -15953,7 +16251,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -16025,7 +16325,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -16209,7 +16511,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -16436,7 +16740,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -16491,7 +16797,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -16694,7 +17002,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -16762,7 +17072,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -16822,7 +17134,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -16886,7 +17200,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -17027,7 +17343,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -17087,7 +17405,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -17155,7 +17475,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -17295,7 +17617,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -17456,7 +17780,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -17797,7 +18123,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -17862,7 +18190,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -17938,7 +18268,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -18120,7 +18452,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -18191,7 +18525,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -18314,7 +18650,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -18624,7 +18962,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -18794,7 +19134,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -18984,7 +19326,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -19175,7 +19519,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -19247,7 +19593,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -19454,7 +19802,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -19532,7 +19882,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -19594,7 +19946,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -19655,7 +20009,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -19733,7 +20089,9 @@
         "lesson": "U8"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -19884,7 +20242,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；111會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -19954,7 +20314,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -20152,7 +20514,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -20223,7 +20587,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -20301,7 +20667,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -20370,7 +20738,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -20571,7 +20941,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -20653,7 +21025,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -20870,7 +21244,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -20934,7 +21310,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -21139,7 +21517,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -21248,7 +21628,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -21602,7 +21984,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -21742,7 +22126,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -21812,7 +22198,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -21868,7 +22256,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -21936,7 +22326,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -22050,7 +22442,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -22254,7 +22648,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -22440,7 +22836,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -22513,7 +22911,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -22595,7 +22995,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -22807,7 +23209,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -22870,7 +23274,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -23043,7 +23449,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -23258,7 +23666,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -23326,7 +23736,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -23377,7 +23789,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "",
     "theme_index": [
@@ -23441,7 +23855,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -23780,7 +24196,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -23934,7 +24352,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -24068,7 +24488,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -24162,7 +24584,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -24247,7 +24671,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -24307,7 +24733,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；110會考；112會考；113會考"
+    ],
     "level": "L3",
     "cefr": "A2",
     "theme_index": [
@@ -24371,7 +24799,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -24427,7 +24857,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -24534,7 +24966,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -24874,7 +25308,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考；111會考；112會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -24943,7 +25379,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；110會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -25044,7 +25482,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；112會考；114會考"
+    ],
     "level": "",
     "cefr": "B1",
     "theme_index": [
@@ -25156,7 +25596,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -25234,7 +25676,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；111會考；112會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -25300,7 +25744,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -25361,7 +25807,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -25481,7 +25929,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -25615,7 +26065,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -25669,7 +26121,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -25746,7 +26200,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -25983,7 +26439,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -26095,7 +26553,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -26498,7 +26958,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考"
+    ],
     "level": "L1",
     "cefr": "",
     "theme_index": [
@@ -26556,7 +27018,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -26851,7 +27315,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -26912,7 +27378,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -26981,7 +27449,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -27081,7 +27551,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -27206,7 +27678,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -27337,7 +27811,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -27398,7 +27874,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -27464,7 +27942,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -27526,7 +28006,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -27653,7 +28135,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -27946,7 +28430,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -28002,7 +28488,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -28072,7 +28560,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -28169,7 +28659,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；112會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -28230,7 +28722,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -28337,7 +28831,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -28492,7 +28988,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -28612,7 +29110,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -28679,7 +29179,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -28749,7 +29251,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -28942,7 +29446,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -29126,7 +29632,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -29206,7 +29714,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -29379,7 +29889,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -29448,7 +29960,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -29516,7 +30030,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -29661,7 +30177,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -29804,7 +30322,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -29890,7 +30410,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -30044,7 +30566,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L3",
     "cefr": "A2",
     "theme_index": [
@@ -30107,7 +30631,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -30176,7 +30702,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -30252,7 +30780,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -30313,7 +30843,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -30448,7 +30980,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -30620,7 +31154,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -30742,7 +31278,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -30894,7 +31432,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -31162,7 +31702,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -31228,7 +31770,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -31291,7 +31835,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -31362,7 +31908,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -31678,7 +32226,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -31821,7 +32371,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -31890,7 +32442,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -31967,7 +32521,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -32028,7 +32584,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32105,7 +32663,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -32258,7 +32818,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32341,7 +32903,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32403,7 +32967,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32548,7 +33114,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32664,7 +33232,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32793,7 +33363,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -32857,7 +33429,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -32962,7 +33536,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -33148,7 +33724,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -33234,7 +33812,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -33311,7 +33891,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -33436,7 +34018,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -33658,7 +34242,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -33724,7 +34310,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -33879,7 +34467,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -34025,7 +34615,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -34091,7 +34683,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -34278,7 +34872,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -34342,7 +34938,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -34412,7 +35010,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -34483,7 +35083,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -34602,7 +35204,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -34674,7 +35278,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考"
+    ],
     "level": "",
     "cefr": "B2",
     "theme_index": [
@@ -34947,7 +35553,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -35003,7 +35611,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -35334,7 +35944,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；112會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -35390,7 +36002,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -35446,7 +36060,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -35538,7 +36154,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -35628,7 +36246,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -35686,7 +36306,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -35944,7 +36566,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36007,7 +36631,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -36147,7 +36773,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -36226,7 +36854,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36301,7 +36931,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36405,7 +37037,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -36478,7 +37112,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36564,7 +37200,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36625,7 +37263,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36688,7 +37328,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36753,7 +37395,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -36971,7 +37615,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -37037,7 +37683,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -37119,7 +37767,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -37379,7 +38029,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -37454,7 +38106,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -37510,7 +38164,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -37766,7 +38422,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -37824,7 +38482,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -37905,7 +38565,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -38065,7 +38727,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；113會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -38228,7 +38892,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -38305,7 +38971,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -38364,7 +39032,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -38470,7 +39140,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -38700,7 +39372,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -38867,7 +39541,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -38927,7 +39603,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -38993,7 +39671,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -39102,7 +39782,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -39266,7 +39948,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -39398,7 +40082,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -39465,7 +40151,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -39616,7 +40304,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -39691,7 +40381,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -39756,7 +40448,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -39874,7 +40568,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -40042,7 +40738,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -40258,7 +40956,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -40314,7 +41014,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -40376,7 +41078,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -40507,7 +41211,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -40568,7 +41274,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -40930,7 +41638,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -41023,7 +41733,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -41101,7 +41813,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -41227,7 +41941,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -41385,7 +42101,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；114會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -41467,7 +42185,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -41610,7 +42330,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "",
     "theme_index": [
@@ -41687,7 +42409,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -41757,7 +42481,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -41866,7 +42592,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -41935,7 +42663,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -41995,7 +42725,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -42329,7 +43061,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -42464,7 +43198,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -42537,7 +43273,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "",
     "theme_index": [
@@ -42645,7 +43383,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -42785,7 +43525,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -42848,7 +43590,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -42941,7 +43685,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43016,7 +43762,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43159,7 +43907,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -43223,7 +43973,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43279,7 +44031,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -43328,7 +44082,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -43518,7 +44274,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43587,7 +44345,9 @@
         "lesson": "U9"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43644,7 +44404,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -43751,7 +44513,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43847,7 +44611,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -43913,7 +44679,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -44123,7 +44891,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -44199,7 +44969,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -44269,7 +45041,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -44633,7 +45407,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -44706,7 +45482,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -44804,7 +45582,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -44896,7 +45676,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -44957,7 +45739,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45054,7 +45838,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45253,7 +46039,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；111會考；112會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -45342,7 +46130,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45501,7 +46291,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45614,7 +46406,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45734,7 +46528,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45846,7 +46642,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -45958,7 +46756,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -46025,7 +46825,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -46091,7 +46893,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46147,7 +46951,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46208,7 +47014,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考"
+    ],
     "level": "L3",
     "cefr": "A1",
     "theme_index": [
@@ -46273,7 +47081,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46404,7 +47214,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；113會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46460,7 +47272,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46516,7 +47330,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；112會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46572,7 +47388,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46628,7 +47446,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -46786,7 +47606,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -46842,7 +47664,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -46901,7 +47725,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -47071,7 +47897,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -47194,7 +48022,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -47293,7 +48123,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -47529,7 +48361,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；111會考；113會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [],
@@ -47580,7 +48414,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -47642,7 +48478,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -47711,7 +48549,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -47784,7 +48624,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -47840,7 +48682,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -47898,7 +48742,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考；113會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -47962,7 +48808,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -48023,7 +48871,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -48109,7 +48959,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -48171,7 +49023,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -48251,7 +49105,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -48414,7 +49270,9 @@
         "lesson": "CU"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -48491,7 +49349,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -48704,7 +49564,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -48841,7 +49703,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -48920,7 +49784,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -48986,7 +49852,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -49088,7 +49956,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -49199,7 +50069,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -49275,7 +50147,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -49334,7 +50208,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -49462,7 +50338,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -49534,7 +50412,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -49806,7 +50686,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -49968,7 +50850,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -50019,7 +50903,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -50131,7 +51017,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -50240,7 +51128,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -50309,7 +51199,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -50376,7 +51268,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -50462,7 +51356,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -50593,7 +51489,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -50771,7 +51669,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -50906,7 +51806,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -50994,7 +51896,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -51141,7 +52045,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -51270,7 +52176,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -51336,7 +52244,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -51550,7 +52460,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -51676,7 +52588,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -51888,7 +52802,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -51969,7 +52885,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -52114,7 +53032,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -52190,7 +53110,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -52257,7 +53179,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -52359,7 +53283,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -52475,7 +53401,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -52536,7 +53464,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -52653,7 +53583,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -52734,7 +53666,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -52797,7 +53731,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -53011,7 +53947,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -53072,7 +54010,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -53250,7 +54190,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考；114會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -53352,7 +54294,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -53743,7 +54687,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -53803,7 +54749,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -53969,7 +54917,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -54169,7 +55119,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -54259,7 +55211,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -54414,7 +55368,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -54759,7 +55715,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -54818,7 +55776,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -54929,7 +55889,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -54994,7 +55956,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -55052,7 +56016,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -55173,7 +56139,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -55250,7 +56218,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -55377,7 +56347,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -55438,7 +56410,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -55585,7 +56559,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [],
@@ -55762,7 +56738,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [],
@@ -56045,7 +57023,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -56155,7 +57135,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -56336,7 +57318,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -56450,7 +57434,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -56592,7 +57578,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -56691,7 +57679,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -56755,7 +57745,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -56825,7 +57817,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -57063,7 +58057,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -57126,7 +58122,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -57197,7 +58195,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -57280,7 +58280,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -57385,7 +58387,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -57446,7 +58450,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -57515,7 +58521,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -57687,7 +58695,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -57756,7 +58766,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -57824,7 +58836,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -57881,7 +58895,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -58058,7 +59074,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -58160,7 +59178,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -58269,7 +59289,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -58365,7 +59387,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -58422,7 +59446,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -58585,7 +59611,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -58705,7 +59733,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -58920,7 +59950,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -59025,7 +60057,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -59108,7 +60142,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -59179,7 +60215,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -59243,7 +60281,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -59307,7 +60347,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -59369,7 +60411,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -59434,7 +60478,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -59641,7 +60687,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -59767,7 +60815,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -59894,7 +60944,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -60055,7 +61107,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -60127,7 +61181,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -60203,7 +61259,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -60273,7 +61331,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -60343,7 +61403,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -60580,7 +61642,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -60642,7 +61706,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -60831,7 +61897,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -61049,7 +62117,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -61280,7 +62350,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -61475,7 +62547,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -61581,7 +62655,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -61642,7 +62718,9 @@
         "lesson": "U7"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -61706,7 +62784,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -61774,7 +62854,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -61954,7 +63036,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -62027,7 +63111,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -62083,7 +63169,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -62134,7 +63222,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -62210,7 +63300,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -62287,7 +63379,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -62353,7 +63447,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -62412,7 +63508,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -62508,7 +63606,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -62577,7 +63677,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -62853,7 +63955,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -62921,7 +64025,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -63001,7 +64107,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -63073,7 +64181,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -63141,7 +64251,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -63200,7 +64312,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -63256,7 +64370,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -63328,7 +64444,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -63389,7 +64507,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -63458,7 +64578,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -63556,7 +64678,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -63622,7 +64746,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -63684,7 +64810,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -63756,7 +64884,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -63818,7 +64948,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -63880,7 +65012,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -64051,7 +65185,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -64115,7 +65251,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -64236,7 +65374,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -64559,7 +65699,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -64618,7 +65760,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -64675,7 +65819,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -64741,7 +65887,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -64806,7 +65954,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -64886,7 +66036,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -64966,7 +66118,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -65072,7 +66226,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -65179,7 +66335,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -65252,7 +66410,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -65368,7 +66528,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -65480,7 +66642,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -65590,7 +66754,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -65770,7 +66936,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -66095,7 +67263,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -66292,7 +67462,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -66406,7 +67578,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -66471,7 +67645,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -66559,7 +67735,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -66624,7 +67802,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -66713,7 +67893,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -66780,7 +67962,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -66841,7 +68025,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -66900,7 +68086,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -66990,7 +68178,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -67094,7 +68284,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -67183,7 +68375,9 @@
         "lesson": "CU"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -67241,7 +68435,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -67438,7 +68634,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -67502,7 +68700,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -67573,7 +68773,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -67764,7 +68966,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -67849,7 +69053,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -68045,7 +69251,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -68105,7 +69313,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -68168,7 +69378,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -68237,7 +69449,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -68437,7 +69651,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -68498,7 +69714,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；110會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -68736,7 +69954,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -68804,7 +70024,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -68865,7 +70087,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -68927,7 +70151,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -68995,7 +70221,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -69225,7 +70453,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -69312,7 +70542,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -69381,7 +70613,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -69432,7 +70666,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -69527,7 +70763,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -69600,7 +70838,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -69772,7 +71012,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；111會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -69840,7 +71082,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -70040,7 +71284,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -70115,7 +71361,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -70258,7 +71506,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -70521,7 +71771,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -70969,7 +72221,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -71028,7 +72282,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -71092,7 +72348,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -71201,7 +72459,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -71269,7 +72529,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -71351,7 +72613,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -71410,7 +72674,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -71475,7 +72741,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -71714,7 +72982,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -71787,7 +73057,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -71962,7 +73234,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -72024,7 +73298,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -72256,7 +73532,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -72314,7 +73592,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -72376,7 +73656,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -72542,7 +73824,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -72600,7 +73884,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -72664,7 +73950,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -72830,7 +74118,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -73206,7 +74496,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -73317,7 +74609,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -73510,7 +74804,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -73578,7 +74874,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -73752,7 +75050,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -73906,7 +75206,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -74053,7 +75355,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -74373,7 +75677,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -74528,7 +75834,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -74802,7 +76110,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -74918,7 +76228,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L3",
     "cefr": "",
     "theme_index": [
@@ -75028,7 +76340,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -75254,7 +76568,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -75655,7 +76971,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -75724,7 +77042,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考；113會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -75784,7 +77104,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -76348,7 +77670,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -76408,7 +77732,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -76478,7 +77804,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -76629,7 +77957,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -76792,7 +78122,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -76843,7 +78175,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -76914,7 +78248,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -77009,7 +78345,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -77548,7 +78886,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -77594,7 +78934,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -77657,7 +78999,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L3",
     "cefr": "A2",
     "theme_index": [
@@ -77861,7 +79205,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -78214,7 +79560,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -78615,7 +79963,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -78677,7 +80027,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -78746,7 +80098,9 @@
         "lesson": "CU"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -78997,7 +80351,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -79121,7 +80477,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -79171,7 +80529,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -79233,7 +80593,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -79393,7 +80755,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "",
     "cefr": "B2",
     "theme_index": [
@@ -79613,7 +80977,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -79679,7 +81045,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -79745,7 +81113,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -80176,7 +81546,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -80528,7 +81900,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -80636,7 +82010,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -80703,7 +82079,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -80767,7 +82145,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -80821,7 +82201,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -80934,7 +82316,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -81017,7 +82401,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -81303,7 +82689,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -81736,7 +83124,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -81794,7 +83184,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -82899,7 +84291,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -82962,7 +84356,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -83065,7 +84461,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -83126,7 +84524,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -83190,7 +84590,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -83271,7 +84673,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -83382,7 +84786,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -83439,7 +84845,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -83500,7 +84908,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考"
+    ],
     "level": "L4",
     "cefr": "B1",
     "theme_index": [
@@ -83551,7 +84961,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -83615,7 +85027,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -83670,7 +85084,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -83778,7 +85194,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；110會考；111會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -83907,7 +85325,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -83970,7 +85390,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -84106,7 +85528,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -84187,7 +85611,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -84260,7 +85686,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -84615,7 +86043,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -84689,7 +86119,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -84767,7 +86199,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -84969,7 +86403,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -85095,7 +86531,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -85197,7 +86635,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -85347,7 +86787,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -85556,7 +86998,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -85729,7 +87173,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -85831,7 +87277,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -85967,7 +87415,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -86071,7 +87521,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -86185,7 +87637,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -86286,7 +87740,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -86354,7 +87810,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -87695,7 +89153,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -88411,7 +89871,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -88471,7 +89933,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -88691,7 +90155,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -89085,7 +90551,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -89440,7 +90908,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -89782,7 +91252,9 @@
         "lesson": "U8"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -89839,7 +91311,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -90031,7 +91505,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -90144,7 +91620,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -90369,7 +91847,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -90438,7 +91918,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -91339,7 +92821,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -91641,7 +93125,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -91695,7 +93181,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -91769,7 +93257,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -91828,7 +93318,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -91938,7 +93430,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -92005,7 +93499,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -92521,7 +94017,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；109會考；111會考；112會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [],
@@ -92572,7 +94070,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -92903,7 +94403,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -93071,7 +94573,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -93239,7 +94743,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -93384,7 +94890,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -93676,7 +95184,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -93928,7 +95438,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -94406,7 +95918,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -94583,7 +96097,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -95027,7 +96543,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -95444,7 +96962,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -95550,7 +97070,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -95601,7 +97123,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -95816,7 +97340,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -96255,7 +97781,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -96548,7 +98076,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -96690,7 +98220,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -97067,7 +98599,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -97220,7 +98754,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -97404,7 +98940,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；113會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -97971,7 +99509,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -98125,7 +99665,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -98378,7 +99920,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -98585,7 +100129,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -99061,7 +100607,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -99370,7 +100918,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "C1",
     "theme_index": [
@@ -99779,7 +101329,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -100607,7 +102159,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -100979,7 +102533,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -101125,7 +102681,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -101570,7 +103128,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；111會考；112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -101621,7 +103181,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -101672,7 +103234,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -101774,7 +103338,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -101825,7 +103391,9 @@
         "lesson": "U1"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -102357,7 +103925,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -102492,7 +104062,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -102588,7 +104160,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [],
@@ -103025,7 +104599,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -103145,7 +104721,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -103213,7 +104791,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；110會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -103529,7 +105109,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -103937,7 +105519,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [],
@@ -103978,7 +105562,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -104342,7 +105928,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -104417,7 +106005,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -104489,7 +106079,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -104984,7 +106576,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -105471,7 +107065,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -107823,7 +109419,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -108916,7 +110514,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -108985,7 +110585,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；108會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -109070,7 +110672,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109263,7 +110867,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109393,7 +110999,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109461,7 +111069,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109527,7 +111137,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109627,7 +111239,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109867,7 +111481,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -109916,7 +111532,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110138,7 +111756,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110216,7 +111836,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110261,7 +111883,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110309,7 +111933,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110377,7 +112003,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110421,7 +112049,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110485,7 +112115,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110528,7 +112160,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -110621,7 +112255,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110756,7 +112392,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -110808,7 +112446,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111005,7 +112645,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111093,7 +112735,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111154,7 +112798,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111209,7 +112855,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111267,7 +112915,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111364,7 +113014,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111464,7 +113116,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111588,7 +113242,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111670,7 +113326,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111730,7 +113388,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；108會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -111785,7 +113445,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111935,7 +113597,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -111993,7 +113657,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112052,7 +113718,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；107會考；109會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -112102,7 +113770,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112153,7 +113823,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112310,7 +113982,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112525,7 +114199,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112574,7 +114250,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112771,7 +114449,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -112996,7 +114676,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -113311,7 +114993,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -113445,7 +115129,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；109會考；110會考；111會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -113497,7 +115183,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；111會考；112會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -113688,7 +115376,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；111會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -113734,7 +115424,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -114308,7 +116000,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -114353,7 +116047,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -114447,7 +116143,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -114794,7 +116492,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -114865,7 +116565,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；112會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -114912,7 +116614,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L1",
     "cefr": "B2",
     "theme_index": [
@@ -115052,7 +116756,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -115124,7 +116830,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -115185,7 +116893,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -115233,7 +116943,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；110會考；112會考"
+    ],
     "level": "L1",
     "cefr": "B1",
     "theme_index": [
@@ -115433,7 +117145,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；108會考；109會考；110會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -115677,7 +117391,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -115730,7 +117446,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；109會考；110會考；112會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -115859,7 +117577,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；110會考；111會考；113會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -116546,7 +118266,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；108會考；109會考；110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -116611,7 +118333,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；109會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -116705,7 +118429,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -116751,7 +118477,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -116836,7 +118564,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；110會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A2",
     "theme_index": [
@@ -116969,7 +118699,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；110會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -117150,7 +118882,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考；109會考；110會考；111會考；112會考；113會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -117219,7 +118953,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -117402,7 +119138,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；114會考"
+    ],
     "level": "L1",
     "cefr": "A1",
     "theme_index": [
@@ -117786,7 +119524,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -117980,7 +119720,9 @@
         "lesson": "U9"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -119334,7 +121076,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -119401,7 +121145,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -120011,7 +121757,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -121992,7 +123740,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -122383,7 +124133,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -122645,7 +124397,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -122741,7 +124495,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -124256,7 +126012,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -124445,7 +126203,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考；109會考；111會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -125083,7 +126843,9 @@
         "lesson": "U2"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -125758,7 +127520,9 @@
         "lesson": "U3"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -128219,7 +129983,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；109會考；110會考；112會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -129372,7 +131138,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -129559,7 +131327,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -129875,7 +131645,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -130223,7 +131995,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -131080,7 +132854,9 @@
         "lesson": "U8"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；111會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -133316,7 +135092,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "106會考"
+    ],
     "level": "L2",
     "cefr": "B2",
     "theme_index": [
@@ -134902,7 +136680,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考；111會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -135224,7 +137004,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；107會考；108會考；110會考；111會考；113會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -135968,7 +137750,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -136185,7 +137969,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；106會考；108會考；114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -136823,7 +138609,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -138824,7 +140612,9 @@
         "lesson": "U8"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -140660,7 +142450,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考；108會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -144953,7 +146745,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -145270,7 +147064,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "",
     "theme_index": [
@@ -145523,7 +147319,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -147844,7 +149642,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "113會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -148949,7 +150749,9 @@
         "lesson": "U4"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -149576,7 +151378,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -150990,7 +152794,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "114會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -151342,7 +153148,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -152288,7 +154096,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L2",
     "cefr": "A1",
     "theme_index": [
@@ -153008,7 +154818,9 @@
         "lesson": "U6"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考；112會考；113會考"
+    ],
     "level": "L2",
     "cefr": "A2",
     "theme_index": [
@@ -153285,7 +155097,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考"
+    ],
     "level": "L2",
     "cefr": "B1",
     "theme_index": [
@@ -158659,7 +160473,9 @@
         "lesson": "U5"
       }
     ],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L3",
     "cefr": "B1",
     "theme_index": [
@@ -165681,7 +167497,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L3",
     "cefr": "A2",
     "theme_index": [
@@ -167393,7 +169211,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "L3",
     "cefr": "",
     "theme_index": [
@@ -170438,7 +172258,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L3",
     "cefr": "",
     "theme_index": [
@@ -179820,7 +181642,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L3",
     "cefr": "B1",
     "theme_index": [
@@ -180690,7 +182514,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "L3",
     "cefr": "C2",
     "theme_index": [
@@ -182367,7 +184193,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L3",
     "cefr": "A2",
     "theme_index": [
@@ -183621,8 +185449,8 @@
     ],
     "confusables": [],
     "affix_info": {
-      "root": "mit/miss (send (送))",
-      "suffix": "-sion (state or action (狀態或行動))"
+      "suffix": "-sion (state or action (狀態或行動))",
+      "root": "mit/miss (send (送))"
     },
     "videoUrl": "fPNnHOOs4jA"
   },
@@ -198384,8 +200212,8 @@
     "antonyms": [],
     "confusables": [],
     "affix_info": {
-      "prefix": "trans- (across, beyond (跨越))",
-      "root": "port (to carry (攜帶))"
+      "root": "port (to carry (攜帶))",
+      "prefix": "trans- (across, beyond (跨越))"
     },
     "videoUrl": "9732U8-x8Os"
   },
@@ -200219,7 +202047,9 @@
   {
     "stage": "高中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "L3",
     "cefr": "C1",
     "theme_index": [
@@ -249526,8 +251356,8 @@
     "antonyms": [],
     "confusables": [],
     "affix_info": {
-      "root": "ten/tend (stretch, hold (伸展、持有))",
-      "suffix": "-sion (state or action (狀態或行動))"
+      "suffix": "-sion (state or action (狀態或行動))",
+      "root": "ten/tend (stretch, hold (伸展、持有))"
     },
     "videoUrl": ""
   },
@@ -266911,8 +268741,8 @@
     ],
     "confusables": [],
     "affix_info": {
-      "prefix": "dis3- (away, apart (分離，遠離))",
-      "root": "tract (pull, draw (拉、畫))"
+      "root": "tract (pull, draw (拉、畫))",
+      "prefix": "dis3- (away, apart (分離，遠離))"
     },
     "videoUrl": "P1l5zdz_J5I"
   },
@@ -362944,7 +364774,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；109會考；110會考；114會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -363662,7 +365494,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -363702,7 +365536,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -363822,7 +365658,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考；109會考"
+    ],
     "level": "",
     "cefr": "A1",
     "theme_index": [
@@ -363862,7 +365700,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -363902,7 +365742,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "107會考；111會考；112會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -363982,7 +365824,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "111會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -366233,7 +368077,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "108會考"
+    ],
     "level": "",
     "cefr": "B1",
     "theme_index": [
@@ -367793,7 +369639,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "110會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
@@ -367873,7 +369721,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -367953,7 +369803,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -368395,7 +370247,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "112會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -368476,7 +370330,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "109會考"
+    ],
     "level": "",
     "cefr": "",
     "theme_index": [
@@ -368596,7 +370452,9 @@
   {
     "stage": "國中",
     "textbook_index": [],
-    "exam_tags": [],
+    "exam_tags": [
+      "105會考；107會考"
+    ],
     "level": "",
     "cefr": "A2",
     "theme_index": [
