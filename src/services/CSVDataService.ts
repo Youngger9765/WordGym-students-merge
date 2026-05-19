@@ -211,9 +211,9 @@ function rowToWord(
     example_translation_4: obj["example_translation_4"] || "",
     example_sentence_5: obj["example_sentence_5"] || "",
     example_translation_5: obj["example_translation_5"] || "",
-    year_1: obj["year_1"] || "",
-    part_1: obj["part_1"] || "",
-    source_1: obj["source_1"] || "",
+    year_1: obj["Year_1"] || obj["year_1"] || "",
+    part_1: obj["Part_1"] || obj["part_1"] || "",
+    source_1: obj["Source_1"] || obj["source_1"] || "",
     theme: obj["theme"] || "",
     themes: obj["themes"]
       ? obj["themes"]
